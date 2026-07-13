@@ -1,10 +1,10 @@
 # CONTEXT.md — Working Handoff
 
-**Project:** gt-sandbox (product name TBD — see §10) · **Version:** v0.0.1 · **Updated:** 2026-07-13
+**Project:** gt-sandbox (product name TBD — see §10) · **Version:** v0.0.2 · **Updated:** 2026-07-13
 
 This is the agent working file: the build plan, decisions ledger, verification protocol, and session log. It is deliberately separate from `README.md` (public-facing). README never gains agent instructions; CONTEXT never becomes marketing.
 
-**Status:** Planning complete and owner-reviewed (2026-07-13): stack is Next.js, hosting is Vercel, roster is six games, license is MIT. Build NOT started. Next step on owner go: Phase P0.
+**Status:** Planning complete, owner-reviewed, and contract-hardened (2026-07-13): stack is Next.js, hosting is Vercel, roster is six games, license is MIT. Build NOT started. Next step on owner go: Phase P0.
 
 ---
 
@@ -13,7 +13,7 @@ This is the agent working file: the build plan, decisions ledger, verification p
 If you are a model picking up this project:
 
 1. Read this section, §2 (scope), §3 (architecture), the current phase in §6, and §4 for whatever game/mechanism you're touching. §4 is the correctness oracle — it is normative.
-2. Run `pnpm verify` before starting. Do not build on a red baseline.
+2. From P1 onward, run `pnpm verify` before starting; do not build on a red baseline. **P0 exception:** no package or verify script exists yet, so first verify a clean docs baseline with `git status --short`, then create `pnpm verify` as part of P0 and run it before offering P0 for sign-off.
 3. Build only what the current phase scopes. Any idea outside it goes to the Icebox (§2.4), not into the code.
 4. New dependency ⇒ ledger entry (§9) first, with justification. Runtime dependency target is `next` + `react` + `react-dom`, nothing else.
 5. At session end: update §6 checkboxes, §9 if decisions were made, §11 session log; bump version in `package.json`; propose a commit message `vX.Y.Z: summary`. Then **stop and wait** — never commit or push without an explicit owner ask. This rule has no exceptions.
@@ -22,8 +22,8 @@ If you are a model picking up this project:
 
 - **I1 — Pure engine.** `src/engine/` is framework-free TypeScript: no React, no Next, no DOM, no dependencies, no I/O. All solver arithmetic uses exact rationals (bigint fractions) — no floating point in any correctness path.
 - **I2 — Computed, never hardcoded.** Every game-theoretic claim shown to a user (equilibrium, dominance, best response, payoff, classification) comes from engine output. Authored prose may interpret results; it may not assert numbers the engine didn't produce.
-- **I3 — Determinism.** All randomness flows through the seeded PRNG in `engine/rng.ts`. `Math.random` and `Date`-derived values are banned outside explicitly whitelisted UI seed-initialization. Any simulation is exactly reproducible from its seed, and share URLs carry full state including seed.
-- **I4 — Static and silent.** No backend, no analytics, no cookies, no LLM calls, no third-party requests at runtime. The app is a static export (`output: 'export'`) and makes zero network requests after load. Next.js makes adding a backend easy; this invariant makes it a review failure instead.
+- **I3 — Determinism.** All randomness flows through the seeded PRNG in `engine/rng.ts`. `Math.random` and `Date`-derived values are banned outside explicitly whitelisted UI seed-initialization. Simulations use event-addressed derived streams (§4.6), so changing one policy cannot shift an opponent's noise, match length, or future random draws. Any simulation is exactly reproducible from its seed, and share URLs carry full state including seed.
+- **I4 — Static and silent.** No backend, no analytics, no cookies, no LLM calls, no third-party requests at runtime. The app is a static export (`output: 'export'`) and makes zero network requests after load. P0 proves this with a Playwright request allowlist and Vercel CSP `connect-src 'none'`; `docs/STATIC-HOST-HEADERS.md` records the equivalent for portable hosts. Next.js makes adding a backend easy; this invariant makes it a review failure instead.
 - **I5 — Pedagogical honesty.** The reveal never calls non-Nash play a mistake when it best-responds to the actual opponent. Degenerate games are disclosed as degenerate, not silently mishandled. Weak-dominance elimination notes its order-dependence when it applies.
 - **I6 — Accessibility is per-phase acceptance, not a final pass.** Keyboard-complete, outcomes announced via ARIA live region, AA contrast, no meaning carried by color alone, full reduced-motion parity (animated reveals have discrete-step equivalents).
 - **I7 — Process.** Semver on every commit; ledger entry before any consequential choice; no commit/push without explicit ask.
@@ -148,9 +148,9 @@ Nothing in v1 needs a server: no accounts, no persistence beyond localStorage (o
 
 Key boundary: **`catalog/` colocates each game's definition with its expected properties.** Tests assert `solve(catalog.pd.game) ≡ catalog.pd.oracle`. The oracle is human-authored from theory (§4); machine-generated fixtures (§7.2) independently check the same claims. Two independent sources; the solver must agree with both.
 
-State: URL query strings are the source of truth for anything shareable; localStorage holds only `seenOnboarding`. React state is per-surface reducers; engine calls are memoized pure functions.
+State: URL query strings are the source of truth for anything shareable; localStorage holds only `seenOnboarding`. To keep exact rational arithmetic and links bounded, custom inputs allow 2–4 actions per player, labels up to 40 Unicode code points, finite decimals with at most 6 fractional places, and reduced fraction numerator/denominator absolute values ≤ 1,000,000. The encoded query is capped at 8 KiB. Validation happens before bigint construction; malformed or over-limit input gives a notice and a safe default, never a partial parse. React state is per-surface reducers; engine calls are memoized pure functions.
 
-Performance envelope (so nobody builds a Web Worker we don't need): worst case is a 4×4 support enumeration (69 support pairs × small exact linear solves — target <16ms, measured not assumed) and an evolution run (8×8 pairwise matches × 20 reps × ~20 rounds to estimate the payoff matrix, then 100 replicator generations of pure arithmetic — well under 100ms). Everything stays synchronous in v1; budget test logs (not gates) timings. Bundle budget: ≤250KB gzipped JS per route (Next runtime overhead acknowledged in D22), warned in CI.
+Performance envelope (so nobody builds a Web Worker we don't need): under the input bounds above, worst case is a 4×4 support enumeration (69 support pairs × small exact linear solves — target <16ms, measured not assumed) and an evolution run (8×8 pairwise matches × 20 reps × ~20 rounds to estimate the payoff matrix, then 100 replicator generations of pure arithmetic — well under 100ms). Everything stays synchronous in v1; budget test logs (not gates) timings. Bundle budget: ≤250KB gzipped JS per route (Next runtime overhead acknowledged in D22), warned in CI.
 
 ---
 
@@ -241,6 +241,8 @@ Frame: **audit vs. evade / penalty kicks**. P1 = Matcher. Actions: Heads (H), Ta
 
 Stage game = §4.1. Playable: you vs. a strategy for a match (default continuation probability δ = 0.95, expected 20 rounds, seeded so length is reproducible); **mystery mode** hides the opponent's identity until the reveal, which shows its FSM diagram, your cooperation rate, and a **counterfactual replay**: "TFT in your seat would have scored X against this same opponent and seed" (engine rerun — cheap, unique, honest).
 
+**Randomness and finite-match contract.** A match derives independent, event-addressed streams from `{masterSeed, matchId, purpose, actor?, round?}` for (1) match length, (2) each player's policy decision, and (3) each player's noise flip. First draw the geometric length from its dedicated stream, capped at **5,000 rounds**; if the cap is reached, return `truncatedAtCap: true` and disclose it. For every round, both intended actions are chosen from their own streams before either noise stream flips them; strategy history records the realized actions. A counterfactual holds match length, opponent policy draws, and noise draws fixed by key, even when the substituted strategy consumes a different number of random decisions. This same schedule is used for tournaments.
+
 **Strategy roster** (all specified as finite-state machines or seeded policies; all deterministic given seed):
 
 | Strategy | Spec |
@@ -275,15 +277,10 @@ Pure function on the ordinal best-response structure of a 2×2 game → one of: 
 
 ### 4.9 Tournament & evolution (Evolve surface)
 
-- **Match:** IPD, continuation probability δ (slider 0.5–0.995, default 0.95), optional noise ε ∈ [0, 0.1] (per-move flip, default 0), seeded. Match length drawn from the seeded RNG via δ.
-- **Tournament:** full round-robin over the §4.6 roster (self-play included), R = 20 repetitions per ordered pair with a deterministic seed schedule derived from a master seed. Output: pairwise mean-payoff matrix (heatmap + accessible table) and ranking. Frozen-seed regression test pins the full result table.
-- **Evolution:** infinite-population **discrete replicator dynamics** on strategy shares x: per generation, fitness fᵢ = Σⱼ xⱼ·U(i,j) from the (seeded, precomputed) pairwise payoff matrix; update xᵢ′ = xᵢ·fᵢ / Σₖ xₖ·fₖ. Deterministic given the payoff matrix — the only stochastic step is estimating U. Default 100 generations. No mutation in v1.
-- **Presets (each is pedagogy AND a frozen-seed regression test; qualitative assertions verified empirically during the phase, then pinned):**
-  1. *Exploitation* — AllC vs AllD → AllD fixates.
-  2. *Reciprocity* — add TFT at 10% → cooperation takes over at δ = 0.95.
-  3. *Invasion* — 99% AllD + 1% TFT: can a cluster of reciprocators invade? Explore δ threshold.
-  4. *Noise* — ε = 5%: TFT erodes (echo feuds); Generous TFT / Pavlov outperform.
-  5. *Shadow of the future* — same population, δ = 0.6 vs 0.95: defection vs cooperation. The δ slider is the lever the whole surface exists to teach.
+- **Match:** IPD, continuation probability δ (slider 0.5–0.995, default 0.95), optional noise ε ∈ [0, 0.1] (per-move flip, default 0), seeded and capped per §4.6.
+- **Tournament:** full round-robin over the §4.6 roster (self-play included), R = 20 repetitions per ordered pair with the event-addressed seed schedule. `U(i,j)` is the mean **per-round** payoff of i over repetitions against j, never a total distorted by a longer geometric match. Output: pairwise mean-payoff matrix (heatmap + accessible table) and ranking. Frozen-seed regression test pins the full result table.
+- **Evolution:** infinite-population **discrete replicator dynamics** on strategy shares x: per generation, fitness `fᵢ = Σⱼ xⱼ·U(i,j)` from the seeded, precomputed per-round payoff matrix; update `xᵢ′ = xᵢ·fᵢ / Σₖ xₖ·fₖ`. It runs only on the fixed IPD matrix, whose payoffs are positive; assert the denominator is positive. Deterministic given the payoff matrix. Default 100 generations. No mutation in v1.
+- **Presets:** each is a typed, frozen fixture with `{strategies, initialShares, δ, ε, repetitions, seed, roundCap, generations, metricPredicate}`. P8 starts by generating and reviewing the fixture JSON before copy or charts: record the full configuration and expected predicate, then pin both. The model must never invent a threshold, tune a seed, or claim cooperation emerged merely because a chart looks persuasive. If a proposed story does not hold, change the copy to the computed result and add a ledger entry. Two fixed baseline truths are: (1) *Exploitation* uses AllC/AllD at 50/50, δ=.95, ε=0 and asserts AllD share > .999 at generation 100; (2) *Lone invasion* uses AllD/TFT at 99/1 and explains the computed result rather than promising that a lone reciprocator can invade. The remaining Reciprocity, Noise, and Shadow-of-the-future fixtures are selected by this same recorded calibration protocol before their authored claims ship.
 
 ---
 
@@ -342,20 +339,20 @@ Audience: smart professional colleague. Rules: no exclamation marks, no emoji in
 Sizes: S ≈ half a session, M ≈ one, L ≈ one to two (a session = one focused agent run). Total ≈ 14–17 sessions. Every phase ends with the global Definition of Done (§7.5) plus its own acceptance list. Phases are strictly sequential unless noted.
 
 ### P0 — Walking skeleton (M)
-Scaffold Next.js (App Router, TS strict, `src/` dir, Tailwind v4) with `output: 'export'`, `trailingSlash: true`, `images.unoptimized`; the six routes as static stubs (`/play/[game]` via `generateStaticParams` over the six catalog slugs, `not-found.tsx` for unknown slugs); layout shell + design tokens; version string in footer (read from `package.json`); Vitest (+ RTL/jsdom, coverage, fast-check), Playwright (+ axe) configured to run against the exported `out/` on a local static server (`serve` dev dep, D28); ESLint flat + Prettier; `pnpm verify` (typecheck+lint+unit) and `pnpm verify:full` (+ build + e2e); `scripts/check-invariants.sh` (incl. the Next backend-creep greps, §0) + bundle budget script; `ci.yml`; `.nvmrc`, `.editorconfig`; LICENSE already in repo. Owner connects the repo to Vercel (framework preset Next.js).
-**Accept:** `pnpm verify:full` green locally; `next build` exports all routes — **deep-linking directly to `/play/pd/` on the static server works** (the classic exported-app pitfall, caught here); `/play/unknown` serves the 404 page; invariant script wired into CI and failing on a seeded violation (prove it works, then remove the seed); axe clean on shell; after owner pushes + connects Vercel: CI green, live URL serving the shell, PR preview URLs working. Demo: navigate all routes by keyboard.
+Scaffold Next.js (App Router, TS strict, `src/` dir, Tailwind v4) with `output: 'export'`, `trailingSlash: true`, `images.unoptimized`; the six routes as static stubs (`/play/[game]` via `generateStaticParams` over the six catalog slugs, `not-found.tsx` for unknown slugs); layout shell + design tokens; version string in footer (read from `package.json`); Vitest (+ RTL/jsdom, coverage, fast-check), Playwright (+ axe) configured to run against the exported `out/` on a local static server (`serve` dev dep, D28); ESLint flat + Prettier; `pnpm verify` (typecheck+lint+unit) and `pnpm verify:full` (+ build + e2e); `scripts/check-invariants.sh` (incl. the Next backend-creep greps, §0) + bundle budget script; `ci.yml`; Vercel CSP `connect-src 'none'` plus `docs/STATIC-HOST-HEADERS.md`; `.nvmrc`, `.editorconfig`; LICENSE already in repo. Owner connects the repo to Vercel (framework preset Next.js).
+**Accept:** `pnpm verify:full` green locally; `next build` exports all routes — **deep-linking directly to `/play/pd/` on the static server works** (the classic exported-app pitfall, caught here); `/play/unknown` serves the 404 page; invariant script wired into CI and failing on a seeded violation (prove it works, then remove the seed); Playwright request allowlist proves only same-origin document/static asset requests; axe clean on shell; after owner pushes + connects Vercel: CI green, live URL serving the shell, PR preview URLs working. Demo: navigate all routes by keyboard.
 
 ### P1 — Engine I: exact core (M)
 `rational.ts` (bigint fractions: normalize, arithmetic, compare, parse/format); game types; `catalog/` entries for all six §4 games (definitions + oracle objects); `solve/pure.ts`, `dominance.ts` (with elimination trace), `pareto.ts`, `riskDominance.ts`, `classify.ts`; `verify.ts` (independent checker: given a profile, exact best-response verification); `rng.ts`.
-**Accept:** every §4.1–§4.5 oracle property is a named passing test (`catalog.oracle ≡ solve(catalog.game)`), including the BoS risk-dominance **tie** case; rational arithmetic property-tested (fast-check: field axioms on random fractions); classifier table test incl. boundary/degenerate cases; engine coverage ≥95% lines, `solve/*` 100%; invariant script clean.
+**Accept:** every **pure-analysis** property from §4.1–§4.5 is a named passing test (pure NE, dominance, Pareto, zero-sum, risk/payoff dominance, classifier; no mixed-equilibrium claims until P3), including the BoS risk-dominance tie case; rational arithmetic property-tested (fast-check: field axioms on bounded random fractions); classifier table test incl. boundary/degenerate cases; engine coverage ≥95% lines, `solve/*` 100%; invariant script clean.
 
 ### P2 — First playable: Prisoner's Dilemma (M)
 Play route for PD: session loop (10 rounds), personas `always:C`, `always:D`, `tft`, arena + matrix + history + scores, outcome highlight, live-region narration, minimal reveal (dominance + NE badge + session stats from engine output — no hardcoded claims, I2).
 **Accept:** e2e: complete a 10-round session keyboard-only; axe clean; reduced-motion emulation shows static-highlight path; unit tests for session reducer; a human can feel beats 1–2–3 (owner demo note).
 
 ### P3 — Engine II: mixed equilibria & oracles (L)
-`solve/mixed.ts`: support enumeration over equal-size supports (≤4×4), exact linear solves in rationals, non-negativity + off-support deviation checks; **degeneracy detection on structural signals only** — singular support systems, zero-probability/boundary solutions, continuum indicators — **not raw payoff ties** (D27; BoS's off-diagonal (0,0)s must not trip it); `solve/twoByTwo.ts` closed form; fixtures pipeline (§7.2) with `scripts/gen_fixtures.py` + committed JSON.
-**Accept:** Pennies (1/2, 1/2), Stag (3/4), Chicken (9/10), and BoS (2/3 · 1/3) mixed NE match §4 exactly as fractions; 2×2 closed form ≡ support enumeration on random 2×2s (fast-check); all committed fixtures match (equilibrium sets equal as exact rationals); a deliberately degenerate fixture is flagged **and all six catalog games assert `degenerate: false`** (false-positive regression); solver timing logged <16ms on 4×4.
+`solve/mixed.ts`: support enumeration over equal-size supports (≤4×4), exact linear solves in rationals, non-negativity + off-support deviation checks. **Degeneracy has the formal standard definition:** a game is degenerate iff either player has a mixed strategy with support size `k` and more than `k` pure best responses. Implement an exact witness search in both player directions: enumerate support `S` and an opponent best-response subset `B` of size `|S|+1`, solve the rational feasibility system `x_i > 0`, `Σx=1`, all actions in `B` tied, and every remaining action no better; record `{player, S, B, x}` for a witness. A zero-probability candidate belongs to a smaller support and is not itself a degeneracy signal; raw payoff ties are not a signal. `solve/twoByTwo.ts` is a closed-form cross-check; fixtures pipeline (§7.2) produces committed JSON.
+**Accept:** every mixed-equilibrium oracle property from §4.1–§4.5 now passes: Pennies (1/2, 1/2), Stag (3/4), Chicken (9/10), and BoS (2/3 · 1/3) as exact fractions; 2×2 closed form ≡ support enumeration on random 2×2s (fast-check); all authoritative committed fixtures match; multiple known degenerate fixtures produce a witness while all six catalog games assert `degenerate: false`; solver timing under bounded inputs is logged <16ms on 4×4.
 
 ### P4 — Reveal layer (L)
 The six Analysis-drawer components (§5.3) as shared components; hindsight-gap and mix-vs-NE stat functions in engine (unit-tested formulas); glossary system + terms; honesty rules implemented as copy conditions (I5).
@@ -366,20 +363,20 @@ Stag Hunt, Battle of the Sexes, Chicken, Matching Pennies pages; personas `ficti
 **Accept:** persona unit tests against §4.7 specs (deterministic transcripts with fixed seeds/histories); e2e per game; the Pennies-vs-Shark session demonstrably exploits a biased scripted input in an integration test (prediction accuracy assertion); **BoS commitment test: against a scripted always-A row, the Learner converges to conceding (playing A) within a bounded number of rounds — deterministic**; copy passes voice rules (checklist review).
 
 ### P6 — IPD match play (M)
-FSM strategy framework + all 8 strategies; match engine (δ, ε, seeds); IPD Play page: match vs. chosen or mystery strategy, FSM diagram reveal, counterfactual replay ("TFT in your seat: X").
-**Accept:** exact-transcript tests from §4.6 pass move-by-move and on totals; match engine deterministic given (strategies, seed, δ, ε) — regression-pinned; counterfactual uses the identical seed schedule (test: replaying the actual player's own moves reproduces the actual score exactly); e2e mystery flow.
+FSM strategy framework + all 8 strategies; match engine (δ, ε, event-addressed streams, 5,000-round cap); IPD Play page: match vs. chosen or mystery strategy, FSM diagram reveal, counterfactual replay ("TFT in your seat: X").
+**Accept:** exact-transcript tests from §4.6 pass move-by-move and on totals; match engine deterministic given (strategies, seed, δ, ε) — regression-pinned; counterfactual holds match length, opponent policy draws, and noise trace fixed while substituting the player's strategy; the cap is deterministic and disclosed; e2e mystery flow.
 
 ### P7 — Tournament (M)
 Round-robin engine with deterministic seed schedule; Evolve surface, Tournament tab: roster picker, heatmap + ranking + table fallback; Axelrod framing copy (fact-checked against the book).
 **Accept:** frozen-seed regression: full pairwise matrix JSON pinned; sanity assertions (AllD vs AllC mean = T exactly; TFT vs TFT mean = R exactly); heatmap has table fallback and axe passes; default-roster winner under default seed documented in the test name.
 
 ### P8 — Evolution (L)
-Pairwise payoff estimation (seeded), replicator iteration (floats acceptable here **only** because replicator shares are simulation state, not solver claims; document this boundary in code); presets 1–5; stacked-area chart + scrubber + table fallback; δ/ε/share controls; URL state for the whole configuration.
-**Accept:** replicator unit tests (2-strategy analytic cases: AllC/AllD shares follow the known monotone path; fixed points at 0/1); preset regression tests under frozen seeds asserting the §4.9 qualitative outcomes with concrete thresholds (e.g., preset 2: TFT+cooperators' combined share >0.9 by generation 100); scrubber keyboard-operable; reduced motion = no autoplay; share URL reproduces a run bit-for-bit.
+Pairwise payoff estimation (seeded, per-round-normalized), replicator iteration (floats acceptable here **only** because replicator shares are simulation state, not solver claims; document this boundary in code); P8 calibration fixture pass followed by presets 1–5; stacked-area chart + scrubber + table fallback; δ/ε/share controls; URL state for the whole bounded configuration.
+**Accept:** replicator unit tests (2-strategy analytic cases: AllC/AllD shares follow the known monotone path; fixed points at 0/1); every shipped preset has a committed configuration/result JSON and named metric predicate from §4.9, reviewed before its copy is authored; scrubber keyboard-operable; reduced motion = no autoplay; bounded share URL reproduces a run bit-for-bit.
 
 ### P9 — Build mode & share URLs (M)
-Payoff editing on every game page (cells become inputs; decimals and fractions accepted; debounced 150ms re-solve); `/build` blank custom game 2×2–4×4 with editable labels; classifier verdict line with change narration ("was a dilemma; now an assurance game"); versioned URL codec on query strings (`?v=1&…`: row-major rational payoffs, labels, persona, seed, δ, ε) with round-trip tests + malformed-input graceful fallback; copy-link share button.
-**Accept:** codec round-trip property test (fast-check on random games); malformed/oversized URLs → clean default + notice, never a crash; editing PD's T: 5→2 flips classifier to assurance and adds the second NE badge (integration test straight from §4.8's example); degeneracy banner appears for a genuinely degenerate edit; 4×4 custom game solves within budget.
+Payoff editing on every game page (cells become bounded decimal/fraction inputs; debounced 150ms re-solve); `/build` blank custom game 2×2–4×4 with bounded editable labels; classifier verdict line with change narration ("was a dilemma; now an assurance game"); versioned URL codec on query strings (`?v=1&…`: row-major rational payoffs, labels, persona, seed, δ, ε) with round-trip tests + malformed-input graceful fallback; copy-link share button.
+**Accept:** codec round-trip property test (fast-check on values within §3.4 bounds); over-limit numeric input is rejected before bigint construction; malformed/oversized (>8 KiB) URLs → clean default + notice, never a crash; editing PD's T: 5→2 flips classifier to assurance and adds the second NE badge (integration test straight from §4.8's example); degeneracy banner appears for a genuinely degenerate edit; bounded 4×4 custom game solves within budget.
 
 ### P10 — Ship v1.0.0 (M)
 Home arc + thesis copy; Methods page (correctness statement, testing approach, references, prior-art credit to Evolution of Trust); first-visit onboarding hint (localStorage); per-route titles + OG via the Next Metadata API + one brand OG image; not-found polish; favicon; full copy edit against §5.6; full a11y audit (axe everywhere + manual screen-reader script through one complete PD session); Lighthouse ≥95 across categories; bundle ≤250KB gz per route; README final — live URL, screenshots/GIF, correctness section, and a **"two-minute tour"** for time-poor reviewers (the three killer moments: Pennies-vs-Shark reveal, PD→assurance payoff edit, the noise preset in Evolve); CHANGELOG; tag v1.0.0.
@@ -393,14 +390,14 @@ Home arc + thesis copy; Methods page (correctness statement, testing approach, r
 
 1. **Human-authored oracle** — §4 properties, encoded in `catalog/` and asserted against solver output. Exact rational equality, not approximate.
 2. **Independent verifier** — `verify.ts` re-checks any claimed equilibrium via best-response conditions, in a code path disjoint from the solver. Property test (fast-check): for random matrices (2×2–4×4, integer payoffs), everything the solver returns passes the verifier (**soundness**), and pure-NE output matches brute force.
-3. **External cross-oracle** — `scripts/gen_fixtures.py` generates equilibrium sets for a fixture battery (the six catalog games + ~30 random + known degenerate cases) using **Gambit** (`gambit-enummixed`, rational output preferred) with **nashpy** fallback (floats → nearest small rational → certified exactly by our verifier; completeness checked by count agreement). Fixtures committed as JSON with the generator, so **completeness** is checked against an independent implementation. The epistemics (what certifies what) are documented in the fixture README and on the Methods page.
+3. **External cross-oracle** — `scripts/gen_fixtures.py` generates a fixture battery (the six catalog games + ~30 random + known degenerate cases) with a pinned Gambit container/version and rational `gambit-enummixed` output. Commit the generator, container reference, command, source seed, Gambit version, and a fixture-manifest digest; CI validates the manifest/digest without requiring Gambit installation. `nashpy` may be used as a diagnostic fallback only: float-nearest-rational plus our verifier can establish soundness, not equilibrium-set completeness. The fixture README and Methods page state this epistemic boundary.
 4. **Closed-form cross-check** — 2×2 mixed formula vs. support enumeration on random 2×2s.
 5. **Simulation determinism** — exact-transcript tests for deterministic strategy pairs; frozen-seed regression for anything stochastic (tournament table, evolution presets); qualitative preset assertions with concrete thresholds.
 6. **UI** — component tests for reducers/codec; Playwright e2e per surface (happy path, keyboard-only, reduced-motion, axe) against the exported static build.
 
 ### 7.2 Known limitation, stated honestly
 
-Support enumeration over equal-size supports finds **all** equilibria of nondegenerate bimatrix games. Degenerate games (which users will create — round numbers produce ties) can have equilibrium components; v1 detects degeneracy structurally (D27), reports pure NE + sample mixed NE, and says so in the UI (I5) and on the Methods page. Pure-strategy dominance only in v1 (dominance by mixed strategies is complete for 2×2 automatically; for 3×3+ it's an LP — Icebox), with the boundary documented.
+Support enumeration over equal-size supports finds **all** equilibria of nondegenerate bimatrix games. Degenerate games can have equilibrium components; v1 applies the formal exact witness test in §6 P3, reports pure NE plus sample mixed equilibria, exposes the witness in Methods, and never calls that sample complete. Pure-strategy dominance only in v1 (dominance by mixed strategies is complete for 2×2 automatically; for 3×3+ it's an LP — Icebox), with the boundary documented.
 
 ### 7.3 CI
 
@@ -459,14 +456,21 @@ Append-only. When a decision is overturned, the old row stays and points to its 
 | D24 | **Battle of the Sexes in v1 roster — six games** (owner, 2026-07-13) | Five-game roster (D7) | Concept slot is genuinely distinct: coordination with conflicting interests, commitment, focal points, risk-dominance tie (§4.3) |
 | D25 | **MIT license, © Sidakpreet Singh** (owner, 2026-07-13) | Other licenses | Portfolio reach; LICENSE at repo root from v0.0.1 |
 | D26 | Veto section retired; owner decisions recorded here from now on (owner, 2026-07-13) | Keep separate veto list | One growing ledger is the living record; pre-build veto round served its purpose |
-| D27 | Degeneracy detection on structural signals only (singular systems, boundary/zero-prob solutions, continuum indicators), never raw payoff ties | Conservative tie-based flagging | Tie-based flagging false-positives on canonical BoS; all six catalog oracles assert `degenerate: false` as a regression (P3) |
+| D27 | ~~Degeneracy detection on structural signals only~~ → superseded by D29 | Conservative tie-based flagging | The BoS false-positive concern remains valid, but singular/zero-probability candidates are not a complete degeneracy definition. D29 records the formal exact witness test. |
 | D28 | `serve` dev dep to run e2e against the exported `out/`; bundle budget 250KB gz/route | `next start` (doesn't serve exports); no budget | Exported output is what ships; budget acknowledges Next runtime (D22) honestly |
+| D29 | Exact degeneracy witness test, not heuristic support signals | Raw payoff ties; singular-candidate heuristic | The standard definition is a support-size/best-response-count condition. The witness makes the "degenerate" label and incomplete-solver disclosure defensible without false-positive BoS handling. |
+| D30 | Event-addressed RNG streams + 5,000-round cap | One mutable PRNG stream; unbounded geometric match | Same master seed otherwise does not make counterfactuals comparable when policies consume randomness differently. Independent keys freeze the environment; the cap prevents rare pathological UI runs. |
+| D31 | Bounded rationals/labels/URLs before bigint parsing | Accept arbitrary strings or parse then reject | Exact arithmetic needs resource limits for 16ms performance and safe URL sharing. |
+| D32 | Pinned Gambit fixture provenance; nashpy diagnostic only | Unpinned external tooling; float count agreement as completeness proof | A verifier proves soundness, not completeness. The manifest makes the independent-oracle claim reproducible. |
+| D33 | P8 presets are calibrated typed fixtures before authored claims | Vague narrative presets tuned during UI build | Evolution copy must follow computed, repeatable outcomes; every threshold/configuration is reviewed and frozen. |
+| D34 | Runtime request allowlist + deployment CSP | Grep-only no-network checks | The privacy claim needs an executable browser-level check as well as source guards. |
+| D35 | P0 clean-docs baseline before `pnpm verify` exists | Require a nonexistent script before scaffold | P0 is the phase that creates the package and verification command; later phases retain the red-baseline rule. |
 
 ---
 
 ## §10 — Open questions & owner actions
 
-1. **Create the GitHub repo** (public, D21) and add the remote; **connect it to Vercel** (framework preset Next.js). Repo name: `gt-sandbox` is fine until naming lands.
+1. ~~**Create the GitHub repo / remote.**~~ **Resolved:** `origin` is configured and `main` tracks `origin/main`. **Connect it to Vercel** (framework preset Next.js) when P0 is ready.
 2. **Product name.** README currently titled "Game Theory Sandbox" — serviceable, and it can ship under that. Shortlist if you want a name with more edge (my lean first): **Best Response**; Equilibrium Lab; The Payoff; Common Knowledge; Tit for Tat. **Deadline: end of P9** — P10 bakes the name into metadata, OG image, and README.
 3. **Accent color preference** welcome before P0; otherwise I spec a restrained, colorblind-safe blue/orange pair in the P0 tokens.
 4. **Give the P0 go** when ready — plan is owner-approved as of 2026-07-13; nothing else blocks the first build session.
@@ -480,6 +484,7 @@ Resolved 2026-07-13: stack (D22), hosting (D23), roster (D24), license (D25), ve
 
 - **2026-07-12 — S0 (planning).** Commissioned v1 plan. Wrote CONTEXT.md (this document), README.md, .gitignore; initialized repo. Decisions D1–D21 opened; pre-build veto list issued for owner review.
 - **2026-07-13 — S1 (owner review & revision).** Owner veto pass: Next.js over Vite (D22), Vercel over GitHub Pages (D23), Battle of the Sexes into the roster (D24), MIT license © Sidakpreet Singh (D25); veto section retired into the ledger (D26). Plan revised throughout for the Next.js static-export architecture and the six-game catalog (BoS oracle added, §4.3); degeneracy detection refined against false positives (D27); Next backend-creep invariant greps, P0 deep-link/prerender acceptance, P10 "two-minute tour", and a P9 naming deadline added during review. LICENSE file added. Repo re-initialized at owner request; commit `v0.0.1: Init + Readme + Context` re-issued. Next: owner P0 go (§10.4).
+- **2026-07-13 — S2 (fresh live-repo re-review).** Corrected genuine pre-build contracts: P1 no longer claims mixed-oracle completion before P3; degeneracy now has the formal exact witness test; IPD/tournament randomness uses event-addressed streams with a finite-match cap; evolution uses per-round payoffs and calibrated, frozen preset fixtures; bounded rationals/labels/URLs protect exact arithmetic; Gambit fixture provenance is pinned and nashpy is diagnostic only; runtime no-network behavior is browser-tested; stale remote setup instructions were removed. Version → v0.0.2. No application code exists or was changed.
 
 ---
 

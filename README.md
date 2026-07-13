@@ -1,6 +1,6 @@
 # Game Theory Sandbox
 
-**Status: v0.0.1 — plan complete, build not started.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: coming with the first build phase.
+**Status: v0.0.2 — plan hardened, build not started.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: coming with the first build phase.
 
 ## The idea
 
