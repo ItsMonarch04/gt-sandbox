@@ -1,6 +1,6 @@
 # Game Theory Sandbox
 
-**Status: v0.0.2 — plan hardened, build not started.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: coming with the first build phase.
+**Status: v0.0.3 — plan finalized, build not started.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: coming with the first build phase.
 
 ## The idea
 
@@ -16,14 +16,14 @@ Built for strategy-curious professionals and students who want to *feel* how inc
 - **Evolve** — the Axelrod tournament and evolutionary dynamics over classic strategies: watch cooperation emerge, collapse under noise, and hinge on the shadow of the future.
 - **Build** — edit any payoff, or build your own game up to 4×4. The engine re-solves live, tells you which strategic species your game just became, and gives you a link that reproduces it exactly.
 
-## The correctness commitment
+## The v1 correctness commitment
 
-This is the part that can't be faked, so it's engineered accordingly:
+This is the part that can't be faked, so the v1 implementation will be held to these targets:
 
-- The solver uses **exact rational arithmetic** (no floating point in any correctness path) and finds **all** equilibria of nondegenerate games up to 4×4 — pure and mixed, reported as exact fractions.
-- Every game-theoretic claim shown on screen is **computed by the engine and covered by tests** against hand-derived results *and* independently generated oracles (Gambit / nashpy).
-- Every simulation is **seeded and exactly reproducible** — share a URL, get the same run, bit for bit.
-- Degenerate games are disclosed as degenerate rather than silently mishandled, and the analysis never calls a move a mistake when it was the best response to the opponent you actually faced.
+- The solver will use **exact rational arithmetic** (no floating point in any correctness path) and find **all** equilibria of nondegenerate games up to 4×4 — pure and mixed, reported as exact fractions.
+- Every game-theoretic claim shown on screen will be **computed by the engine and covered by tests** against hand-derived results *and* independently generated oracles (Gambit / nashpy).
+- Every simulation will be **seeded and exactly reproducible** — share a URL, get the same run, bit for bit.
+- Degenerate games will be disclosed as degenerate rather than silently mishandled, and the analysis will not call a move a mistake when it was the best response to the opponent you actually faced.
 
 ## Principles
 
