@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.0 — 2026-07-18
+
+- Add exact rational arithmetic, normal-form game construction, and focused engine tests.
+
 ## v0.1.3 — 2026-07-18
 
 - Add static-host security, exported-site verification, CI, and the completed P0 handoff.
