@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.3 — 2026-07-18
+
+- Normalize final P1 formatting and refresh the committed handoff.
+
 ## v0.2.2 — 2026-07-18
 
 - Add strategic-analysis solvers, deterministic RNG, enforced engine coverage, and the P1 handoff.
