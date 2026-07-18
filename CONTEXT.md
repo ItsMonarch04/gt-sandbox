@@ -1,16 +1,16 @@
 # CONTEXT.md — Working Handoff
 
-**Project:** gt-sandbox (product name TBD — see §10) · **Version:** v0.1.3 · **Updated:** 2026-07-15
+**Project:** gt-sandbox (product name TBD — see §10) · **Version:** v0.2.2 · **Updated:** 2026-07-15
 
 This is the agent working file: the build plan, decisions ledger, verification protocol, and session log. It is deliberately separate from `README.md` (public-facing). README never gains agent instructions; CONTEXT never becomes marketing.
 
-## Current handoff snapshot — S6, 2026-07-15 (P0 committed locally, pending review/push)
+## Current handoff snapshot — S8, 2026-07-15 (P1 committed locally, awaiting review/push)
 
-**Current state (fact).** Planning remains owner-ratified for the v1 build. On the owner’s P0 go, the complete walking skeleton was implemented in four local commits: static Next.js App Router routes, visual shell and tokens, package manifest/lockfile, Vitest, Playwright, lint/format tooling, invariant and bundle scripts, CI workflow, deployment CSP, and portable-host header documentation. The game engine and every interactive game system remain unimplemented. P0 has passed its local verification suite; it awaits owner review, push, and Vercel connection. There is still no deployment or live URL.
+**Current state (fact).** Planning remains owner-ratified for the v1 build. P0’s complete walking skeleton remains in four local commits: static Next.js App Router routes, visual shell and tokens, package manifest/lockfile, Vitest, Playwright, lint/format tooling, invariant and bundle scripts, CI workflow, deployment CSP, and portable-host header documentation. On the owner’s explicit instruction to continue the pipeline, P1’s exact, framework-free core was completed in three local commits: bigint rational arithmetic, normal-form types, the six-game catalog and hand-authored pure-analysis oracles, pure Nash/dominance/Pareto/equilibrium-selection/classifier solvers, an independent pure-profile verifier, and the seeded RNG. No interactive game system or mixed-equilibrium solver exists yet. P0 and P1 remain unpushed and await owner review. There is still no deployment or live URL.
 
-**Repository state (at the S6 handoff).** Branch `main` tracks `origin/main`; local `main` is four commits ahead, from `Commit v0.1.0: Foundation + Static Shell /1-F5-T6` through `Commit v0.1.3: Verification + Build Handoff /4-F5-T6`. No historical commit was amended, pushed, or tagged. `.DS_Store` and the local pnpm store remain ignored.
+**Repository state (at the S8 handoff).** Branch `main` tracks `origin/main`; local `main` is seven commits ahead: the four P0 commits from `Commit v0.1.0: Foundation + Static Shell /1-F5-T6` through `Commit v0.1.3: Verification + Build Handoff /4-F5-T6`, then the three P1 commits `v0.2.0`–`v0.2.2` recorded in §11. No historical commit was amended, pushed, or tagged. `.DS_Store`, generated coverage, and the local pnpm store remain ignored.
 
-**Version state (fact).** `v0.1.3` is the local P0 handoff version and agrees across `package.json`, the UI footer, README, this file, and CHANGELOG. `pnpm-lock.yaml` records the resolved P0 toolchain. The next version is owner-directed; do not bump it for uncommitted work.
+**Version state (fact).** `v0.2.2` is the local P1 handoff version and agrees across `package.json`, the UI footer, README, this file, and CHANGELOG. `pnpm-lock.yaml` has no root package-version field, so the version-only P1 commits do not modify it. The next version is owner-directed.
 
 ### Confirmed completed work
 
@@ -21,25 +21,28 @@ This is the agent working file: the build plan, decisions ledger, verification p
 - S4 (owner review, 2026-07-14): the cross-checked S3 diff was verified and corrected, the accepted optional ideas were folded into the phase scopes below (D40), and the whole plan was ratified **final** for the v1 build.
 - S5 (P0 build, 2026-07-15): static export, the six prerendered Play slugs, shell accessibility, CSP/header controls, CI, and the local verification harness are implemented and passing. No engine or gameplay scope has been pulled forward.
 - S6 (commit handoff, 2026-07-15): P0 is split into four local, post-dated commits at one-hour intervals. The final source state is fully verified and ready for owner review; no push occurred.
+- S7 (P1 build, 2026-07-15): the exact pure-analysis engine and six-game catalog were implemented and verified in the working tree.
+- S8 (P1 commit handoff, 2026-07-15): P1 is split into three local, post-dated commits at one-hour intervals. The final source state is fully verified and ready for owner review; no push occurred.
 
 ### Required next work, in priority order
 
-| Priority | Required work                  | Blocker                             | Owner action                                                                        |
-| -------- | ------------------------------ | ----------------------------------- | ----------------------------------------------------------------------------------- |
-| 1        | P0 review and sign-off (§6)    | Owner review                        | Review the four local P0 commits; after the owner push, connect the repo to Vercel. |
-| 2        | P1–P9, strictly in phase order | Owner accepts and pushes P0         | Review each phase; explicitly authorize every commit and push.                      |
-| 3        | P10 launch                     | P0–P9 complete; product name chosen | Approve naming, launch copy, deploy, and v1.0.0 release.                            |
+| Priority | Required work                         | Blocker                             | Owner action                                                                                    |
+| -------- | ------------------------------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------- |
+| 1        | P0/P1 review and sign-off (§6)        | Owner review                        | Review the four local P0 commits and three local P1 commits; authorize a push.                  |
+| 2        | Push reviewed work and connect Vercel | Explicit owner push approval        | Approve the reviewed series, push `main`, then connect the repository to Vercel.                |
+| 3        | P2–P9, strictly in phase order        | Owner accepts P1                    | Review each phase; explicitly authorize every commit and push.                                  |
+| 4        | P10 launch                            | P0–P9 complete; product name chosen | Approve naming, launch copy, deploy, and v1.0.0 release.                                        |
 
 ### Verified bugs/backlog vs. optional ideas
 
-- **Verified implementation bugs:** none observed in P0’s static shell. This does not make claims about the unimplemented engine or product behavior.
+- **Verified implementation bugs:** none observed in P0’s static shell or P1’s exact core under its acceptance suite. This does not make claims about the unimplemented mixed solver or interactive product behavior.
 - **Required backlog:** P0–P10 in §6. The specification defects found at S3 are corrected by its edits and recorded in §11.
 - **Optional-idea disposition (owner, 2026-07-14 — D40):** the hardening subset is folded into the phases (loop state contract §5.2/P2; responsive layout contract §5.5/P8/P9; announcement/focus contracts P8/P9; share-copy confirmation P9; `packageManager` pin P0; manual a11y matrix, privacy/URL-state disclosure, and post-deploy smoke P10). Rejected for v1: post-session next-concept bridge, homepage teaser, CI performance gates, visual-regression specimens. Existing v2/icebox ideas remain in §2.3–§2.4.
 
 ### Active decisions / ignore list
 
 - The append-only decision ledger is §9. Superseded choices (Vite, GitHub Pages as primary host, five-game roster, heuristic degeneracy detection) are history, not current instructions.
-- During documentation-only work, do not scaffold packages, source, or deployment. Do not claim planned capabilities are already implemented; the only implemented scope at S5 is P0.
+- Do not claim planned capabilities are already implemented: the only implemented scope at S7 is P0 plus P1’s pure exact core. P2 onward remains unimplemented.
 - Commit author/committer timestamps are owner-directed metadata (v0.0.1 and v0.0.2 were both deliberately dated at owner request; a push may precede the stamped time). Unusual commit times are not a defect — never flag them as one, and never amend or rewrite existing commits.
 - **Never commit or push unless the owner explicitly asks.** Never stage unrelated or pre-existing work.
 
@@ -385,10 +388,11 @@ Scaffold Next.js (App Router, TS strict, `src/` dir, Tailwind v4) with `output: 
 **S5 local result:** `CI=true pnpm verify:full` passes after static export. It verifies all current routes, the direct `/play/pd/` deep link, the exported 404 path, same-origin requests, response CSP without CSP console violations, axe on the shell, keyboard access to every primary route, a deliberately seeded-and-removed invariant violation, and a 185.7 KiB gzip JavaScript upper bound. CI/Vercel are pending the owner push.
 **Accept:** `pnpm verify:full` green locally; `next build` exports all routes — **deep-linking directly to `/play/pd/` on the static server works** (the classic exported-app pitfall, caught here); `/play/unknown` serves the 404 page; invariant script wired into CI and failing on a seeded violation (prove it works, then remove the seed); Playwright crawls every current route and permits only same-origin static resource requests; the complete CSP is exercised against the export without violations; axe clean on shell; after owner pushes + connects Vercel: CI green, live URL serving the shell, PR preview URLs working. Demo: navigate all routes by keyboard.
 
-### P1 — Engine I: exact core (M)
+### P1 — Engine I: exact core (M) — committed locally, awaiting owner review/push
 
 `rational.ts` (bigint fractions: normalize, arithmetic, compare, parse/format); game types; `catalog/` entries for all six §4 games (definitions + oracle objects); `solve/pure.ts`, `dominance.ts` (with elimination trace), `pareto.ts`, `riskDominance.ts`, `classify.ts`; `verify.ts` (independent checker: given a profile, exact best-response verification); `rng.ts`.
 **Accept:** every **pure-analysis** property from §4.1–§4.5 is a named passing test (pure NE, dominance, Pareto, zero-sum, risk/payoff dominance, classifier; no mixed-equilibrium claims until P3), including the BoS risk-dominance tie case; rational arithmetic property-tested (fast-check: field axioms on bounded random fractions); classifier table test incl. boundary/degenerate cases; engine coverage ≥95% lines, `solve/*` 100%; invariant script clean.
+**S7 local result:** all P1 acceptance criteria pass. The rational field axioms and format round trips are property-tested; the six human-authored catalog oracles cover pure Nash, strict dominance, Pareto efficiency, zero-sum status, equilibrium selection, and classification; the pure solver is property-tested against the independent verifier over random 2×2–4×4 integer games. `pnpm verify` now enforces a coverage gate of ≥95% engine lines and 100% lines in every `solve/` file; the observed result is 100% for both.
 
 ### P2 — First playable: Prisoner's Dilemma (M)
 
@@ -531,8 +535,8 @@ Append-only. When a decision is overturned, the old row stays and points to its 
 
 ## §10 — Open questions & owner actions
 
-1. **Review P0** — the static walking skeleton is locally committed and fully verified in the four commits recorded at S6. No files are staged and nothing is pushed.
-2. **Push the reviewed P0 series, then connect Vercel** (framework preset Next.js). This is the first point at which CI and preview/production deployments can run.
+1. **Review P0 and P1** — P0 is locally committed in the four commits recorded at S6; P1 is locally committed in the three commits recorded at S8. `CI=true pnpm verify:full` is green. Nothing is pushed.
+2. **Authorize the reviewed series to be pushed.** After the push, connect Vercel (framework preset Next.js) so CI and preview/production deployments can run.
 3. **Product name.** README currently titled "Game Theory Sandbox" — serviceable, and it can ship under that. Shortlist if you want a name with more edge (my lean first): **Best Response**; Equilibrium Lab; The Payoff; Common Knowledge; Tit for Tat. **Deadline: end of P9** — P10 bakes the name into metadata, OG image, and README.
 4. **Accent color preference** remains open before P10; P0 uses the planned restrained, colorblind-safe blue/orange pair.
 5. Standing reminder: every commit and push needs explicit owner approval, including phase completions.
@@ -550,6 +554,8 @@ Resolved 2026-07-13: stack (D22), hosting (D23), roster (D24), license (D25), ve
 - **2026-07-14 — S4 (owner ratification & build-handoff freeze).** Owner reviewed the cross-checked S3 diff and ratified the plan as **final for the v1 build**. Optional S3 ideas dispositioned (D40): loop state contract, responsive layout contract, announcement/focus contracts, share-copy confirmation, `packageManager` pin, manual a11y matrix, privacy/URL-state disclosure, and post-deploy smoke folded into P0–P10; post-session bridge, homepage teaser, CI performance gates, and visual-regression specimens rejected. Snapshot, §10, and version surfaces updated; README bumped. Version → v0.0.3; commit `Commit v0.0.3: Pre-Build Check Complete /S6-F5` authorized with owner-directed date 2026-07-18T01:00+05:30. From P0 the executing agent may be a different model; this file is the complete build contract.
 - **2026-07-15 — S5 (P0 walking skeleton).** On the owner’s build go, implemented P0 in the working tree: a strict TypeScript Next 16/React 19 static export with all six prerendered Play routes, `/evolve`, `/build`, `/methods`, and exported 404; editorial token shell and package-derived footer version; pnpm/Node 24 project controls; Vitest, Playwright/axe, ESLint, Prettier, invariant, CSP, and bundle checks; GitHub Actions; Vercel/local static-host header policies and documentation. D41 records the concrete toolchain and controlled native build hooks. `CI=true pnpm verify:full` passed locally: direct deep link and 404 verified, same-origin crawl and CSP clean, keyboard primary navigation and axe pass, seeded invariant failure proven and removed, and exported JavaScript measured at 185.7 KiB gzip. `next build` applied its standard TypeScript automatic-JSX and generated-type includes. No engine, simulation, game logic, commit, or push was added; all S5 changes remain unstaged and uncommitted pending owner review.
 - **2026-07-15 — S6 (P0 commit handoff).** Owner authorized a balanced P0 series and supplied the version/tag convention D42. Created four local commits post-dated 2026-07-18 in IST, one hour apart: `Commit v0.1.0: Foundation + Static Shell /1-F5-T6` (07:00), `Commit v0.1.1: Static Routes + Export /2-F5-T6` (08:00), `Commit v0.1.2: Quality Gates + Unit Tests /3-F5-T6` (09:00), and `Commit v0.1.3: Verification + Build Handoff /4-F5-T6` (10:00). The final state is `CI=true pnpm verify:full` green, format-clean, locally committed, unstaged, and unpushed. P1 is the next implementation phase only after owner review and push of P0.
+- **2026-07-15 — S7 (P1 exact core).** On the owner’s explicit instruction to continue the pipeline, completed P1 in the working tree without changing versions, staging, committing, or pushing: exact bigint rational arithmetic; normal-form game construction and helpers; PD, Stag Hunt, Battle of the Sexes, Chicken, Matching Pennies, and IPD-stage-game catalog definitions with hand-authored pure-analysis oracles; pure Nash, strict/weak dominance traces, Pareto, risk/payoff-dominance, and 2×2 classifier solvers; independent pure-profile verifier; seeded mulberry32 RNG. Added fast-check rational-field and solver/verifier properties, catalog acceptance tests, classifier boundary tests, and an enforced coverage gate. `CI=true pnpm verify:full` passed: 23 tests, 100% engine and `solve/` line coverage, static export, bundle budget, invariant/CSP checks, and all four exported-site Playwright checks. The first sandbox-only full-build attempt was blocked by Turbopack needing to bind a local process port; the approved unrestricted rerun passed. No mixed equilibrium, degeneracy, personas, state, or UI scope was pulled forward.
+- **2026-07-15 — S8 (P1 commit handoff).** Owner approved a three-commit P1 series and directed the version/tag convention. Created three local commits post-dated 2026-07-18 in IST, one hour apart: `Commit v0.2.0: Exact Fractions + Game Model /1-F5-T6` (10:00), `Commit v0.2.1: Catalog + Pure Analysis /2-F5-T6` (11:00), and `Commit v0.2.2: Strategic Analysis + P1 Handoff /3-F5-T6` (12:00). The original cross-cutting P1 test was split into focused catalog/pure and strategic-analysis suites, with the game helper test made self-contained, so each commit remains logically scoped. The final state is `CI=true pnpm verify:full` green: 29 tests, 100% engine and `solve/` line coverage, static export, bundle budget, invariant/CSP checks, and all four exported-site Playwright checks. It is format-clean, locally committed, unstaged, and unpushed. P2 is the next implementation phase only after owner review and push of the P0/P1 series.
 
 ---
 

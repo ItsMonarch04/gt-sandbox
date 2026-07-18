@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.2 — 2026-07-18
+
+- Add strategic-analysis solvers, deterministic RNG, enforced engine coverage, and the P1 handoff.
+
 ## v0.2.1 — 2026-07-18
 
 - Add the six-game catalog, pure equilibrium solver, Pareto analysis, classifier, and verifier.
