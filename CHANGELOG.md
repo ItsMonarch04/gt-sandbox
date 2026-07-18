@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.4.1 — 2026-07-19
+
+- Add exact mixed-equilibrium catalog oracles, degeneracy regression coverage, and randomized 2×2 cross-checks.
+
 ## v0.4.0 — 2026-07-19
 
 - Add exact mixed-equilibrium support enumeration, a closed-form 2×2 cross-check, and independent mixed verification.
