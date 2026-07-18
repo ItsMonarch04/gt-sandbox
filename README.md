@@ -1,6 +1,6 @@
 # Game Theory Sandbox
 
-**Status: v0.4.1 — P3’s exact solver and catalog mixed-equilibrium oracles are committed locally; external-oracle acceptance follows in this release series. All work remains unpushed.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
+**Status: v0.4.2 — P3’s exact solver, catalog oracles, and isolated Gambit fixture generator are committed locally; the fixture corpus and final acceptance follow in this release series. All work remains unpushed.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
 
 ## The idea
 
@@ -46,5 +46,5 @@ that version in `package.json`, `pnpm-lock.yaml` when it records root metadata,
 and the active version surfaces in the same commit. Historical timestamps are
 owner-directed metadata; do not rewrite pushed history.
 
-- **Base Format Version:** 0.4.1
-- **Portfolio Version:** v0.4.1_2026-07-19_02:30:00 (IST)
+- **Base Format Version:** 0.4.2
+- **Portfolio Version:** v0.4.2_2026-07-19_03:00:00 (IST)

@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.4.2 — 2026-07-19
+
+- Add the isolated, reproducible Gambit fixture generator and its local image build definition.
+
 ## v0.4.1 — 2026-07-19
 
 - Add exact mixed-equilibrium catalog oracles, degeneracy regression coverage, and randomized 2×2 cross-checks.
