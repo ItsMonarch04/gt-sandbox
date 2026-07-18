@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.3.0 — 2026-07-18
+
+- Add deterministic Prisoner's Dilemma policies, session state, and reducer coverage.
+
 ## v0.2.3 — 2026-07-18
 
 - Normalize final P1 formatting and refresh the committed handoff.
