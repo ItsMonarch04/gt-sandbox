@@ -1,16 +1,16 @@
 # CONTEXT.md — Working Handoff
 
-**Project:** gt-sandbox (product name TBD — see §10) · **Version:** v0.0.3 · **Updated:** 2026-07-14
+**Project:** gt-sandbox (product name TBD — see §10) · **Version:** v0.1.3 · **Updated:** 2026-07-15
 
 This is the agent working file: the build plan, decisions ledger, verification protocol, and session log. It is deliberately separate from `README.md` (public-facing). README never gains agent instructions; CONTEXT never becomes marketing.
 
-## Current handoff snapshot — S4, 2026-07-14 (plan final)
+## Current handoff snapshot — S6, 2026-07-15 (P0 committed locally, pending review/push)
 
-**Current state (fact).** This is a documentation-only planning repository. Planning is owner-reviewed, contract-hardened, and — as of S4 (2026-07-14) — **ratified final for the v1 build**; the application has **not** been scaffolded. There is no source code, package manifest, lockfile, test suite, build output, deployment, or live URL. The detailed normative product specification begins at §1; the next work is P0, on explicit owner go.
+**Current state (fact).** Planning remains owner-ratified for the v1 build. On the owner’s P0 go, the complete walking skeleton was implemented in four local commits: static Next.js App Router routes, visual shell and tokens, package manifest/lockfile, Vitest, Playwright, lint/format tooling, invariant and bundle scripts, CI workflow, deployment CSP, and portable-host header documentation. The game engine and every interactive game system remain unimplemented. P0 has passed its local verification suite; it awaits owner review, push, and Vercel connection. There is still no deployment or live URL.
 
-**Repository state (at the v0.0.3 commit, S4).** Branch `main`, upstream `origin/main`; HEAD is `Commit v0.0.3: Pre-Build Check Complete /S6-F5`, carrying the reviewed S3/S4 changes to exactly `.gitignore`, `README.md`, and this file. **Local-only until the owner pushes:** at commit time `origin/main` was still at v0.0.2 (`e45d430`), so a local `main` ahead of the remote is expected until then (§10.1). No tags. `.DS_Store` remains ignored.
+**Repository state (at the S6 handoff).** Branch `main` tracks `origin/main`; local `main` is four commits ahead, from `Commit v0.1.0: Foundation + Static Shell /1-F5-T6` through `Commit v0.1.3: Verification + Build Handoff /4-F5-T6`. No historical commit was amended, pushed, or tagged. `.DS_Store` and the local pnpm store remain ignored.
 
-**Version state (fact).** `v0.0.3` is the last committed planning version and agrees across HEAD, README, and this file. `package.json` and a lockfile do not exist by design until P0. Uncommitted work does not invent a new release version; choose and synchronize the next version only when the owner asks for a commit.
+**Version state (fact).** `v0.1.3` is the local P0 handoff version and agrees across `package.json`, the UI footer, README, this file, and CHANGELOG. `pnpm-lock.yaml` records the resolved P0 toolchain. The next version is owner-directed; do not bump it for uncommitted work.
 
 ### Confirmed completed work
 
@@ -19,25 +19,27 @@ This is the agent working file: the build plan, decisions ledger, verification p
 - GitHub `origin`, upstream tracking, README, license, ignore rules, and the public planning version exist.
 - S3 audited the full tracked repository and corrected present-tense claims about unbuilt capabilities, the hindsight-comparison contract, the privacy/request boundary, static-host portability wording, evolution denominator assumptions, stale cross-references, version/commit instructions, and the missing `out/` ignore rule.
 - S4 (owner review, 2026-07-14): the cross-checked S3 diff was verified and corrected, the accepted optional ideas were folded into the phase scopes below (D40), and the whole plan was ratified **final** for the v1 build.
+- S5 (P0 build, 2026-07-15): static export, the six prerendered Play slugs, shell accessibility, CSP/header controls, CI, and the local verification harness are implemented and passing. No engine or gameplay scope has been pulled forward.
+- S6 (commit handoff, 2026-07-15): P0 is split into four local, post-dated commits at one-hour intervals. The final source state is fully verified and ready for owner review; no push occurred.
 
 ### Required next work, in priority order
 
-| Priority | Required work | Blocker | Owner action |
-|---|---|---|---|
-| 1 | P0 walking skeleton (§6) | Explicit P0 go | Push v0.0.3 (§10.1), then give the build agent the P0 go; connect the repo to Vercel after the P0 push. |
-| 2 | P1–P9, strictly in phase order | Prior phase acceptance | Review each phase; explicitly authorize every commit and push. |
-| 3 | P10 launch | P0–P9 complete; product name chosen | Approve naming, launch copy, deploy, and v1.0.0 release. |
+| Priority | Required work                  | Blocker                             | Owner action                                                                        |
+| -------- | ------------------------------ | ----------------------------------- | ----------------------------------------------------------------------------------- |
+| 1        | P0 review and sign-off (§6)    | Owner review                        | Review the four local P0 commits; after the owner push, connect the repo to Vercel. |
+| 2        | P1–P9, strictly in phase order | Owner accepts and pushes P0         | Review each phase; explicitly authorize every commit and push.                      |
+| 3        | P10 launch                     | P0–P9 complete; product name chosen | Approve naming, launch copy, deploy, and v1.0.0 release.                            |
 
 ### Verified bugs/backlog vs. optional ideas
 
-- **Verified implementation bugs:** none can be verified because no application implementation exists. Do not interpret this as evidence that the future app is bug-free.
+- **Verified implementation bugs:** none observed in P0’s static shell. This does not make claims about the unimplemented engine or product behavior.
 - **Required backlog:** P0–P10 in §6. The specification defects found at S3 are corrected by its edits and recorded in §11.
 - **Optional-idea disposition (owner, 2026-07-14 — D40):** the hardening subset is folded into the phases (loop state contract §5.2/P2; responsive layout contract §5.5/P8/P9; announcement/focus contracts P8/P9; share-copy confirmation P9; `packageManager` pin P0; manual a11y matrix, privacy/URL-state disclosure, and post-deploy smoke P10). Rejected for v1: post-session next-concept bridge, homepage teaser, CI performance gates, visual-regression specimens. Existing v2/icebox ideas remain in §2.3–§2.4.
 
 ### Active decisions / ignore list
 
 - The append-only decision ledger is §9. Superseded choices (Vite, GitHub Pages as primary host, five-game roster, heuristic degeneracy detection) are history, not current instructions.
-- Do not scaffold packages, source, or deployment during documentation-only work. Do not claim planned capabilities are already implemented.
+- During documentation-only work, do not scaffold packages, source, or deployment. Do not claim planned capabilities are already implemented; the only implemented scope at S5 is P0.
 - Commit author/committer timestamps are owner-directed metadata (v0.0.1 and v0.0.2 were both deliberately dated at owner request; a push may precede the stamped time). Unusual commit times are not a defect — never flag them as one, and never amend or rewrite existing commits.
 - **Never commit or push unless the owner explicitly asks.** Never stage unrelated or pre-existing work.
 
@@ -69,13 +71,13 @@ Mechanized checks for I1/I3/I4 live in `scripts/check-invariants.sh` (grep-based
 
 ## §1 — Vision & core loop
 
-**One paragraph.** A game-theory sandbox for strategy-curious professionals and students that builds intuition the only way it actually forms: you **act** (make a strategic choice with real stakes on the board), you **observe** (the outcome lands — scores move, the matrix cell lights up, patterns accumulate), and then the theory **reveals** what just happened (why that cell, what you left on the table, what an equilibrium even is — *now* that you've felt it). Payoff matrices in a PDF teach vocabulary; this teaches instinct. The owner (strategy/product professional) is user zero; the product doubles as a career-showcase artifact, so the engine must be provably correct and the surface must have taste.
+**One paragraph.** A game-theory sandbox for strategy-curious professionals and students that builds intuition the only way it actually forms: you **act** (make a strategic choice with real stakes on the board), you **observe** (the outcome lands — scores move, the matrix cell lights up, patterns accumulate), and then the theory **reveals** what just happened (why that cell, what you left on the table, what an equilibrium even is — _now_ that you've felt it). Payoff matrices in a PDF teach vocabulary; this teaches instinct. The owner (strategy/product professional) is user zero; the product doubles as a career-showcase artifact, so the engine must be provably correct and the surface must have taste.
 
 **The three beats, concretely:**
 
 1. **Act** — a small number of high-stakes buttons ("Hold price" / "Undercut"). No tutorial wall before the first move. The matrix is visible; the theory labels are not yet.
-2. **Observe** — the outcome cell flashes (statically highlights under reduced motion), scores tick, the history strip grows, an ARIA live region narrates. Over rounds, patterns become visible *before* they're named.
-3. **Reveal** — the Analysis drawer: best-response arrows, dominance walkthrough, Nash badges (with exact fractions for mixed), Pareto frontier, and *your* play measured against both the equilibrium and the best response to what your opponent actually did. The theory arrives as an explanation of your own experience.
+2. **Observe** — the outcome cell flashes (statically highlights under reduced motion), scores tick, the history strip grows, an ARIA live region narrates. Over rounds, patterns become visible _before_ they're named.
+3. **Reveal** — the Analysis drawer: best-response arrows, dominance walkthrough, Nash badges (with exact fractions for mixed), Pareto frontier, and _your_ play measured against both the equilibrium and the best response to what your opponent actually did. The theory arrives as an explanation of your own experience.
 
 **What keeps it out of slop territory:**
 
@@ -84,7 +86,7 @@ Mechanized checks for I1/I3/I4 live in `scripts/check-invariants.sh` (grep-based
 - Pedagogical honesty (I5) — most game-theory toys scold any deviation from Nash; that's wrong and experts notice.
 - Restraint in voice and motion: no mascots, no exclamation marks, no confetti. Editorial, print-like visual language.
 
-**Differentiation vs. prior art** (reviewers will know Nicky Case's *The Evolution of Trust*, 2017 — the benchmark in this space): that is a brilliant *linear explorable* for one game with hardcoded outcomes. This is a *sandbox with a live analytical engine*: n×m solving of games the author never anticipated, payoffs editable everywhere with analysis recomputing live, a strategic-structure classifier ("you just turned a dilemma into a trust problem"), and business framing throughout. Complement, not clone — and the README will say so.
+**Differentiation vs. prior art** (reviewers will know Nicky Case's _The Evolution of Trust_, 2017 — the benchmark in this space): that is a brilliant _linear explorable_ for one game with hardcoded outcomes. This is a _sandbox with a live analytical engine_: n×m solving of games the author never anticipated, payoffs editable everywhere with analysis recomputing live, a strategic-structure classifier ("you just turned a dilemma into a trust problem"), and business framing throughout. Complement, not clone — and the README will say so.
 
 ---
 
@@ -94,13 +96,13 @@ Mechanized checks for I1/I3/I4 live in `scripts/check-invariants.sh` (grep-based
 
 The brief's five modes (Play / Simulate / Understand / Build / Learn) collapse into three, because two of them are properties of the system, not destinations:
 
-| Brief mode | v1 disposition |
-|---|---|
-| Play | **Play** — six games vs. specified opponent personas, session scoring, full reveal. |
-| Understand | **Fused into Play** as the Analysis drawer + reveal beats. A separate "Understand" tab would recreate the static-PDF problem we exist to solve. |
-| Simulate | **Evolve** — Axelrod-style tournament + replicator dynamics for the iterated PD. The marquee shareable. |
-| Build | **Build (lite)** — payoff editing on every game page + a blank custom-game page (2×2 to 4×4), same engine, same reveal, shareable by URL. Nearly free once the engine is generic, and it's the "this is a real analytical tool" proof. |
-| Learn | **Embedded, not a mode.** Home page is an ordered arc with a "start here" path; each game opens with a 30-word real-world frame; concepts are explained in place at reveal time, with a glossary. A gated curriculum is v2. |
+| Brief mode | v1 disposition                                                                                                                                                                                                                         |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Play       | **Play** — six games vs. specified opponent personas, session scoring, full reveal.                                                                                                                                                    |
+| Understand | **Fused into Play** as the Analysis drawer + reveal beats. A separate "Understand" tab would recreate the static-PDF problem we exist to solve.                                                                                        |
+| Simulate   | **Evolve** — Axelrod-style tournament + replicator dynamics for the iterated PD. The marquee shareable.                                                                                                                                |
+| Build      | **Build (lite)** — payoff editing on every game page + a blank custom-game page (2×2 to 4×4), same engine, same reveal, shareable by URL. Nearly free once the engine is generic, and it's the "this is a real analytical tool" proof. |
+| Learn      | **Embedded, not a mode.** Home page is an ordered arc with a "start here" path; each game opens with a 30-word real-world frame; concepts are explained in place at reveal time, with a glossary. A gated curriculum is v2.            |
 
 ### 2.2 In v1
 
@@ -117,7 +119,7 @@ The brief's five modes (Play / Simulate / Understand / Build / Learn) collapse i
 - **n-player games** (public goods, commons) — different engine assumptions (symmetric aggregative payoffs), different UI. v2.
 - **Learn-as-curriculum** with progression gating; **dark mode** (tokens are structured so it's additive); **PWA/offline**; **finite-population (Moran) dynamics & formal ESS checker**; **spatial evolution grids**; **zero-determinant strategies** (great v2 tease for the Methods page); **human-vs-human** (needs a backend — collides with I4).
 - **Any LLM feature.** Probably never: determinism and authored explanation are the brand.
-- **Cross-game meta-score / wallet.** The brief's "payoffs accumulate" holds *within* a session; summing utils across different games is game-theoretically meaningless, and experts would wince. Scores are per-session.
+- **Cross-game meta-score / wallet.** The brief's "payoffs accumulate" holds _within_ a session; summing utils across different games is game-theoretically meaningless, and experts would wince. Scores are per-session.
 
 ### 2.4 Icebox (ideas parked mid-build land here, never in the current phase)
 
@@ -193,12 +195,12 @@ Performance envelope (so nobody builds a Web Worker we don't need): under the in
 
 Normative section. Every property below must become a named unit test in its scoped phase. Payoff convention: `(row, col)` payoffs; Player 1 = row = "You". All values exact rationals. Every catalog oracle must also assert `degenerate: false` — the detector must not false-positive on canonical games (see P3).
 
-### 4.1 Prisoner's Dilemma — *concept: dominance, and why rational play can be collectively ruinous*
+### 4.1 Prisoner's Dilemma — _concept: dominance, and why rational play can be collectively ruinous_
 
 Frame: **price war** (hold price vs. undercut). Actions: Cooperate (C), Defect (D).
 
-|  | C | D |
-|---|---|---|
+|       | C    | D    |
+| ----- | ---- | ---- |
 | **C** | 3, 3 | 0, 5 |
 | **D** | 5, 0 | 1, 1 |
 
@@ -209,12 +211,12 @@ Frame: **price war** (hold price vs. undercut). Actions: Cooperate (C), Defect (
 - Classifier: `dilemma`. Session default: 10 rounds. Personas: Saint (`always:C`), Cynic (`always:D`), Copycat (`tft`), Learner (`fictitious`).
 - Key reveal beat: dominance walkthrough → "you were both individually right and collectively poorer — that's the dilemma."
 
-### 4.2 Stag Hunt — *concept: equilibrium selection — trust vs. safety*
+### 4.2 Stag Hunt — _concept: equilibrium selection — trust vs. safety_
 
 Frame: **platform/standards adoption** (bet on the new standard together vs. stick with the legacy). Actions: Stag (S), Hare (H).
 
-|  | S | H |
-|---|---|---|
+|       | S    | H    |
+| ----- | ---- | ---- |
 | **S** | 4, 4 | 0, 3 |
 | **H** | 3, 0 | 3, 3 |
 
@@ -223,33 +225,33 @@ Frame: **platform/standards adoption** (bet on the new standard together vs. sti
 - Pareto-efficient set: {(S,S)} — it strictly dominates (H,H).
 - **(S,S) is payoff-dominant; (H,H) is risk-dominant** (deviation-loss products: (4−3)² = 1 vs. (3−0)² = 9). Surfacing risk dominance is a differentiator — toys never do it.
 - Classifier: `coordination (assurance)`. Session: 10 rounds. Personas: Trusting (FSM: start S, mirror your last move), Cautious (FSM: start H; switch to mirroring after you play S twice consecutively), Learner.
-- Key reveal beat: "both of you playing it safe *is* an equilibrium. Nothing broke — trust just never formed. Here's what risk dominance means."
+- Key reveal beat: "both of you playing it safe _is_ an equilibrium. Nothing broke — trust just never formed. Here's what risk dominance means."
 
-### 4.3 Battle of the Sexes — *concept: coordination with conflicting interests — commitment and focal points*
+### 4.3 Battle of the Sexes — _concept: coordination with conflicting interests — commitment and focal points_
 
-Frame: **post-merger systems integration** — both companies need to land on one platform; each prefers its own. Agreeing on either beats not agreeing at all. Actions: Yours (A — row's favorite), Theirs (B — column's favorite). *(Owner decision 2026-07-13, D24: in roster.)*
+Frame: **post-merger systems integration** — both companies need to land on one platform; each prefers its own. Agreeing on either beats not agreeing at all. Actions: Yours (A — row's favorite), Theirs (B — column's favorite). _(Owner decision 2026-07-13, D24: in roster.)_
 
-|  | A | B |
-|---|---|---|
+|       | A    | B    |
+| ----- | ---- | ---- |
 | **A** | 2, 1 | 0, 0 |
 | **B** | 0, 0 | 1, 2 |
 
-- No dominance. Two pure NE: **(A,A)** and **(B,B)** — coordination succeeds at both, but the surplus splits differently; the players disagree about *which* equilibrium.
+- No dominance. Two pure NE: **(A,A)** and **(B,B)** — coordination succeeds at both, but the surplus splits differently; the players disagree about _which_ equilibrium.
 - Mixed NE: row plays A with probability **2/3**; column plays A with probability **1/3** (i.e., each favors their own platform with probability 2/3). Derivation: column indifferent ⇔ p = 2−2p ⇔ p = 2/3; row indifferent ⇔ 2q = 1−q ⇔ q = 1/3.
-- At the mixed NE: expected payoff **2/3 each**, and coordination fails with probability **5/9** — "insisting on fairness via randomization" is Pareto-dominated by *both* pure equilibria (1 > 2/3 and 2 > 2/3 for each player). A core reveal beat.
+- At the mixed NE: expected payoff **2/3 each**, and coordination fails with probability **5/9** — "insisting on fairness via randomization" is Pareto-dominated by _both_ pure equilibria (1 > 2/3 and 2 > 2/3 for each player). A core reveal beat.
 - Pareto-efficient set: {(A,A), (B,B)}.
-- Risk dominance: **tie** — Nash products equal ((2−0)·(1−0) = 2 both ways). The engine must report "none/tie"; the reveal explains that theory is silent here, so *commitment and focal points* decide — which is exactly the concept this game carries (distinct from Stag Hunt, where the players agree which equilibrium is better).
+- Risk dominance: **tie** — Nash products equal ((2−0)·(1−0) = 2 both ways). The engine must report "none/tie"; the reveal explains that theory is silent here, so _commitment and focal points_ decide — which is exactly the concept this game carries (distinct from Stag Hunt, where the players agree which equilibrium is better).
 - Classifier: `battle`. **Not degenerate** (the off-diagonal payoff ties are between different outcomes, not a degeneracy — regression test against detector false positives, see P3).
 - Session: 10 rounds. Personas: Stubborn (`always:B` — never yields), Learner (`fictitious` — consistent commitment trains it to concede; the commitment lesson made playable), Judge (`random:1/3` — A with probability 1/3 and its own favorite B with probability 2/3; feel the 5/9 miscoordination of the mixed NE).
 - Key reveal beat: vs. the Learner, the player who commits early and consistently wins their preferred equilibrium — first-mover advantage in mixed-motive coordination, no theory lecture needed until the drawer opens.
 
-### 4.4 Chicken (Hawk–Dove) — *concept: anti-coordination, brinkmanship*
+### 4.4 Chicken (Hawk–Dove) — _concept: anti-coordination, brinkmanship_
 
 Frame: **capacity war** (two firms deciding whether to flood a market that supports one). Actions: Swerve (Sw), Straight (St).
 
-|  | Sw | St |
-|---|---|---|
-| **Sw** | 0, 0 | −1, 1 |
+|        | Sw    | St       |
+| ------ | ----- | -------- |
+| **Sw** | 0, 0  | −1, 1    |
 | **St** | 1, −1 | −10, −10 |
 
 - No dominance. Two pure NE: **(St,Sw)** and **(Sw,St)** — the equilibria are asymmetric; someone must back down.
@@ -258,21 +260,21 @@ Frame: **capacity war** (two firms deciding whether to flood a market that suppo
 - Classifier: `anti-coordination`. Session: 10 rounds. Personas: Daredevil (`always:St`), Judge (mixed-NE player, seeded 9/10 Sw), Learner.
 - Key reveal beat: the mixed equilibrium computed live, in fractions — and the observation that equilibrium play still burns value.
 
-### 4.5 Matching Pennies — *concept: mixed strategies — why unpredictability is rational*
+### 4.5 Matching Pennies — _concept: mixed strategies — why unpredictability is rational_
 
 Frame: **audit vs. evade / penalty kicks**. P1 = Matcher. Actions: Heads (H), Tails (T).
 
-|  | H | T |
-|---|---|---|
+|       | H     | T     |
+| ----- | ----- | ----- |
 | **H** | 1, −1 | −1, 1 |
 | **T** | −1, 1 | 1, −1 |
 
 - Zero-sum (engine detects and labels). **No pure NE.**
 - Unique mixed NE: **(1/2, 1/2) for both**. Game value 0.
 - Classifier: `cycle`. Session: 20 rounds (exploitation needs time to show). Personas: Coin (`random:1/2` — the equilibrium player), **Shark** (`markov2` exploiter, §4.7).
-- Key reveal beat — the single best intuition moment in the product: after 20 rounds vs. the Shark, "you played Heads 65% of the time and it cost you X. The only mix that can't be exploited is 50/50. *That's* what a mixed equilibrium is." The user feels the theorem before reading it.
+- Key reveal beat — the single best intuition moment in the product: after 20 rounds vs. the Shark, "you played Heads 65% of the time and it cost you X. The only mix that can't be exploited is 50/50. _That's_ what a mixed equilibrium is." The user feels the theorem before reading it.
 
-### 4.6 Iterated Prisoner's Dilemma — *concept: the shadow of the future*
+### 4.6 Iterated Prisoner's Dilemma — _concept: the shadow of the future_
 
 Stage game = §4.1. Playable: you vs. a strategy for a match (default continuation probability δ = 0.95, expected 20 rounds, seeded so length is reproducible); **mystery mode** hides the opponent's identity until the reveal, which shows its FSM diagram, your cooperation rate, and a **counterfactual replay**: "TFT in your seat would have scored X against this same opponent and seed" (engine rerun — cheap, unique, honest).
 
@@ -280,29 +282,29 @@ Stage game = §4.1. Playable: you vs. a strategy for a match (default continuati
 
 **Strategy roster** (all specified as finite-state machines or seeded policies; all deterministic given seed):
 
-| Strategy | Spec |
-|---|---|
-| Always Cooperate | C forever |
-| Always Defect | D forever |
-| Tit for Tat | C first, then copy opponent's last move |
-| Grim Trigger | C until opponent defects once, then D forever (2-state FSM) |
-| Pavlov (win–stay, lose–shift) | C first; repeat your move iff payoff ∈ {T, R}, else switch |
-| Generous TFT | TFT, but forgive a defection with probability 1/3 (seeded) |
-| Joss | TFT, but sneak a D with probability 1/10 (seeded) |
-| Random | C with probability 1/2 (seeded) |
+| Strategy                      | Spec                                                        |
+| ----------------------------- | ----------------------------------------------------------- |
+| Always Cooperate              | C forever                                                   |
+| Always Defect                 | D forever                                                   |
+| Tit for Tat                   | C first, then copy opponent's last move                     |
+| Grim Trigger                  | C until opponent defects once, then D forever (2-state FSM) |
+| Pavlov (win–stay, lose–shift) | C first; repeat your move iff payoff ∈ {T, R}, else switch  |
+| Generous TFT                  | TFT, but forgive a defection with probability 1/3 (seeded)  |
+| Joss                          | TFT, but sneak a D with probability 1/10 (seeded)           |
+| Random                        | C with probability 1/2 (seeded)                             |
 
 **Exact-transcript tests** (deterministic pairs, asserted move-by-move and on total payoffs): TFT vs TFT → all-C. TFT vs AllD → C then all-D; payoffs (L−1 vs L+4) for length L. Pavlov vs AllD → alternates C,D,C,D…. Grim vs Joss → C-run until Joss's first sneak-D (seed-determined round), then mutual-D tail. Noise ε (per-move flip, seeded) off by default in Play, exercised in Evolve.
 
 ### 4.7 Opponent personas (engine policy IDs; display names live in `content/`)
 
-| Policy ID | Spec (must be exactly this — tests depend on it) |
-|---|---|
-| `always:X` | fixed action X |
-| `random:p` | binary games only: action at index 0 with probability p, action at index 1 otherwise (seeded) |
-| `tft`, `grim`, `pavlov`, `gtft`, `joss` | as §4.6 |
-| `fsm:<name>` | named FSM from catalog (e.g., Cautious, §4.2) |
-| `fictitious` | best response to add-1-smoothed empirical mix of ALL your past moves; ties → lowest action index |
-| `markov2` | order-2 predictor: contexts = your last 2 moves; add-1 counts; predict your argmax next move (tie → seeded uniform); play the one-shot best response to that point belief; first 2 rounds seeded uniform |
+| Policy ID                               | Spec (must be exactly this — tests depend on it)                                                                                                                                                         |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `always:X`                              | fixed action X                                                                                                                                                                                           |
+| `random:p`                              | binary games only: action at index 0 with probability p, action at index 1 otherwise (seeded)                                                                                                            |
+| `tft`, `grim`, `pavlov`, `gtft`, `joss` | as §4.6                                                                                                                                                                                                  |
+| `fsm:<name>`                            | named FSM from catalog (e.g., Cautious, §4.2)                                                                                                                                                            |
+| `fictitious`                            | best response to add-1-smoothed empirical mix of ALL your past moves; ties → lowest action index                                                                                                         |
+| `markov2`                               | order-2 predictor: contexts = your last 2 moves; add-1 counts; predict your argmax next move (tie → seeded uniform); play the one-shot best response to that point belief; first 2 rounds seeded uniform |
 
 Note: the Battle of the Sexes personas reuse existing policy IDs (`always:B`, `fictitious`, `random:1/3`) — no new engine machinery. Under the index-0 convention, the column player chooses A with probability 1/3 and its preferred B with probability 2/3.
 
@@ -315,7 +317,7 @@ Pure function on the ordinal best-response structure of a 2×2 game → one of: 
 - **Match:** IPD, continuation probability δ (slider 0.5–0.995, default 0.95), optional noise ε ∈ [0, 0.1] (per-move flip, default 0), seeded and capped per §4.6.
 - **Tournament:** full round-robin over the §4.6 roster (self-play included), R = 20 repetitions per ordered pair with the event-addressed seed schedule. `U(i,j)` is the mean **per-round** payoff of i over repetitions against j, never a total distorted by a longer geometric match. Output: pairwise mean-payoff matrix (heatmap + accessible table) and ranking. Frozen-seed regression test pins the full result table.
 - **Evolution:** infinite-population **discrete replicator dynamics** on normalized, nonempty strategy shares x: per generation, fitness `fᵢ = Σⱼ xⱼ·U(i,j)` from the seeded, precomputed per-round payoff matrix; update `xᵢ′ = xᵢ·fᵢ / Σₖ xₖ·fₖ`. IPD stage payoffs are nonnegative, not strictly positive, so P8 validates the sampled matrix and guards the denominator at every generation; every shipped frozen fixture must keep it positive, and a zero denominator returns a typed failure rather than dividing. Deterministic given the payoff matrix. Default 100 generations. No mutation in v1.
-- **Presets:** each is a typed, frozen fixture with `{strategies, initialShares, δ, ε, repetitions, seed, roundCap, generations, metricPredicate}`. P8 starts by generating and reviewing the fixture JSON before copy or charts: record the full configuration and expected predicate, then pin both. The model must never invent a threshold, tune a seed, or claim cooperation emerged merely because a chart looks persuasive. If a proposed story does not hold, change the copy to the computed result and add a ledger entry. Two fixed baseline truths are: (1) *Exploitation* uses AllC/AllD at 50/50, δ=.95, ε=0 and asserts AllD share > .999 at generation 100; (2) *Lone invasion* uses AllD/TFT at 99/1 and explains the computed result rather than promising that a lone reciprocator can invade. The remaining Reciprocity, Noise, and Shadow-of-the-future fixtures are selected by this same recorded calibration protocol before their authored claims ship.
+- **Presets:** each is a typed, frozen fixture with `{strategies, initialShares, δ, ε, repetitions, seed, roundCap, generations, metricPredicate}`. P8 starts by generating and reviewing the fixture JSON before copy or charts: record the full configuration and expected predicate, then pin both. The model must never invent a threshold, tune a seed, or claim cooperation emerged merely because a chart looks persuasive. If a proposed story does not hold, change the copy to the computed result and add a ledger entry. Two fixed baseline truths are: (1) _Exploitation_ uses AllC/AllD at 50/50, δ=.95, ε=0 and asserts AllD share > .999 at generation 100; (2) _Lone invasion_ uses AllD/TFT at 99/1 and explains the computed result rather than promising that a lone reciprocator can invade. The remaining Reciprocity, Noise, and Shadow-of-the-future fixtures are selected by this same recorded calibration protocol before their authored claims ship.
 
 ---
 
@@ -352,7 +354,7 @@ Home is an ordered arc, not a menu: thesis line, then game cards numbered as a s
 2. **Dominance** — IESDS stepper, one elimination per step (discrete steps double as the reduced-motion path); weak-dominance order caveat when applicable (I5).
 3. **Equilibria** — NE badges on pure cells; mixed NE as exact fractions and decimals ("Swerve with probability 9/10 (0.90)"). Degenerate games get a plain-language disclosure banner.
 4. **Efficiency** — Pareto toggle dims dominated outcomes; the PD's "equilibrium ∉ efficient set" moment.
-5. **Your play** — empirical mix vs. NE mix (paired bars); realized payoff vs. (a) the best fixed action against the opponent's realized sequence and (b) equilibrium payoff. The signed *fixed-action hindsight comparison* is `G = maxₐ Σₜ u(a, bₜ) − Σₜ u(aₜ, bₜ)`: `G > 0` means one fixed action would have earned `G` more, `G = 0` means the best fixed action tied the realized payoff, and `G < 0` means the player's adaptive sequence outperformed every fixed action by `−G`. Copy rule (I5): never call `G` nonnegative; when the opponent did not play equilibrium, say explicitly that beating the equilibrium payoff can be rational.
+5. **Your play** — empirical mix vs. NE mix (paired bars); realized payoff vs. (a) the best fixed action against the opponent's realized sequence and (b) equilibrium payoff. The signed _fixed-action hindsight comparison_ is `G = maxₐ Σₜ u(a, bₜ) − Σₜ u(aₜ, bₜ)`: `G > 0` means one fixed action would have earned `G` more, `G = 0` means the best fixed action tied the realized payoff, and `G < 0` means the player's adaptive sequence outperformed every fixed action by `−G`. Copy rule (I5): never call `G` nonnegative; when the opponent did not play equilibrium, say explicitly that beating the equilibrium payoff can be rational.
 6. **Structure** (Build + Stag + BoS) — classifier verdict; risk vs. payoff dominance where defined, including the honest "tie — theory is silent, focal points decide" case (BoS).
 
 ### 5.4 Evolve visualizations
@@ -377,47 +379,59 @@ Audience: smart professional colleague. Rules: no exclamation marks, no emoji in
 
 Sizes: S ≈ half a session, M ≈ one, L ≈ one to two (a session = one focused agent run). Total ≈ 14–17 sessions. Every phase ends with the global Definition of Done (§7.5) plus its own acceptance list. Phases are strictly sequential unless noted.
 
-### P0 — Walking skeleton (M)
+### P0 — Walking skeleton (M) — committed locally, awaiting owner review/push
+
 Scaffold Next.js (App Router, TS strict, `src/` dir, Tailwind v4) with `output: 'export'`, `trailingSlash: true`, `images.unoptimized`; the six routes as static stubs (`/play/[game]` via `generateStaticParams` over the six catalog slugs, `not-found.tsx` for unknown slugs); layout shell + design tokens; version string in footer (read from `package.json`); Vitest (+ RTL/jsdom, coverage, fast-check), Playwright (+ axe) configured to run against the exported `out/` on a local static server (`serve` dev dep, D28); ESLint flat + Prettier; `pnpm verify` (typecheck+lint+unit) and `pnpm verify:full` (+ build + e2e); `scripts/check-invariants.sh` (incl. the Next backend-creep greps, §0) + bundle budget script; `ci.yml`; the complete tested CSP required by I4 plus `docs/STATIC-HOST-HEADERS.md`; `.nvmrc` plus a pinned `packageManager` field (pnpm) in `package.json` (D40), `.editorconfig`; LICENSE already in repo. Owner connects the repo to Vercel (framework preset Next.js).
+**S5 local result:** `CI=true pnpm verify:full` passes after static export. It verifies all current routes, the direct `/play/pd/` deep link, the exported 404 path, same-origin requests, response CSP without CSP console violations, axe on the shell, keyboard access to every primary route, a deliberately seeded-and-removed invariant violation, and a 185.7 KiB gzip JavaScript upper bound. CI/Vercel are pending the owner push.
 **Accept:** `pnpm verify:full` green locally; `next build` exports all routes — **deep-linking directly to `/play/pd/` on the static server works** (the classic exported-app pitfall, caught here); `/play/unknown` serves the 404 page; invariant script wired into CI and failing on a seeded violation (prove it works, then remove the seed); Playwright crawls every current route and permits only same-origin static resource requests; the complete CSP is exercised against the export without violations; axe clean on shell; after owner pushes + connects Vercel: CI green, live URL serving the shell, PR preview URLs working. Demo: navigate all routes by keyboard.
 
 ### P1 — Engine I: exact core (M)
+
 `rational.ts` (bigint fractions: normalize, arithmetic, compare, parse/format); game types; `catalog/` entries for all six §4 games (definitions + oracle objects); `solve/pure.ts`, `dominance.ts` (with elimination trace), `pareto.ts`, `riskDominance.ts`, `classify.ts`; `verify.ts` (independent checker: given a profile, exact best-response verification); `rng.ts`.
 **Accept:** every **pure-analysis** property from §4.1–§4.5 is a named passing test (pure NE, dominance, Pareto, zero-sum, risk/payoff dominance, classifier; no mixed-equilibrium claims until P3), including the BoS risk-dominance tie case; rational arithmetic property-tested (fast-check: field axioms on bounded random fractions); classifier table test incl. boundary/degenerate cases; engine coverage ≥95% lines, `solve/*` 100%; invariant script clean.
 
 ### P2 — First playable: Prisoner's Dilemma (M)
+
 Play route for PD: session loop (10 rounds), personas `always:C`, `always:D`, `tft`, arena + matrix + history + scores, outcome highlight, live-region narration, minimal reveal (dominance + NE badge + session stats from engine output — no hardcoded claims, I2).
 **Accept:** e2e: complete a 10-round session keyboard-only; axe clean; reduced-motion emulation shows static-highlight path; unit tests for the session reducer, including the §5.2 loop state contract (double-submit rejected; an interrupting action cannot desync state; focus rules hold); a human can feel beats 1–2–3 (owner demo note).
 
 ### P3 — Engine II: mixed equilibria & oracles (L)
+
 `solve/mixed.ts`: support enumeration over equal-size supports (≤4×4), exact linear solves in rationals, non-negativity + off-support deviation checks. **Degeneracy has the formal standard definition:** a game is degenerate iff either player has a mixed strategy with support size `k` and more than `k` pure best responses. Implement an exact witness search in both player directions: enumerate support `S` and an opponent best-response subset `B` of size `|S|+1`, solve the rational feasibility system `x_i > 0`, `Σx=1`, all actions in `B` tied, and every remaining action no better; record `{player, S, B, x}` for a witness. A zero-probability candidate belongs to a smaller support and is not itself a degeneracy signal; raw payoff ties are not a signal. `solve/twoByTwo.ts` is a closed-form cross-check; the fixtures pipeline (§7.1) produces committed JSON.
 **Accept:** every mixed-equilibrium oracle property from §4.1–§4.5 now passes: Pennies (1/2, 1/2), Stag (3/4), Chicken (9/10), and BoS (2/3 · 1/3) as exact fractions; 2×2 closed form ≡ support enumeration on random 2×2s (fast-check); all authoritative committed fixtures match; multiple known degenerate fixtures produce a witness while all six catalog games assert `degenerate: false`; solver timing under bounded inputs is logged <16ms on 4×4.
 
 ### P4 — Reveal layer (L)
+
 The six Analysis-drawer components (§5.3) as shared components; signed fixed-action hindsight-comparison and mix-vs-NE stat functions in engine (unit-tested formulas); glossary system + terms; honesty rules implemented as copy conditions (I5).
 **Accept:** stat functions property-tested (`actual payoff + G = best-fixed payoff`; `G = 0` iff those totals are equal); regression: Matching Pennies with opponent `H,T` and player `H,T` yields `G = -2`, proving adaptive play can beat every fixed action; drawer fully keyboard-operable, focus-managed, axe clean; IESDS stepper discrete steps = reduced-motion path; PD page now shows the full drawer.
 
 ### P5 — Full one-shot roster (L)
+
 Stag Hunt, Battle of the Sexes, Chicken, Matching Pennies pages; personas `fictitious`, `markov2`, `fsm:cautious`, `fsm:trusting`, `random:p`; risk/payoff dominance surfaced on Stag and the tie case on BoS; insight-moment triggers (≤2/game) from `content/`; per-game framing copy (30-word scenarios, fact-checked).
 **Accept:** persona unit tests against §4.7 specs (deterministic transcripts with fixed seeds/histories); e2e per game; the Pennies-vs-Shark session demonstrably exploits a biased scripted input in an integration test (prediction accuracy assertion); **BoS commitment test: against a scripted always-A row, the Learner converges to conceding (playing A) within a bounded number of rounds — deterministic**; copy passes voice rules (checklist review).
 
 ### P6 — IPD match play (M)
+
 FSM strategy framework + all 8 strategies; match engine (δ, ε, event-addressed streams, 5,000-round cap); IPD Play page: match vs. chosen or mystery strategy, FSM diagram reveal, counterfactual replay ("TFT in your seat: X").
 **Accept:** exact-transcript tests from §4.6 pass move-by-move and on totals; match engine deterministic given (strategies, seed, δ, ε) — regression-pinned; counterfactual holds match length, opponent policy draws, and noise trace fixed while substituting the player's strategy; the cap is deterministic and disclosed; e2e mystery flow.
 
 ### P7 — Tournament (M)
+
 Round-robin engine with deterministic seed schedule; Evolve surface, Tournament tab: roster picker, heatmap + ranking + table fallback; Axelrod framing copy (fact-checked against the book).
 **Accept:** frozen-seed regression: full pairwise matrix JSON pinned; sanity assertions (AllD vs AllC mean = T exactly; TFT vs TFT mean = R exactly); heatmap has table fallback and axe passes; default-roster winner under default seed documented in the test name.
 
 ### P8 — Evolution (L)
+
 Pairwise payoff estimation (seeded, per-round-normalized), replicator iteration (floats acceptable here **only** because replicator shares are simulation state, not solver claims; document this boundary in code); P8 calibration fixture pass followed by presets 1–5; stacked-area chart + scrubber + table fallback; δ/ε/share controls; URL state for the whole bounded configuration.
 **Accept:** replicator unit tests (2-strategy analytic cases: AllC/AllD shares follow the known monotone path; fixed points at 0/1); every shipped preset has a committed configuration/result JSON and named metric predicate from §4.9, reviewed before its copy is authored; scrubber keyboard-operable, announcing via a throttled live region (the settled generation, not every step — §5.5); at 320px the chart surface offers the table path with no horizontal page scroll (§5.5); reduced motion = no autoplay; bounded share URL reproduces a run bit-for-bit.
 
 ### P9 — Build mode & share URLs (M)
+
 Payoff editing on every game page (cells become bounded decimal/fraction inputs; debounced 150ms re-solve); `/build` blank custom game 2×2–4×4 with bounded editable labels; classifier verdict line with change narration ("was a dilemma; now an assurance game"); versioned URL codec on query strings (`?v=1&…`: row-major rational payoffs, labels, persona, seed, δ, ε) with round-trip tests + malformed-input graceful fallback; copy-link share button with visible copied confirmation and a manual-copy fallback when the clipboard API is unavailable (D40).
 **Accept:** codec round-trip property test (fast-check on values within §3.4 bounds); over-limit numeric input is rejected before bigint construction; malformed/oversized (>8 KiB) URLs → clean default + notice, never a crash; editing PD's T: 5→2 flips classifier to assurance and adds the second NE badge (integration test straight from §4.8's example); degeneracy banner appears for a genuinely degenerate edit; bounded 4×4 custom game solves within budget; an invalid payoff edit announces its notice via the live region and keeps focus on the offending input; the 4×4 worst case (longest bounded labels) stays usable at 320px width and 200% zoom with no horizontal page scroll (§5.5, e2e viewport test).
 
 ### P10 — Ship v1.0.0 (M)
+
 Home arc + thesis copy; Methods page (correctness statement, testing approach, references, prior-art credit to Evolution of Trust, and the privacy/URL-state disclosure — what share URLs encode, the single localStorage key, the no-off-origin-requests guarantee, per I4/D40); first-visit onboarding hint (localStorage); per-route titles + OG via the Next Metadata API + one brand OG image; not-found polish; favicon; full copy edit against §5.6; full a11y audit (axe everywhere + the manual matrix per §5.5/I6/D40: VoiceOver/Safari script through one full session on each surface — a PD session, an Evolve preset, a Build edit — keyboard-only full pass, 320px reflow, 200% zoom, forced-colors spot check; a second screen reader when available); Lighthouse ≥95 across categories; bundle ≤250KB gz per route; README final — live URL, screenshots/GIF, correctness section, and a **"two-minute tour"** for time-poor reviewers (the three killer moments: Pennies-vs-Shark reveal, PD→assurance payoff edit, the noise preset in Evolve); CHANGELOG; tag v1.0.0.
 **Accept:** all of the above as a checklist; owner walkthrough sign-off; `pnpm verify:full` green in CI on the tagged commit; `out/` also deploys unmodified to a non-Vercel, root-mounted static host (portability spot-check, §3.3); post-deploy smoke against the production URL after the owner's launch push (D40): every route serves and renders, one deep link and the 404 path work, the CSP is present with zero violations and zero off-origin requests across a full browse pass, the footer version equals the tag, and one shared Build URL reproduces its game exactly.
 
@@ -457,8 +471,8 @@ Types strict (no `any` without a comment); tests for all new engine/stat logic; 
 - **README.md** (public): what/why, live URL, thesis, feature tour, correctness statement, stack, quickstart, license. Audience: recruiters, peers, users.
 - **CONTEXT.md** (this file): agent protocol, plan, oracle, ledger, backlog, session log. Audience: the owner and build/review models. The two never merge (owner's standing workflow).
 - **CHANGELOG.md**: one line per version, kept from the first code commit (P0).
-- **Versioning:** semver on every commit, pre-1.0 scheme: **minor** = phase completion, **patch** = everything else; `v1.0.0` at P10. Before P0, the committed version lives in README + CONTEXT; from P0 it also lives in `package.json`, the UI footer, CHANGELOG, and any lockfile metadata that actually records the root package version. All active surfaces must match before a commit. Do not bump for merely uncommitted work.
-- **Commit messages:** observed history — `Commit v0.0.1: Init + Readme + Context`, `Commit v0.0.2: Key Implementation Fixes /O8` — i.e., `Commit vX.Y.Z: Short Title` (title case, `+`/`/` separators, no sentences), where the trailing `/O8`-style suffix is the owner's own notation with no documented scheme. Never invent or guess a suffix; always propose the complete message and let the owner adjust it before the authorized commit.
+- **Versioning:** semver on every commit. Owner direction for the P0 series supersedes the generic pre-1.0 rule: start at `v0.1.0` and increment the patch once per logical commit (`v0.1.1`, `v0.1.2`, …). `v1.0.0` remains the P10 release. From P0, the version lives in `package.json`, the UI footer, README, CONTEXT, and CHANGELOG. All active surfaces match on the handoff commit; do not bump for merely uncommitted work.
+- **Commit messages:** `Commit vX.Y.Z: Short Title /N-F5-T6` (title case, `+`/`/` separators, no sentences). Owner direction 2026-07-15 supersedes the undocumented historical suffixes: begin with `/1-F5-T6` and increment `N` by one per commit. Always propose the complete message and wait for owner authorization before committing.
 - **Branching:** trunk-based, `main` only; work sessions produce a reviewed working tree; the owner triggers every commit/push (I7). Short-lived branches only if two agents ever work in parallel (not planned for v1).
 - **Dependency policy:** runtime = next, react, react-dom; dev deps allowed with ledger entry; anything touching I4 (network, telemetry) is rejected outright.
 
@@ -468,57 +482,59 @@ Types strict (no `any` without a comment); tests for all new engine/stat logic; 
 
 Append-only. When a decision is overturned, the old row stays and points to its successor — the ledger is the project's memory, including of its reversals. This section absorbs the retired "veto" section (D26) and grows as future decisions land.
 
-| # | Decision | Alternatives considered | Why |
-|---|---|---|---|
-| D1 | ~~Vite + React SPA~~ → superseded by D22 | Next.js; vanilla ESM; SvelteKit | Original lean-toolchain pick; overruled by owner pre-build (zero switch cost at that point) |
-| D2 | Fully static, no backend | Serverless for share-state | Nothing needs a server; free, private, deterministic (I4) |
-| D3 | ~~GitHub Pages + hash routing~~ → superseded by D23 | Cloudflare Pages; Vercel | Original zero-extra-vendor pick; overruled by owner for Vercel + clean URLs |
-| D4 | Exact bigint-rational arithmetic in solver | Floats + epsilon | Correctness is the product; exact equality in tests; fraction display is a feature |
-| D5 | Support enumeration, ≤4×4 cap, degeneracy disclosed | Lemke–Howson; LP/LCP solvers | Exhaustive & exact at this size; L–H finds one equilibrium, we want all; cap keeps it honest (§7.2) |
-| D6 | v1 = normal form only; extensive form is v2 flagship | Both engines in v1 | Second engine + tree UI doubles scope; entry deterrence deserves a real build |
-| D7 | ~~BoS cut from roster~~ → superseded by D24 | Keep BoS | Cut on claimed overlap with Stag/Chicken; owner overruled — and the distinct concept slot (commitment/focal points, risk-dominance tie) is the better analysis |
-| D8 | Personas as specced policies (FSM/fictitious/markov2), ≤1 knob each | Configurable AI parameter panels | Testability + restraint; config-soup is slop |
-| D9 | IPD engine = seeded simulation | Markov-chain exact expected payoffs | Matches Axelrod's actual method; simpler for build models; transcripts still exactly tested; exact chains = v2 |
-| D10 | Evolution = infinite-population discrete replicator, no mutation | Moran process; mutation | Deterministic given payoff matrix; the classic stories need nothing more (§4.9) |
-| D11 | Hand-rolled SVG viz; no chart/state deps | Recharts/d3; zustand | a11y via real DOM; distinctive look. (Router clause superseded by D22 — Next file routing; no-chart/no-state-lib stands) |
-| D12 | Seeded PRNG (mulberry32) everywhere | Math.random | Reproducibility, share URLs, frozen-seed tests (I3) |
-| D13 | Catalog colocates game + human oracle; fixtures machine-generated | Tests scattered per suite | Single source of truth; two independent oracles must agree (§3.4, §7.1) |
-| D14 | pnpm; Node 24 LTS pinned | npm | Strict node_modules keeps agents honest about deps; trivial to swap |
-| D15 | fast-check property tests (dev dep) | Example-based only | Solver soundness is a property, not an example |
-| D16 | No LLM features, no analytics, ever in v1 | Privacy-friendly counter | Determinism is the brand; zero third-party requests is a verifiable claim (I4) |
-| D17 | Copy as typed TS objects in `content/` | MDX | No extra toolchain; content is testable (glossary presence, trigger conditions) |
-| D18 | System fonts in P0; self-hosted Inter as P10 option | Google Fonts CDN | I4; tabular-nums available either way |
-| D19 | Light-only editorial theme in v1; tokens ready for dark | Both themes now | Every viz ×2 review cost; deliberate print identity |
-| D20 | Per-session scores only; no cross-game wallet | Brief's "payoffs accumulate" read globally | Summing utils across games is theoretically meaningless |
-| D21 | Repo public from day 1 | Private until polished | The plan and engine are the portfolio; public history shows discipline |
-| D22 | **Next.js App Router + `output: 'export'`** (owner, 2026-07-13) | Vite (D1) | Owner fluency/preference; zero cost pre-code; static export preserves I4 + portability; file routing, Metadata API, PR previews are real wins; ~50–80KB runtime overhead accepted and budgeted (§3.4) |
-| D23 | **Vercel hosting via Git integration** (owner, 2026-07-13) | GitHub Pages (D3); Cloudflare Pages | Clean URLs and PR previews; `out/` remains portable to root-mounted static hosts, with subpath scope clarified by D38 (§3.3) |
-| D24 | **Battle of the Sexes in v1 roster — six games** (owner, 2026-07-13) | Five-game roster (D7) | Concept slot is genuinely distinct: coordination with conflicting interests, commitment, focal points, risk-dominance tie (§4.3) |
-| D25 | **MIT license, © Sidakpreet Singh** (owner, 2026-07-13) | Other licenses | Portfolio reach; LICENSE at repo root from v0.0.1 |
-| D26 | Veto section retired; owner decisions recorded here from now on (owner, 2026-07-13) | Keep separate veto list | One growing ledger is the living record; pre-build veto round served its purpose |
-| D27 | ~~Degeneracy detection on structural signals only~~ → superseded by D29 | Conservative tie-based flagging | The BoS false-positive concern remains valid, but singular/zero-probability candidates are not a complete degeneracy definition. D29 records the formal exact witness test. |
-| D28 | `serve` dev dep to run e2e against the exported `out/`; bundle budget 250KB gz/route | `next start` (doesn't serve exports); no budget | Exported output is what ships; budget acknowledges Next runtime (D22) honestly |
-| D29 | Exact degeneracy witness test, not heuristic support signals | Raw payoff ties; singular-candidate heuristic | The standard definition is a support-size/best-response-count condition. The witness makes the "degenerate" label and incomplete-solver disclosure defensible without false-positive BoS handling. |
-| D30 | Event-addressed RNG streams + 5,000-round cap | One mutable PRNG stream; unbounded geometric match | Same master seed otherwise does not make counterfactuals comparable when policies consume randomness differently. Independent keys freeze the environment; the cap prevents rare pathological UI runs. |
-| D31 | Bounded rationals/labels/URLs before bigint parsing | Accept arbitrary strings or parse then reject | Exact arithmetic needs resource limits for 16ms performance and safe URL sharing. |
-| D32 | Pinned Gambit fixture provenance; nashpy diagnostic only | Unpinned external tooling; float count agreement as completeness proof | A verifier proves soundness, not completeness. The manifest makes the independent-oracle claim reproducible. |
-| D33 | P8 presets are calibrated typed fixtures before authored claims | Vague narrative presets tuned during UI build | Evolution copy must follow computed, repeatable outcomes; every threshold/configuration is reviewed and frozen. |
-| D34 | Runtime request allowlist + deployment CSP | Grep-only no-network checks | The privacy claim needs an executable browser-level check as well as source guards. |
-| D35 | P0 clean-docs baseline before `pnpm verify` exists | Require a nonexistent script before scaffold | P0 is the phase that creates the package and verification command; later phases retain the red-baseline rule. |
-| D36 | Signed fixed-action hindsight comparison `G`; never assume nonnegative regret | Clamp at zero; claim adaptive play cannot beat a fixed action | Adaptive play can outperform every constant action. Signed copy preserves that useful result and prevents a false property test. |
-| D37 | Privacy boundary is no off-origin or runtime-API requests; same-origin build artifacts are allowed | Literal zero requests after load | Next static client navigation/prefetch may load build-emitted payloads. Route-wide browser checks and a complete CSP enforce the real promise. |
-| D38 | Unmodified `out/` portability applies to root-mounted static hosts | Claim every GitHub Pages project site works unchanged | Subpath hosting needs a build-time base path or a root/custom-domain mount. |
-| D39 | `random:p` means binary action index 0 with probability p; BoS Judge is `random:1/3` | Leave the sampled action implicit; use `random:2/3` for BoS column | One generic policy ID needs an unambiguous action convention. The BoS column player's equilibrium mix is A=1/3, B=2/3. |
-| D40 | **S3 optional ideas dispositioned; hardening subset folded into v1 phases** (owner, 2026-07-14) | Adopt all twelve proposals; defer all | Accepted as phase clauses: loop state contract (§5.2, P2), responsive layout contract (§5.5, P8/P9), announcement/focus contracts (P8/P9), share-copy confirmation (P9), `packageManager` pin (P0), manual a11y matrix + privacy/URL-state disclosure + post-deploy smoke (P10). Rejected for v1: post-session bridge, homepage teaser, CI performance gates (§3.4's log/warn stance stands), visual-regression specimens. |
+| #   | Decision                                                                                                                                | Alternatives considered                                                | Why                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| D1  | ~~Vite + React SPA~~ → superseded by D22                                                                                                | Next.js; vanilla ESM; SvelteKit                                        | Original lean-toolchain pick; overruled by owner pre-build (zero switch cost at that point)                                                                                                                                                                                                                                                                                                                                |
+| D2  | Fully static, no backend                                                                                                                | Serverless for share-state                                             | Nothing needs a server; free, private, deterministic (I4)                                                                                                                                                                                                                                                                                                                                                                  |
+| D3  | ~~GitHub Pages + hash routing~~ → superseded by D23                                                                                     | Cloudflare Pages; Vercel                                               | Original zero-extra-vendor pick; overruled by owner for Vercel + clean URLs                                                                                                                                                                                                                                                                                                                                                |
+| D4  | Exact bigint-rational arithmetic in solver                                                                                              | Floats + epsilon                                                       | Correctness is the product; exact equality in tests; fraction display is a feature                                                                                                                                                                                                                                                                                                                                         |
+| D5  | Support enumeration, ≤4×4 cap, degeneracy disclosed                                                                                     | Lemke–Howson; LP/LCP solvers                                           | Exhaustive & exact at this size; L–H finds one equilibrium, we want all; cap keeps it honest (§7.2)                                                                                                                                                                                                                                                                                                                        |
+| D6  | v1 = normal form only; extensive form is v2 flagship                                                                                    | Both engines in v1                                                     | Second engine + tree UI doubles scope; entry deterrence deserves a real build                                                                                                                                                                                                                                                                                                                                              |
+| D7  | ~~BoS cut from roster~~ → superseded by D24                                                                                             | Keep BoS                                                               | Cut on claimed overlap with Stag/Chicken; owner overruled — and the distinct concept slot (commitment/focal points, risk-dominance tie) is the better analysis                                                                                                                                                                                                                                                             |
+| D8  | Personas as specced policies (FSM/fictitious/markov2), ≤1 knob each                                                                     | Configurable AI parameter panels                                       | Testability + restraint; config-soup is slop                                                                                                                                                                                                                                                                                                                                                                               |
+| D9  | IPD engine = seeded simulation                                                                                                          | Markov-chain exact expected payoffs                                    | Matches Axelrod's actual method; simpler for build models; transcripts still exactly tested; exact chains = v2                                                                                                                                                                                                                                                                                                             |
+| D10 | Evolution = infinite-population discrete replicator, no mutation                                                                        | Moran process; mutation                                                | Deterministic given payoff matrix; the classic stories need nothing more (§4.9)                                                                                                                                                                                                                                                                                                                                            |
+| D11 | Hand-rolled SVG viz; no chart/state deps                                                                                                | Recharts/d3; zustand                                                   | a11y via real DOM; distinctive look. (Router clause superseded by D22 — Next file routing; no-chart/no-state-lib stands)                                                                                                                                                                                                                                                                                                   |
+| D12 | Seeded PRNG (mulberry32) everywhere                                                                                                     | Math.random                                                            | Reproducibility, share URLs, frozen-seed tests (I3)                                                                                                                                                                                                                                                                                                                                                                        |
+| D13 | Catalog colocates game + human oracle; fixtures machine-generated                                                                       | Tests scattered per suite                                              | Single source of truth; two independent oracles must agree (§3.4, §7.1)                                                                                                                                                                                                                                                                                                                                                    |
+| D14 | pnpm; Node 24 LTS pinned                                                                                                                | npm                                                                    | Strict node_modules keeps agents honest about deps; trivial to swap                                                                                                                                                                                                                                                                                                                                                        |
+| D15 | fast-check property tests (dev dep)                                                                                                     | Example-based only                                                     | Solver soundness is a property, not an example                                                                                                                                                                                                                                                                                                                                                                             |
+| D16 | No LLM features, no analytics, ever in v1                                                                                               | Privacy-friendly counter                                               | Determinism is the brand; zero third-party requests is a verifiable claim (I4)                                                                                                                                                                                                                                                                                                                                             |
+| D17 | Copy as typed TS objects in `content/`                                                                                                  | MDX                                                                    | No extra toolchain; content is testable (glossary presence, trigger conditions)                                                                                                                                                                                                                                                                                                                                            |
+| D18 | System fonts in P0; self-hosted Inter as P10 option                                                                                     | Google Fonts CDN                                                       | I4; tabular-nums available either way                                                                                                                                                                                                                                                                                                                                                                                      |
+| D19 | Light-only editorial theme in v1; tokens ready for dark                                                                                 | Both themes now                                                        | Every viz ×2 review cost; deliberate print identity                                                                                                                                                                                                                                                                                                                                                                        |
+| D20 | Per-session scores only; no cross-game wallet                                                                                           | Brief's "payoffs accumulate" read globally                             | Summing utils across games is theoretically meaningless                                                                                                                                                                                                                                                                                                                                                                    |
+| D21 | Repo public from day 1                                                                                                                  | Private until polished                                                 | The plan and engine are the portfolio; public history shows discipline                                                                                                                                                                                                                                                                                                                                                     |
+| D22 | **Next.js App Router + `output: 'export'`** (owner, 2026-07-13)                                                                         | Vite (D1)                                                              | Owner fluency/preference; zero cost pre-code; static export preserves I4 + portability; file routing, Metadata API, PR previews are real wins; ~50–80KB runtime overhead accepted and budgeted (§3.4)                                                                                                                                                                                                                      |
+| D23 | **Vercel hosting via Git integration** (owner, 2026-07-13)                                                                              | GitHub Pages (D3); Cloudflare Pages                                    | Clean URLs and PR previews; `out/` remains portable to root-mounted static hosts, with subpath scope clarified by D38 (§3.3)                                                                                                                                                                                                                                                                                               |
+| D24 | **Battle of the Sexes in v1 roster — six games** (owner, 2026-07-13)                                                                    | Five-game roster (D7)                                                  | Concept slot is genuinely distinct: coordination with conflicting interests, commitment, focal points, risk-dominance tie (§4.3)                                                                                                                                                                                                                                                                                           |
+| D25 | **MIT license, © Sidakpreet Singh** (owner, 2026-07-13)                                                                                 | Other licenses                                                         | Portfolio reach; LICENSE at repo root from v0.0.1                                                                                                                                                                                                                                                                                                                                                                          |
+| D26 | Veto section retired; owner decisions recorded here from now on (owner, 2026-07-13)                                                     | Keep separate veto list                                                | One growing ledger is the living record; pre-build veto round served its purpose                                                                                                                                                                                                                                                                                                                                           |
+| D27 | ~~Degeneracy detection on structural signals only~~ → superseded by D29                                                                 | Conservative tie-based flagging                                        | The BoS false-positive concern remains valid, but singular/zero-probability candidates are not a complete degeneracy definition. D29 records the formal exact witness test.                                                                                                                                                                                                                                                |
+| D28 | `serve` dev dep to run e2e against the exported `out/`; bundle budget 250KB gz/route                                                    | `next start` (doesn't serve exports); no budget                        | Exported output is what ships; budget acknowledges Next runtime (D22) honestly                                                                                                                                                                                                                                                                                                                                             |
+| D29 | Exact degeneracy witness test, not heuristic support signals                                                                            | Raw payoff ties; singular-candidate heuristic                          | The standard definition is a support-size/best-response-count condition. The witness makes the "degenerate" label and incomplete-solver disclosure defensible without false-positive BoS handling.                                                                                                                                                                                                                         |
+| D30 | Event-addressed RNG streams + 5,000-round cap                                                                                           | One mutable PRNG stream; unbounded geometric match                     | Same master seed otherwise does not make counterfactuals comparable when policies consume randomness differently. Independent keys freeze the environment; the cap prevents rare pathological UI runs.                                                                                                                                                                                                                     |
+| D31 | Bounded rationals/labels/URLs before bigint parsing                                                                                     | Accept arbitrary strings or parse then reject                          | Exact arithmetic needs resource limits for 16ms performance and safe URL sharing.                                                                                                                                                                                                                                                                                                                                          |
+| D32 | Pinned Gambit fixture provenance; nashpy diagnostic only                                                                                | Unpinned external tooling; float count agreement as completeness proof | A verifier proves soundness, not completeness. The manifest makes the independent-oracle claim reproducible.                                                                                                                                                                                                                                                                                                               |
+| D33 | P8 presets are calibrated typed fixtures before authored claims                                                                         | Vague narrative presets tuned during UI build                          | Evolution copy must follow computed, repeatable outcomes; every threshold/configuration is reviewed and frozen.                                                                                                                                                                                                                                                                                                            |
+| D34 | Runtime request allowlist + deployment CSP                                                                                              | Grep-only no-network checks                                            | The privacy claim needs an executable browser-level check as well as source guards.                                                                                                                                                                                                                                                                                                                                        |
+| D35 | P0 clean-docs baseline before `pnpm verify` exists                                                                                      | Require a nonexistent script before scaffold                           | P0 is the phase that creates the package and verification command; later phases retain the red-baseline rule.                                                                                                                                                                                                                                                                                                              |
+| D36 | Signed fixed-action hindsight comparison `G`; never assume nonnegative regret                                                           | Clamp at zero; claim adaptive play cannot beat a fixed action          | Adaptive play can outperform every constant action. Signed copy preserves that useful result and prevents a false property test.                                                                                                                                                                                                                                                                                           |
+| D37 | Privacy boundary is no off-origin or runtime-API requests; same-origin build artifacts are allowed                                      | Literal zero requests after load                                       | Next static client navigation/prefetch may load build-emitted payloads. Route-wide browser checks and a complete CSP enforce the real promise.                                                                                                                                                                                                                                                                             |
+| D38 | Unmodified `out/` portability applies to root-mounted static hosts                                                                      | Claim every GitHub Pages project site works unchanged                  | Subpath hosting needs a build-time base path or a root/custom-domain mount.                                                                                                                                                                                                                                                                                                                                                |
+| D39 | `random:p` means binary action index 0 with probability p; BoS Judge is `random:1/3`                                                    | Leave the sampled action implicit; use `random:2/3` for BoS column     | One generic policy ID needs an unambiguous action convention. The BoS column player's equilibrium mix is A=1/3, B=2/3.                                                                                                                                                                                                                                                                                                     |
+| D40 | **S3 optional ideas dispositioned; hardening subset folded into v1 phases** (owner, 2026-07-14)                                         | Adopt all twelve proposals; defer all                                  | Accepted as phase clauses: loop state contract (§5.2, P2), responsive layout contract (§5.5, P8/P9), announcement/focus contracts (P8/P9), share-copy confirmation (P9), `packageManager` pin (P0), manual a11y matrix + privacy/URL-state disclosure + post-deploy smoke (P10). Rejected for v1: post-session bridge, homepage teaser, CI performance gates (§3.4's log/warn stance stands), visual-regression specimens. |
+| D41 | P0 toolchain: Next 16 / React 19; specified Vitest, Playwright, Tailwind, ESLint, Prettier, fast-check, and `serve` development tooling | Unpinned ad hoc scaffold; extra runtime libraries                      | Matches the ratified P0 stack exactly: `next`, `react`, and `react-dom` remain the only runtime dependencies, while `pnpm-lock.yaml` records the resolved graph. pnpm’s project-level `allowBuilds` expressly permits only the audited native install hooks required by `esbuild`, `sharp`, and `unrs-resolver`.                                                                                                           |
+| D42 | P0 uses a four-commit version/tag sequence: `v0.1.0`–`v0.1.3`, `/1-F5-T6`–`/4-F5-T6`                                                    | Treat P0 as one large commit; retain undocumented historical suffixes  | Owner direction 2026-07-15. The split keeps the foundation, routes, unit-quality layer, and verification/handoff independently reviewable; each commit is post-dated 2026-07-18 at 07:00, 08:00, 09:00, and 10:00 IST.                                                                                                                                                                                                     |
 
 ---
 
 ## §10 — Open questions & owner actions
 
-1. **Push v0.0.3** when ready — the commit is local-only; `origin/main` stays at v0.0.2 until you push. Nothing deploys on push yet (Vercel not connected).
-2. **Give the P0 go** — the build agent may be a different model; this file is its complete contract. After an owner-authorized P0 push, connect the repo to Vercel (framework preset Next.js).
+1. **Review P0** — the static walking skeleton is locally committed and fully verified in the four commits recorded at S6. No files are staged and nothing is pushed.
+2. **Push the reviewed P0 series, then connect Vercel** (framework preset Next.js). This is the first point at which CI and preview/production deployments can run.
 3. **Product name.** README currently titled "Game Theory Sandbox" — serviceable, and it can ship under that. Shortlist if you want a name with more edge (my lean first): **Best Response**; Equilibrium Lab; The Payoff; Common Knowledge; Tit for Tat. **Deadline: end of P9** — P10 bakes the name into metadata, OG image, and README.
-4. **Accent color preference** welcome before P0; otherwise use the planned restrained, colorblind-safe blue/orange pair.
+4. **Accent color preference** remains open before P10; P0 uses the planned restrained, colorblind-safe blue/orange pair.
 5. Standing reminder: every commit and push needs explicit owner approval, including phase completions.
 
 Resolved 2026-07-13: stack (D22), hosting (D23), roster (D24), license (D25), veto process retired (D26). Resolved 2026-07-14: S3 audit reviewed and corrected, optional ideas dispositioned (D40), plan ratified final, v0.0.3 commit authorized.
@@ -531,17 +547,19 @@ Resolved 2026-07-13: stack (D22), hosting (D23), roster (D24), license (D25), ve
 - **2026-07-13 — S1 (owner review & revision).** Owner veto pass: Next.js over Vite (D22), Vercel over GitHub Pages (D23), Battle of the Sexes into the roster (D24), MIT license © Sidakpreet Singh (D25); veto section retired into the ledger (D26). Plan revised throughout for the Next.js static-export architecture and the six-game catalog (BoS oracle added, §4.3); degeneracy detection refined against false positives (D27); Next backend-creep invariant greps, P0 deep-link/prerender acceptance, P10 "two-minute tour", and a P9 naming deadline added during review. LICENSE file added. Repo re-initialized at owner request; commit `v0.0.1: Init + Readme + Context` re-issued. Next: owner P0 go (§10.4).
 - **2026-07-13 — S2 (fresh live-repo re-review).** Corrected genuine pre-build contracts: P1 no longer claims mixed-oracle completion before P3; degeneracy now has the formal exact witness test; IPD/tournament randomness uses event-addressed streams with a finite-match cap; evolution uses per-round payoffs and calibrated, frozen preset fixtures; bounded rationals/labels/URLs protect exact arithmetic; Gambit fixture provenance is pinned and nashpy is diagnostic only; browser-level no-network verification was added to the P0 plan; stale remote setup instructions were removed. Version → v0.0.2. No application code exists or was changed.
 - **2026-07-13 — S3 (fresh-eyes audit + handoff bootstrap, cross-checked).** Audited the complete tracked tree, Git history/timestamps, live remote SHA, README, license, ignore rules, and all planning contracts. Corrected the mathematically false nonnegative hindsight-gap contract (D36); made the `random:p` action convention explicit and corrected the BoS equilibrium persona (D39); narrowed privacy to no off-origin/runtime-API requests with route-wide CSP/network verification (D37); qualified subpath-host portability (D38); guarded zero evolution denominators; repaired fixture cross-references; recast the README correctness commitment in future tense; added `out/` to `.gitignore`; and documented repository/version/commit state. An owner-commissioned same-day cross-check verified the corrections' math (Pennies `G = −2` regression, BoS column mix A = 1/3), withdrew a misread commit-timestamp "anomaly" (commit dates are owner-directed metadata), restored README prose outside the correctness section, and replaced a conjectural commit-suffix template in §8 with observed history. Correction to S1 shorthand: the actual first commit subject is `Commit v0.0.1: Init + Readme + Context`. No application code was added. The edits were held uncommitted for the owner review recorded at S4; nothing was staged, committed, or pushed during S3.
-- **2026-07-14 — S4 (owner ratification & build-handoff freeze).** Owner reviewed the cross-checked S3 diff and ratified the plan as **final for the v1 build**. Optional S3 ideas dispositioned (D40): loop state contract, responsive layout contract, announcement/focus contracts, share-copy confirmation, `packageManager` pin, manual a11y matrix, privacy/URL-state disclosure, and post-deploy smoke folded into P0–P10; post-session bridge, homepage teaser, CI performance gates, and visual-regression specimens rejected. Snapshot, §10, and version surfaces updated; README bumped. Version → v0.0.3; commit `Commit v0.0.3: Pre-Build Check Complete /S6-F5` authorized with owner-directed date 2026-07-18T01:00+05:30, **not pushed** — push and the P0 go are the owner's next actions (§10.1–2). From P0 the executing agent may be a different model; this file is the complete build contract.
+- **2026-07-14 — S4 (owner ratification & build-handoff freeze).** Owner reviewed the cross-checked S3 diff and ratified the plan as **final for the v1 build**. Optional S3 ideas dispositioned (D40): loop state contract, responsive layout contract, announcement/focus contracts, share-copy confirmation, `packageManager` pin, manual a11y matrix, privacy/URL-state disclosure, and post-deploy smoke folded into P0–P10; post-session bridge, homepage teaser, CI performance gates, and visual-regression specimens rejected. Snapshot, §10, and version surfaces updated; README bumped. Version → v0.0.3; commit `Commit v0.0.3: Pre-Build Check Complete /S6-F5` authorized with owner-directed date 2026-07-18T01:00+05:30. From P0 the executing agent may be a different model; this file is the complete build contract.
+- **2026-07-15 — S5 (P0 walking skeleton).** On the owner’s build go, implemented P0 in the working tree: a strict TypeScript Next 16/React 19 static export with all six prerendered Play routes, `/evolve`, `/build`, `/methods`, and exported 404; editorial token shell and package-derived footer version; pnpm/Node 24 project controls; Vitest, Playwright/axe, ESLint, Prettier, invariant, CSP, and bundle checks; GitHub Actions; Vercel/local static-host header policies and documentation. D41 records the concrete toolchain and controlled native build hooks. `CI=true pnpm verify:full` passed locally: direct deep link and 404 verified, same-origin crawl and CSP clean, keyboard primary navigation and axe pass, seeded invariant failure proven and removed, and exported JavaScript measured at 185.7 KiB gzip. `next build` applied its standard TypeScript automatic-JSX and generated-type includes. No engine, simulation, game logic, commit, or push was added; all S5 changes remain unstaged and uncommitted pending owner review.
+- **2026-07-15 — S6 (P0 commit handoff).** Owner authorized a balanced P0 series and supplied the version/tag convention D42. Created four local commits post-dated 2026-07-18 in IST, one hour apart: `Commit v0.1.0: Foundation + Static Shell /1-F5-T6` (07:00), `Commit v0.1.1: Static Routes + Export /2-F5-T6` (08:00), `Commit v0.1.2: Quality Gates + Unit Tests /3-F5-T6` (09:00), and `Commit v0.1.3: Verification + Build Handoff /4-F5-T6` (10:00). The final state is `CI=true pnpm verify:full` green, format-clean, locally committed, unstaged, and unpushed. P1 is the next implementation phase only after owner review and push of P0.
 
 ---
 
 ## §12 — References (for authored content & definitions)
 
-- Osborne, *An Introduction to Game Theory* — canonical definitions (glossary source of truth).
-- Axelrod, *The Evolution of Cooperation* (1984) — tournament framing; all copy claims fact-checked against it.
+- Osborne, _An Introduction to Game Theory_ — canonical definitions (glossary source of truth).
+- Axelrod, _The Evolution of Cooperation_ (1984) — tournament framing; all copy claims fact-checked against it.
 - Nowak, "Five Rules for the Evolution of Cooperation" (2006).
 - Harsanyi & Selten (1988) — risk dominance.
-- Robinson & Goforth, *The Topology of the 2×2 Games* (2005) — classifier grounding.
-- Sigmund, *Evolutionary Games and Population Dynamics* — replicator formalism.
+- Robinson & Goforth, _The Topology of the 2×2 Games_ (2005) — classifier grounding.
+- Sigmund, _Evolutionary Games and Population Dynamics_ — replicator formalism.
 - Gambit & nashpy — external oracle tooling (§7.1).
-- Nicky Case, *The Evolution of Trust* (2017) — prior art, credited on the Methods page.
+- Nicky Case, _The Evolution of Trust_ (2017) — prior art, credited on the Methods page.
