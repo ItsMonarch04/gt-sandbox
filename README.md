@@ -1,6 +1,6 @@
 # Game Theory Sandbox
 
-**Status: v0.4.2 — P3’s exact solver, catalog oracles, and isolated Gambit fixture generator are committed locally; the fixture corpus and final acceptance follow in this release series. All work remains unpushed.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
+**Status: v0.4.3 — P3’s exact engine and Gambit cross-oracle acceptance are committed locally. P0–P3 remain unpushed.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
 
 ## The idea
 
@@ -46,5 +46,5 @@ that version in `package.json`, `pnpm-lock.yaml` when it records root metadata,
 and the active version surfaces in the same commit. Historical timestamps are
 owner-directed metadata; do not rewrite pushed history.
 
-- **Base Format Version:** 0.4.2
-- **Portfolio Version:** v0.4.2_2026-07-19_03:00:00 (IST)
+- **Base Format Version:** 0.4.3
+- **Portfolio Version:** v0.4.3_2026-07-19_03:30:00 (IST)
