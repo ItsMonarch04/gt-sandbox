@@ -1,6 +1,6 @@
 # Game Theory Sandbox
 
-**Status: v0.3.2 — P2's first playable is committed locally, awaiting review and push; P0/P1 remain unpushed.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
+**Status: v0.4.0 — P3’s exact mixed-equilibrium solver and independent verifier are committed locally; catalog and external-oracle acceptance follow in this release series. All work remains unpushed.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
 
 ## The idea
 
@@ -46,5 +46,5 @@ that version in `package.json`, `pnpm-lock.yaml` when it records root metadata,
 and the active version surfaces in the same commit. Historical timestamps are
 owner-directed metadata; do not rewrite pushed history.
 
-- **Base Format Version:** 0.3.2
-- **Portfolio Version:** v0.3.2_2026-07-18_17:00:00 (IST)
+- **Base Format Version:** 0.4.0
+- **Portfolio Version:** v0.4.0_2026-07-19_02:00:00 (IST)

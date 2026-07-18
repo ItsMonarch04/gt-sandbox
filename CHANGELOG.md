@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.4.0 — 2026-07-19
+
+- Add exact mixed-equilibrium support enumeration, a closed-form 2×2 cross-check, and independent mixed verification.
+
 ## v0.3.2 — 2026-07-18
 
 - Add exported-browser acceptance coverage and complete the P2 handoff.
