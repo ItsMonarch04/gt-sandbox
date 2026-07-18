@@ -1,6 +1,6 @@
 # Game Theory Sandbox
 
-**Status: v0.2.0 — P1 exact fractions and normal-form foundation committed locally.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
+**Status: v0.2.1 — P1 catalog and pure-analysis core committed locally.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
 
 ## The idea
 
@@ -46,5 +46,5 @@ that version in `package.json`, `pnpm-lock.yaml` when it records root metadata,
 and the active version surfaces in the same commit. Historical timestamps are
 owner-directed metadata; do not rewrite pushed history.
 
-- **Base Format Version:** 0.2.0
-- **Portfolio Version:** v0.2.0_2026-07-18_10:00:00 (IST)
+- **Base Format Version:** 0.2.1
+- **Portfolio Version:** v0.2.1_2026-07-18_11:00:00 (IST)

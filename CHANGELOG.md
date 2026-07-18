@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.1 — 2026-07-18
+
+- Add the six-game catalog, pure equilibrium solver, Pareto analysis, classifier, and verifier.
+
 ## v0.2.0 — 2026-07-18
 
 - Add exact rational arithmetic, normal-form game construction, and focused engine tests.
