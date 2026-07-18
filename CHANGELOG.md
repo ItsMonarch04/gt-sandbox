@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.3.1 — 2026-07-18
+
+- Add the interactive Price War arena, engine-derived reveal, and component coverage.
+
 ## v0.3.0 — 2026-07-18
 
 - Add deterministic Prisoner's Dilemma policies, session state, and reducer coverage.
