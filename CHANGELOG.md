@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.3.2 — 2026-07-18
+
+- Add exported-browser acceptance coverage and complete the P2 handoff.
+
 ## v0.3.1 — 2026-07-18
 
 - Add the interactive Price War arena, engine-derived reveal, and component coverage.
