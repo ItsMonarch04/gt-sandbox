@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.5.2 — 2026-07-19
+
+- Integrate the full progressive reveal with the Price War matrix and add focused interaction coverage.
+
 ## v0.5.1 — 2026-07-19
 
 - Add the reusable progressive Analysis drawer, glossary primitives, and supporting reveal styles.

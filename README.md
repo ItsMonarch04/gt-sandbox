@@ -1,6 +1,6 @@
 # Game Theory Sandbox
 
-**Status: v0.5.1 — P4’s shared analysis drawer and glossary layer are committed locally. P0–P3 remain unpushed.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
+**Status: v0.5.2 — P4’s full Prisoner’s Dilemma analysis experience is committed locally. P0–P3 remain unpushed.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
 
 ## The idea
 
@@ -46,5 +46,5 @@ that version in `package.json`, `pnpm-lock.yaml` when it records root metadata,
 and the active version surfaces in the same commit. Historical timestamps are
 owner-directed metadata; do not rewrite pushed history.
 
-- **Base Format Version:** 0.5.1
-- **Portfolio Version:** v0.5.1_2026-07-19_21:00:00 (IST)
+- **Base Format Version:** 0.5.2
+- **Portfolio Version:** v0.5.2_2026-07-19_22:00:00 (IST)
