@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.5.1 — 2026-07-19
+
+- Add the reusable progressive Analysis drawer, glossary primitives, and supporting reveal styles.
+
 ## v0.5.0 — 2026-07-19
 
 - Add exact session statistics for empirical mixes and signed fixed-action hindsight, with property and Matching Pennies regressions.
