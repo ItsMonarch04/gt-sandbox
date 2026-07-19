@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.6.2 — 2026-07-20
+
+- Add exported-browser coverage for the full P5 one-shot roster.
+
 ## v0.6.1 — 2026-07-20
 
 - Add the four one-shot game arenas, live analysis, and zero-sum disclosure.
