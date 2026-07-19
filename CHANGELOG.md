@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.7.1 — 2026-07-20
+
+- Add the seeded IPD session reducer, opponent selection content, and match-flow coverage.
+
 ## v0.7.0 — 2026-07-20
 
 - Add event-addressed IPD randomness, eight strategy specifications, and exact match-engine transcripts.
