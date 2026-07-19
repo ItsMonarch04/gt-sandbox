@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.5.3 — 2026-07-19
+
+- Add exported-browser drawer acceptance coverage and complete the P4 handoff.
+
 ## v0.5.2 — 2026-07-19
 
 - Integrate the full progressive reveal with the Price War matrix and add focused interaction coverage.
