@@ -1,6 +1,6 @@
 # Game Theory Sandbox
 
-**Status: v0.7.2 — P6’s interactive IPD arena, mystery reveal, and counterfactual are committed locally. P0–P5 remain unpushed; browser acceptance is next.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
+**Status: v0.7.3 — P5’s full one-shot roster and P6’s IPD match play are committed locally. P0–P6 remain unpushed.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
 
 ## The idea
 
@@ -46,5 +46,5 @@ that version in `package.json`, `pnpm-lock.yaml` when it records root metadata,
 and the active version surfaces in the same commit. Historical timestamps are
 owner-directed metadata; do not rewrite pushed history.
 
-- **Base Format Version:** 0.7.2
-- **Portfolio Version:** v0.7.2_2026-07-20_03:15:00 (IST)
+- **Base Format Version:** 0.7.3
+- **Portfolio Version:** v0.7.3_2026-07-20_03:30:00 (IST)

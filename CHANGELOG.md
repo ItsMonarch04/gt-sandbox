@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.7.3 — 2026-07-20
+
+- Add exported-browser mystery-flow coverage and complete the P5/P6 handoff.
+
 ## v0.7.2 — 2026-07-20
 
 - Add the IPD play arena, mystery-strategy reveal, and same-environment TFT counterfactual.
