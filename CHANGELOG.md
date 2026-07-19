@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.5.0 — 2026-07-19
+
+- Add exact session statistics for empirical mixes and signed fixed-action hindsight, with property and Matching Pennies regressions.
+
 ## v0.4.3 — 2026-07-19
 
 - Commit the Gambit fixture corpus and manifest, enforce its byte-integrity check, and complete P3 acceptance.
