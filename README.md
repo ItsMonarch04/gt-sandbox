@@ -1,6 +1,6 @@
 # Game Theory Sandbox
 
-**Status: v0.6.2 — P5’s complete one-shot roster and exported-browser acceptance are committed locally. P0–P4 remain unpushed; P6 remains in progress.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
+**Status: v0.7.0 — P6’s event-addressed IPD engine and eight strategies are committed locally. P0–P5 remain unpushed; the IPD play surface is in progress.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
 
 ## The idea
 
@@ -46,5 +46,5 @@ that version in `package.json`, `pnpm-lock.yaml` when it records root metadata,
 and the active version surfaces in the same commit. Historical timestamps are
 owner-directed metadata; do not rewrite pushed history.
 
-- **Base Format Version:** 0.6.2
-- **Portfolio Version:** v0.6.2_2026-07-20_02:30:00 (IST)
+- **Base Format Version:** 0.7.0
+- **Portfolio Version:** v0.7.0_2026-07-20_02:45:00 (IST)

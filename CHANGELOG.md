@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.7.0 — 2026-07-20
+
+- Add event-addressed IPD randomness, eight strategy specifications, and exact match-engine transcripts.
+
 ## v0.6.2 — 2026-07-20
 
 - Add exported-browser coverage for the full P5 one-shot roster.
