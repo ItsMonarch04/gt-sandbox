@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.7.2 — 2026-07-20
+
+- Add the IPD play arena, mystery-strategy reveal, and same-environment TFT counterfactual.
+
 ## v0.7.1 — 2026-07-20
 
 - Add the seeded IPD session reducer, opponent selection content, and match-flow coverage.
