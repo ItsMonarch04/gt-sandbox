@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.6.1 — 2026-07-20
+
+- Add the four one-shot game arenas, live analysis, and zero-sum disclosure.
+
 ## v0.6.0 — 2026-07-20
 
 - Add deterministic one-shot personas, shared session state, and the P5 core test suite.
