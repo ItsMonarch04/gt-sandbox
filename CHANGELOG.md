@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.8.1 — 2026-07-21
+
+- Add the interactive Tournament surface, roster picker, ranking, heatmap, exact-table fallback, and component coverage.
+
 ## v0.8.0 — 2026-07-21
 
 - Add the seeded IPD tournament engine, exact pairwise fixture, and frozen regression coverage.

@@ -1,6 +1,6 @@
 # Game Theory Sandbox
 
-**Status: v0.8.0 — P7’s deterministic seeded IPD round-robin engine and frozen matrix fixture are committed locally; the Tournament surface remains in progress. P0–P6 remain unpushed.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
+**Status: v0.8.1 — P7’s interactive Tournament surface, roster picker, ranking, and accessible exact-table fallback are committed locally; exported-browser acceptance and handoff remain. P0–P6 remain unpushed.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
 
 ## The idea
 
@@ -46,5 +46,5 @@ that version in `package.json`, `pnpm-lock.yaml` when it records root metadata,
 and the active version surfaces in the same commit. Historical timestamps are
 owner-directed metadata; do not rewrite pushed history.
 
-- **Base Format Version:** 0.8.0
-- **Portfolio Version:** v0.8.0_2026-07-21_00:30:00 (IST)
+- **Base Format Version:** 0.8.1
+- **Portfolio Version:** v0.8.1_2026-07-21_00:45:00 (IST)
