@@ -1,0 +1,167 @@
+{
+  "config": {
+    "strategies": [
+      "allc",
+      "alld",
+      "tft",
+      "grim",
+      "pavlov",
+      "gtft",
+      "joss",
+      "random"
+    ],
+    "masterSeed": 20260720,
+    "repetitions": 20,
+    "continuationProbability": 0.95,
+    "noise": 0,
+    "roundCap": 5000
+  },
+  "matrix": [
+    {
+      "strategy": "allc",
+      "payoffs": [
+        { "opponent": "allc", "payoff": "3" },
+        { "opponent": "alld", "payoff": "0" },
+        { "opponent": "tft", "payoff": "3" },
+        { "opponent": "grim", "payoff": "3" },
+        { "opponent": "pavlov", "payoff": "3" },
+        { "opponent": "gtft", "payoff": "3" },
+        { "opponent": "joss", "payoff": "8176739/2917200" },
+        { "opponent": "random", "payoff": "66786056952759/44226159362000" }
+      ]
+    },
+    {
+      "strategy": "alld",
+      "payoffs": [
+        { "opponent": "allc", "payoff": "5" },
+        { "opponent": "alld", "payoff": "1" },
+        { "opponent": "tft", "payoff": "178094867/114114000" },
+        { "opponent": "grim", "payoff": "63852230531/40246252200" },
+        { "opponent": "pavlov", "payoff": "278152582/87121125" },
+        { "opponent": "gtft", "payoff": "737920451423/282722794200" },
+        { "opponent": "joss", "payoff": "11868007303/7177770600" },
+        { "opponent": "random", "payoff": "1436033/504000" }
+      ]
+    },
+    {
+      "strategy": "tft",
+      "payoffs": [
+        { "opponent": "allc", "payoff": "3" },
+        { "opponent": "alld", "payoff": "953216659/1169229600" },
+        { "opponent": "tft", "payoff": "3" },
+        { "opponent": "grim", "payoff": "3" },
+        { "opponent": "pavlov", "payoff": "3" },
+        { "opponent": "gtft", "payoff": "3" },
+        { "opponent": "joss", "payoff": "32846189/15483600" },
+        { "opponent": "random", "payoff": "4821419322977/2188250064000" }
+      ]
+    },
+    {
+      "strategy": "grim",
+      "payoffs": [
+        { "opponent": "allc", "payoff": "3" },
+        { "opponent": "alld", "payoff": "2276473903001/2559188154600" },
+        { "opponent": "tft", "payoff": "3" },
+        { "opponent": "grim", "payoff": "3" },
+        { "opponent": "pavlov", "payoff": "3" },
+        { "opponent": "gtft", "payoff": "3" },
+        { "opponent": "joss", "payoff": "139504691/67095600" },
+        { "opponent": "random", "payoff": "4315024757/1657656000" }
+      ]
+    },
+    {
+      "strategy": "pavlov",
+      "payoffs": [
+        { "opponent": "allc", "payoff": "3" },
+        { "opponent": "alld", "payoff": "7332349/15315300" },
+        { "opponent": "tft", "payoff": "3" },
+        { "opponent": "grim", "payoff": "3" },
+        { "opponent": "pavlov", "payoff": "3" },
+        { "opponent": "gtft", "payoff": "3" },
+        { "opponent": "joss", "payoff": "13100353622/5486313525" },
+        { "opponent": "random", "payoff": "316111917213/141348006800" }
+      ]
+    },
+    {
+      "strategy": "gtft",
+      "payoffs": [
+        { "opponent": "allc", "payoff": "3" },
+        { "opponent": "alld", "payoff": "865753313/1387300200" },
+        { "opponent": "tft", "payoff": "3" },
+        { "opponent": "grim", "payoff": "3" },
+        { "opponent": "pavlov", "payoff": "3" },
+        { "opponent": "gtft", "payoff": "3" },
+        { "opponent": "joss", "payoff": "3015670769/1137528480" },
+        { "opponent": "random", "payoff": "264755023/139629600" }
+      ]
+    },
+    {
+      "strategy": "joss",
+      "payoffs": [
+        { "opponent": "allc", "payoff": "21567523/6770400" },
+        { "opponent": "alld", "payoff": "2925235153/3895491600" },
+        { "opponent": "tft", "payoff": "479184809/180952200" },
+        { "opponent": "grim", "payoff": "4823022499/2071742400" },
+        { "opponent": "pavlov", "payoff": "259627963/92570400" },
+        { "opponent": "gtft", "payoff": "3582041/1184040" },
+        { "opponent": "joss", "payoff": "10513741487/4737532800" },
+        { "opponent": "random", "payoff": "268030703/116688000" }
+      ]
+    },
+    {
+      "strategy": "random",
+      "payoffs": [
+        { "opponent": "allc", "payoff": "6016921637/1463500080" },
+        { "opponent": "alld", "payoff": "80463579927083/159479852532000" },
+        { "opponent": "tft", "payoff": "484510646027/191891884800" },
+        { "opponent": "grim", "payoff": "62827997/38001600" },
+        { "opponent": "pavlov", "payoff": "722392897/275864400" },
+        { "opponent": "gtft", "payoff": "823544830133/281929611600" },
+        { "opponent": "joss", "payoff": "20531894911/8303349600" },
+        { "opponent": "random", "payoff": "10780166339/5507938800" }
+      ]
+    }
+  ],
+  "ranking": [
+    {
+      "position": 1,
+      "strategy": "grim",
+      "payoff": "465400667800475663/180985786293312000"
+    },
+    {
+      "position": 2,
+      "strategy": "gtft",
+      "payoff": "18241637369478287/7234706727190800"
+    },
+    {
+      "position": 3,
+      "strategy": "tft",
+      "payoff": "112513766557254541/44692819307136000"
+    },
+    {
+      "position": 4,
+      "strategy": "pavlov",
+      "payoff": "17824842298393313/7093408373251200"
+    },
+    {
+      "position": 5,
+      "strategy": "alld",
+      "payoff": "48849150526675958941/20089422278557632000"
+    },
+    {
+      "position": 6,
+      "strategy": "allc",
+      "payoff": "16655764229815943/6899280860472000"
+    },
+    {
+      "position": 7,
+      "strategy": "joss",
+      "payoff": "2079575075336676026537/863845157977978176000"
+    },
+    {
+      "position": 8,
+      "strategy": "random",
+      "payoff": "4108463973617418229754694365917/1751659458156561550060848384000"
+    }
+  ]
+}

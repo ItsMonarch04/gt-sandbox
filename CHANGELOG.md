@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.8.0 — 2026-07-21
+
+- Add the seeded IPD tournament engine, exact pairwise fixture, and frozen regression coverage.
+
 ## v0.7.3 — 2026-07-20
 
 - Add exported-browser mystery-flow coverage and complete the P5/P6 handoff.
