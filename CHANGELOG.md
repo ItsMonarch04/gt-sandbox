@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.8.2 — 2026-07-21
+
+- Add exported-browser Tournament acceptance coverage and complete the P7 handoff.
+
 ## v0.8.1 — 2026-07-21
 
 - Add the interactive Tournament surface, roster picker, ranking, heatmap, exact-table fallback, and component coverage.
