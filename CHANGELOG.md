@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.9.2 — 2026-07-22
+
+- Add bounded evolution URL state, malformed-link fallback, and exact run reproduction coverage.
+
 ## v0.9.1 — 2026-07-22
 
 - Add the reviewed evolution calibration corpus, preset content, and frozen-result regression coverage.
