@@ -1,6 +1,6 @@
 # Game Theory Sandbox
 
-**Status: v0.8.2 — P7’s seeded IPD tournament, accessible roster surface, and exported-browser acceptance are committed locally. P0–P7 remain unpushed.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
+**Status: v0.9.0 — P8’s seeded IPD replicator engine is committed locally; its calibration fixtures, URL state, Evolution surface, and browser acceptance remain uncommitted. P0–P7 remain unpushed.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
 
 ## The idea
 
@@ -46,5 +46,5 @@ that version in `package.json`, `pnpm-lock.yaml` when it records root metadata,
 and the active version surfaces in the same commit. Historical timestamps are
 owner-directed metadata; do not rewrite pushed history.
 
-- **Base Format Version:** 0.8.2
-- **Portfolio Version:** v0.8.2_2026-07-21_01:00:00 (IST)
+- **Base Format Version:** 0.9.0
+- **Portfolio Version:** v0.9.0_2026-07-22_00:30:00 (IST)

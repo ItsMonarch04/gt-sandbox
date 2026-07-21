@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.9.0 — 2026-07-22
+
+- Add the seeded IPD replicator engine, analytic dynamics coverage, and guarded zero-fitness handling.
+
 ## v0.8.2 — 2026-07-21
 
 - Add exported-browser Tournament acceptance coverage and complete the P7 handoff.
