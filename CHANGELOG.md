@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.9.4 — 2026-07-22
+
+- Add exported-browser Evolution coverage and complete the P8 handoff.
+
 ## v0.9.3 — 2026-07-22
 
 - Add the accessible Evolution tab, population chart, controls, table fallback, and component coverage.

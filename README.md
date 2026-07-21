@@ -1,6 +1,6 @@
 # Game Theory Sandbox
 
-**Status: v0.9.3 — P8’s evolution engine, calibration corpus, reproducible URL state, and accessible Evolution surface are committed locally; browser acceptance and final handoff remain uncommitted. P0–P7 remain unpushed.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
+**Status: v0.9.4 — P8’s seeded IPD evolution engine, frozen preset corpus, accessible Evolution surface, and exported-browser acceptance are committed locally. P0–P8 remain unpushed.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
 
 ## The idea
 
@@ -46,5 +46,5 @@ that version in `package.json`, `pnpm-lock.yaml` when it records root metadata,
 and the active version surfaces in the same commit. Historical timestamps are
 owner-directed metadata; do not rewrite pushed history.
 
-- **Base Format Version:** 0.9.3
-- **Portfolio Version:** v0.9.3_2026-07-22_01:15:00 (IST)
+- **Base Format Version:** 0.9.4
+- **Portfolio Version:** v0.9.4_2026-07-22_01:30:00 (IST)
