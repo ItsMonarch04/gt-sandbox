@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.9.3 — 2026-07-22
+
+- Add the accessible Evolution tab, population chart, controls, table fallback, and component coverage.
+
 ## v0.9.2 — 2026-07-22
 
 - Add bounded evolution URL state, malformed-link fallback, and exact run reproduction coverage.
