@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.11.0 — 2026-07-23
+
+- Add the launch home arc, first-visit onboarding preference, and foundation launch styling.
+
 ## v0.10.4 — 2026-07-22
 
 - Add Build direct-link and 4×4 reflow browser coverage, and complete the P9 handoff.

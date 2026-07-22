@@ -1,6 +1,6 @@
 # Game Theory Sandbox
 
-**Status: v0.10.4 — P9’s bounded Build surface, Play integration, and authored direct-link/reflow coverage are committed locally. P0–P9 remain unpushed.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
+**Status: v0.11.0 — P10’s launch home and first-visit onboarding are committed locally. P0–P9 remain unpushed.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
 
 ## The idea
 
@@ -46,5 +46,5 @@ that version in `package.json`, `pnpm-lock.yaml` when it records root metadata,
 and the active version surfaces in the same commit. Historical timestamps are
 owner-directed metadata; do not rewrite pushed history.
 
-- **Base Format Version:** 0.10.4
-- **Portfolio Version:** v0.10.4_2026-07-22_07:00:00 (IST)
+- **Base Format Version:** 0.11.0
+- **Portfolio Version:** v0.11.0_2026-07-23_00:15:00 (IST)
