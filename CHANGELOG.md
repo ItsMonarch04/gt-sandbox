@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.12.1 — 2026-07-23
+
+- Correct static-route accounting in the bundle audit and remove the obsolete Play fallback.
+
 ## v0.12.0 — 2026-07-23
 
 - Harden share-link bounds and simulation metadata validation, and prevent empty validation alerts.
