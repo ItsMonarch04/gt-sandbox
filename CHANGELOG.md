@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.10.3 — 2026-07-22
+
+- Embed the exact editable game surface on every Play route with each route’s reproducibility extras.
+
 ## v0.10.2 — 2026-07-22
 
 - Add the Build surface, reusable full Analysis drawer, and responsive payoff-matrix presentation.
