@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.10.4 — 2026-07-22
+
+- Add Build direct-link and 4×4 reflow browser coverage, and complete the P9 handoff.
+
 ## v0.10.3 — 2026-07-22
 
 - Embed the exact editable game surface on every Play route with each route’s reproducibility extras.
