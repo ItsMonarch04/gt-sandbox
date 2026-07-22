@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.12.0 — 2026-07-23
+
+- Harden share-link bounds and simulation metadata validation, and prevent empty validation alerts.
+
 ## v0.11.3 — 2026-07-23
 
 - Add release documentation, route-wide accessibility scans, and the P10 handoff.
