@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.10.2 — 2026-07-22
+
+- Add the Build surface, reusable full Analysis drawer, and responsive payoff-matrix presentation.
+
 ## v0.10.1 — 2026-07-22
 
 - Add the bounded editable Game Workbench with exact live analysis, validation, copying, and focused component coverage.
