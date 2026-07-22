@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.10.0 — 2026-07-22
+
+- Add the bounded versioned custom-game URL codec, exact rational parsing limits, and round-trip property coverage.
+
 ## v0.9.4 — 2026-07-22
 
 - Add exported-browser Evolution coverage and complete the P8 handoff.
