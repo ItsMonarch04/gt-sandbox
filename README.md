@@ -1,6 +1,6 @@
 # Game Theory Sandbox
 
-**Status: v0.11.1 — P10’s Methods, route metadata, and local brand assets are committed locally. P0–P9 remain unpushed.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
+**Status: v0.11.2 — P10’s responsive, forced-colors, and launch-browser coverage is committed locally. P0–P9 remain unpushed.** The full build plan lives in [CONTEXT.md](CONTEXT.md). Live URL: not deployed yet.
 
 ## The idea
 
@@ -46,5 +46,5 @@ that version in `package.json`, `pnpm-lock.yaml` when it records root metadata,
 and the active version surfaces in the same commit. Historical timestamps are
 owner-directed metadata; do not rewrite pushed history.
 
-- **Base Format Version:** 0.11.1
-- **Portfolio Version:** v0.11.1_2026-07-23_00:30:00 (IST)
+- **Base Format Version:** 0.11.2
+- **Portfolio Version:** v0.11.2_2026-07-23_00:45:00 (IST)

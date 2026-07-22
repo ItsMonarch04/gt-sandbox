@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.11.2 — 2026-07-23
+
+- Add responsive and forced-colors safeguards with launch-specific browser acceptance coverage.
+
 ## v0.11.1 — 2026-07-23
 
 - Add the Methods route, route-level metadata, and first-party icon and social-card assets.
