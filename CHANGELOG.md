@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.12.3 — 2026-07-23
+
+- Format the launch browser specification and complete the verified audit handoff.
+
 ## v0.12.2 — 2026-07-23
 
 - Add a raster social card and finalize audit/release handoff documentation.
