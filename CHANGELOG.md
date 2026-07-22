@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.10.1 — 2026-07-22
+
+- Add the bounded editable Game Workbench with exact live analysis, validation, copying, and focused component coverage.
+
 ## v0.10.0 — 2026-07-22
 
 - Add the bounded versioned custom-game URL codec, exact rational parsing limits, and round-trip property coverage.
