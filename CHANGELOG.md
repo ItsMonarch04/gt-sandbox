@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.12.2 — 2026-07-23
+
+- Add a raster social card and finalize audit/release handoff documentation.
+
 ## v0.12.1 — 2026-07-23
 
 - Correct static-route accounting in the bundle audit and remove the obsolete Play fallback.
