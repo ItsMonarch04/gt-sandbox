@@ -1,6 +1,6 @@
 # CONTEXT.md — Working Handoff
 
-**Project:** gt-sandbox (Game Theory Sandbox) · **Version:** v0.12.3 · **Updated:** 2026-07-23
+**Project:** gt-sandbox (Game Theory Sandbox) · **Version:** v0.12.4 · **Updated:** 2026-07-23
 
 This is the agent working file: the build plan, decisions ledger, verification protocol, and session log. It is deliberately separate from `README.md` (public-facing). README never gains agent instructions; CONTEXT never becomes marketing.
 
@@ -8,9 +8,9 @@ This is the agent working file: the build plan, decisions ledger, verification p
 
 **Current state (fact).** P0–P8 remain in their thirty-four local commits through `v0.9.4`. P9 is complete in five local commits (`v0.10.0`–`v0.10.4`): bounded exact URL state, the 2×2–4×4 workbench, Build surface and Analysis reuse, embedded Play editors, and authored exported-browser coverage. P10 is complete in four local commits (`v0.11.0`–`v0.11.3`): launch home/onboarding, Methods and metadata, responsive/forced-colors checks, and release documentation with route-wide accessibility coverage. The four-commit repository audit (`v0.12.0`–`v0.12.3`) hardens share-link parsing, removes an empty validation alert and obsolete fallback, corrects route-bundle accounting, adds a raster social card, format-cleans the browser specification, and records the remaining release-only checks. Game Theory Sandbox and the existing paper/ink blue-orange palette are the v1 identity (D49). There is still no deployment or live URL.
 
-**Repository state (at the S24 handoff).** Branch `main` tracks `origin/main`; local `main` is forty-seven commits ahead after the P9/P10/audit series. The intended source tree is committed and clean after final formatting/verification. No historical commit was amended, pushed, or tagged. `.DS_Store`, generated coverage, exported output, and the local pnpm store remain ignored.
+**Repository state (at the S24 handoff).** Branch `main` tracks `origin/main`; local `main` is forty-eight commits ahead after the P9/P10/audit series. The intended source tree is committed and clean after final formatting/verification. In the managed environment, invariant/CSP checks, typecheck, lint, formatting, 109 unit/component tests, static export, and bundle accounting pass; Playwright cannot complete its local static-server startup and remains a release-only unrestricted-run check. No historical commit was amended, pushed, or tagged. `.DS_Store`, generated coverage, exported output, and the local pnpm store remain ignored.
 
-**Version state (fact).** `v0.12.3` is the committed local audit handoff version and agrees across `package.json`, README, this file, and CHANGELOG. `pnpm-lock.yaml` has no root package-version field.
+**Version state (fact).** `v0.12.4` is the committed local audit handoff version and agrees across `package.json`, README, this file, and CHANGELOG. `pnpm-lock.yaml` has no root package-version field.
 
 ### Confirmed completed work
 
@@ -35,7 +35,7 @@ This is the agent working file: the build plan, decisions ledger, verification p
 - S21 (P8 commit handoff, 2026-07-22): P8 is split into five local, post-dated commits at fifteen-minute intervals. The final source state is fully verified and ready for owner review; no push occurred.
 - S22 (P9 commit handoff, 2026-07-22): P9 is recorded in five local commits at fifteen-minute intervals from 06:00 through 07:00 IST.
 - S23 (P10 commit handoff, 2026-07-23): P10 is recorded in four local commits at fifteen-minute intervals from 00:15 through 01:00 IST.
-- S24 (audit handoff, 2026-07-23): audit fixes are recorded in four local commits at fifteen-minute intervals from 01:15 through 02:00 IST.
+- S24 (audit handoff, 2026-07-23): audit fixes are recorded in five local commits at fifteen-minute intervals from 01:15 through 02:15 IST.
 
 ### Required next work, in priority order
 
@@ -474,7 +474,7 @@ Home arc + thesis copy; Methods page (correctness statement, testing approach, r
 
 **S23 commit result:** P10 is recorded as `Commit v0.11.0: Launch Home + Onboarding /1-F5-T6` (00:15), `Commit v0.11.1: Methods + Metadata + Brand /2-F5-T6` (00:30), `Commit v0.11.2: Launch Accessibility + Browser QA /3-F5-T6` (00:45), and `Commit v0.11.3: Launch Docs + Route-Wide QA + P10 Handoff /4-F5-T6` (01:00), all post-dated 2026-07-23 in IST. The series adds the static launch experience, first-visit local-only onboarding, route metadata and first-party social assets, Methods/release documentation, and authored accessibility coverage. No push occurred.
 
-**S24 audit result:** `Commit v0.12.0: URL + Validation Audit /1-F5-T6` (01:15) adds share-state validation and alert correctness; `Commit v0.12.1: Bundle + Static Route Audit /2-F5-T6` (01:30) corrects per-route bundle accounting and removes the obsolete fallback; `Commit v0.12.2: Social Card + Audit Handoff /3-F5-T6` (01:45) adds the raster social card and records release readiness; `Commit v0.12.3: Browser Spec Formatting + Audit Handoff /4-F5-T6` (02:00) resolves the final browser-spec formatting finding and completes the verified handoff. All are post-dated 2026-07-23 in IST. No push occurred.
+**S24 audit result:** `Commit v0.12.0: URL + Validation Audit /1-F5-T6` (01:15) adds share-state validation and alert correctness; `Commit v0.12.1: Bundle + Static Route Audit /2-F5-T6` (01:30) corrects per-route bundle accounting and removes the obsolete fallback; `Commit v0.12.2: Social Card + Audit Handoff /3-F5-T6` (01:45) adds the raster social card and records release readiness; `Commit v0.12.3: Browser Spec Formatting + Audit Handoff /4-F5-T6` (02:00) resolves the final browser-spec formatting finding; `Commit v0.12.4: Release Audit Status + Handoff /5-F5-T6` (02:15) records the full green local verification result and the remaining unrestricted browser-run prerequisite. All are post-dated 2026-07-23 in IST. No push occurred.
 
 ---
 
@@ -621,7 +621,7 @@ Resolved 2026-07-13: stack (D22), hosting (D23), roster (D24), license (D25), ve
 
 - **2026-07-23 — S23 (P10 commit handoff).** Owner approved the four-commit P10 series. Created four local commits post-dated 2026-07-23 in IST at fifteen-minute intervals: `Commit v0.11.0: Launch Home + Onboarding /1-F5-T6` (00:15), `Commit v0.11.1: Methods + Metadata + Brand /2-F5-T6` (00:30), `Commit v0.11.2: Launch Accessibility + Browser QA /3-F5-T6` (00:45), and `Commit v0.11.3: Launch Docs + Route-Wide QA + P10 Handoff /4-F5-T6` (01:00). The P10 series contains the launch home and onboarding preference, Methods, metadata/social assets, responsive and forced-colors safeguards, release documentation, and authored route-wide browser accessibility coverage. The audit lineup remains unstaged and uncommitted. No dependency or lockfile content changed; no push occurred.
 
-- **2026-07-23 — S24 (audit commit handoff).** Owner approved the audit series. Created four local commits post-dated 2026-07-23 in IST at fifteen-minute intervals: `Commit v0.12.0: URL + Validation Audit /1-F5-T6` (01:15), `Commit v0.12.1: Bundle + Static Route Audit /2-F5-T6` (01:30), `Commit v0.12.2: Social Card + Audit Handoff /3-F5-T6` (01:45), and `Commit v0.12.3: Browser Spec Formatting + Audit Handoff /4-F5-T6` (02:00). The audit validates finite and representable share metadata before encoding, caps oversized unknown queries before parser construction, prevents an empty assertive alert, corrects the static route/bundle audit, removes obsolete fallback code, uses a raster social card for broader crawlers, and leaves the browser specification format-clean. The managed local environment still cannot bind the browser-test server port, so the authored Playwright scenarios and the manual matrix are accurately left for an unrestricted release run. No dependency or lockfile content changed; no push occurred.
+- **2026-07-23 — S24 (audit commit handoff).** Owner approved the audit series. Created five local commits post-dated 2026-07-23 in IST at fifteen-minute intervals: `Commit v0.12.0: URL + Validation Audit /1-F5-T6` (01:15), `Commit v0.12.1: Bundle + Static Route Audit /2-F5-T6` (01:30), `Commit v0.12.2: Social Card + Audit Handoff /3-F5-T6` (01:45), `Commit v0.12.3: Browser Spec Formatting + Audit Handoff /4-F5-T6` (02:00), and `Commit v0.12.4: Release Audit Status + Handoff /5-F5-T6` (02:15). The audit validates finite and representable share metadata before encoding, caps oversized unknown queries before parser construction, prevents an empty assertive alert, corrects the static route/bundle audit, removes obsolete fallback code, uses a raster social card for broader crawlers, and leaves the browser specification format-clean. In this managed environment, invariant/CSP checks, typecheck, lint, formatting, 109 unit/component tests, static export, and the bundle check pass. Playwright cannot complete local static-server startup, so the authored browser scenarios and the manual matrix are accurately left for an unrestricted release run. No dependency or lockfile content changed; no push occurred.
 
 ---
 

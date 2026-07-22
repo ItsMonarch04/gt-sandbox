@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.12.4 — 2026-07-23
+
+- Record the final verification outcome and clarify the release-only browser-run status.
+
 ## v0.12.3 — 2026-07-23
 
 - Format the launch browser specification and complete the verified audit handoff.
