@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.11.1 — 2026-07-23
+
+- Add the Methods route, route-level metadata, and first-party icon and social-card assets.
+
 ## v0.11.0 — 2026-07-23
 
 - Add the launch home arc, first-visit onboarding preference, and foundation launch styling.
