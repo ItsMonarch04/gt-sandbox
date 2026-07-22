@@ -1,16 +1,16 @@
 # CONTEXT.md — Working Handoff
 
-**Project:** gt-sandbox (Game Theory Sandbox) · **Version:** v0.10.4 · **Updated:** 2026-07-22
+**Project:** gt-sandbox (Game Theory Sandbox) · **Version:** v0.11.3 · **Updated:** 2026-07-23
 
 This is the agent working file: the build plan, decisions ledger, verification protocol, and session log. It is deliberately separate from `README.md` (public-facing). README never gains agent instructions; CONTEXT never becomes marketing.
 
-## Current handoff snapshot — S22, 2026-07-22 (P9 committed locally; P10 and audit work remain in the working tree)
+## Current handoff snapshot — S23, 2026-07-23 (P9/P10 committed locally; audit work remains in the working tree)
 
-**Current state (fact).** P0–P8 remain in their thirty-four local commits through `v0.9.4`. P9 is now complete in five local commits (`v0.10.0`–`v0.10.4`): bounded exact URL state, the 2×2–4×4 workbench, Build surface and Analysis drawer reuse, embedded Play editors, and authored exported-browser coverage. P10 launch work and the repository-audit fixes remain uncommitted in the working tree. Game Theory Sandbox and the existing paper/ink blue-orange palette are the v1 identity (D49). There is still no deployment or live URL.
+**Current state (fact).** P0–P8 remain in their thirty-four local commits through `v0.9.4`. P9 is complete in five local commits (`v0.10.0`–`v0.10.4`): bounded exact URL state, the 2×2–4×4 workbench, Build surface and Analysis reuse, embedded Play editors, and authored exported-browser coverage. P10 is complete in four local commits (`v0.11.0`–`v0.11.3`): launch home/onboarding, Methods and metadata, responsive/forced-colors checks, and release documentation with route-wide accessibility coverage. Repository-audit fixes remain uncommitted in the working tree. Game Theory Sandbox and the existing paper/ink blue-orange palette are the v1 identity (D49). There is still no deployment or live URL.
 
-**Repository state (at the S22 handoff).** Branch `main` tracks `origin/main`; local `main` is thirty-nine commits ahead after the five P9 commits. P10 implementation and audit fixes are intentionally unstaged and uncommitted. No historical commit was amended, pushed, or tagged. `.DS_Store`, generated coverage, exported output, and the local pnpm store remain ignored.
+**Repository state (at the S23 handoff).** Branch `main` tracks `origin/main`; local `main` is forty-three commits ahead after the P9/P10 series. Repository-audit fixes are intentionally unstaged and uncommitted. No historical commit was amended, pushed, or tagged. `.DS_Store`, generated coverage, exported output, and the local pnpm store remain ignored.
 
-**Version state (fact).** `v0.10.4` is the committed local P9 handoff version and agrees across `package.json`, README, this file, and CHANGELOG. `pnpm-lock.yaml` has no root package-version field. P10 begins at `v0.11.0` when its first approved commit is created.
+**Version state (fact).** `v0.11.3` is the committed local P10 handoff version and agrees across `package.json`, README, this file, and CHANGELOG. `pnpm-lock.yaml` has no root package-version field. The audit lineup begins at `v0.12.0`.
 
 ### Confirmed completed work
 
@@ -33,27 +33,27 @@ This is the agent working file: the build plan, decisions ledger, verification p
 - S19 (P7 commit handoff, 2026-07-21): P7 is split into three local, post-dated commits at fifteen-minute intervals. The final source state is fully verified and ready for owner review; no push occurred.
 - S20 (P8 build, 2026-07-21): the deterministic IPD evolution engine, reviewed preset-fixture corpus, bounded URL state, accessible chart/table surface, and exported-browser acceptance are implemented and fully verified in the working tree. They are intentionally uncommitted and unpushed pending owner review.
 - S21 (P8 commit handoff, 2026-07-22): P8 is split into five local, post-dated commits at fifteen-minute intervals. The final source state is fully verified and ready for owner review; no push occurred.
-- S22 (P9 commit handoff, 2026-07-22): P9 is recorded in five local commits at fifteen-minute intervals from 06:00 through 07:00 IST. The P10 and audit work remains unstaged and uncommitted for the next commit series.
+- S22 (P9 commit handoff, 2026-07-22): P9 is recorded in five local commits at fifteen-minute intervals from 06:00 through 07:00 IST.
+- S23 (P10 commit handoff, 2026-07-23): P10 is recorded in four local commits at fifteen-minute intervals from 00:15 through 01:00 IST. The audit work remains unstaged and uncommitted for the next commit series.
 
 ### Required next work, in priority order
 
 | Priority | Required work                         | Blocker                 | Owner action                                                                  |
 | -------- | ------------------------------------- | ----------------------- | ----------------------------------------------------------------------------- |
-| 1        | P10 launch implementation (§6)        | P9 handoff is complete  | Review the P9 series; approve the next post-dated commit sequence if desired. |
-| 2        | Repository audit handoff              | P10 implementation      | Review the P10 series and its audit findings.                                 |
-| 3        | Push reviewed work and connect Vercel | Explicit push approval  | Approve the reviewed series, push `main`, then connect the repository.        |
-| 4        | Release checks and v1.0.0             | Deployment and live URL | Complete the owner/manual/production checklist after deployment.              |
+| 1        | Repository audit handoff              | P10 handoff is complete | Review the audit series and its findings.                                     |
+| 2        | Push reviewed work and connect Vercel | Explicit push approval  | Approve the reviewed series, push `main`, then connect the repository.        |
+| 3        | Release checks and v1.0.0             | Deployment and live URL | Complete the owner/manual/production checklist after deployment.              |
 
 ### Verified bugs/backlog vs. optional ideas
 
 - **Verified implementation bugs:** none are committed in the P9 series. The uncommitted repository-audit findings remain separated for the `v0.12.x` audit lineup.
-- **Required backlog:** P10 launch implementation, the final audit lineup, then the owner-controlled release checks.
+- **Required backlog:** the final audit lineup, then the owner-controlled release checks.
 - **Optional-idea disposition (owner, 2026-07-14 — D40):** the hardening subset is folded into the phases (loop state contract §5.2/P2; responsive layout contract §5.5/P8/P9; announcement/focus contracts P8/P9; share-copy confirmation P9; `packageManager` pin P0; manual a11y matrix, privacy/URL-state disclosure, and post-deploy smoke P10). Rejected for v1: post-session next-concept bridge, homepage teaser, CI performance gates, visual-regression specimens. Existing v2/icebox ideas remain in §2.3–§2.4.
 
 ### Active decisions / ignore list
 
 - The append-only decision ledger is §9. Superseded choices (Vite, GitHub Pages as primary host, five-game roster, heuristic degeneracy detection) are history, not current instructions.
-- Do not claim unperformed release checks are complete: P0–P9 are committed locally, while P10, audit, browser/manual, and deployment checks remain pending.
+- Do not claim unperformed release checks are complete: P0–P10 are committed locally, while audit, browser/manual, and deployment checks remain pending.
 - Commit author/committer timestamps are owner-directed metadata (v0.0.1 and v0.0.2 were both deliberately dated at owner request; a push may precede the stamped time). Unusual commit times are not a defect — never flag them as one, and never amend or rewrite existing commits.
 - **Never commit or push unless the owner explicitly asks.** Never stage unrelated or pre-existing work.
 
@@ -466,10 +466,12 @@ Payoff editing on every game page (cells become bounded decimal/fraction inputs;
 
 **S22 commit result:** P9 is recorded as `Commit v0.10.0: Build URL Codec + Bounds /1-F5-T6` (06:00), `Commit v0.10.1: Game Workbench + Analysis /2-F5-T6` (06:15), `Commit v0.10.2: Build Surface + Analysis /3-F5-T6` (06:30), `Commit v0.10.3: Play Route Editors + Integration /4-F5-T6` (06:45), and `Commit v0.10.4: Build Browser Coverage + P9 Handoff /5-F5-T6` (07:00), all post-dated 2026-07-22 in IST. The final source state carries the bounded codec, exact editor, Play integration, and authored browser coverage; no P10 or audit source is staged in this handoff.
 
-### P10 — Ship v1.0.0 (M) — next implementation phase
+### P10 — Ship v1.0.0 (M) — committed locally, awaiting owner review/push
 
 Home arc + thesis copy; Methods page (correctness statement, testing approach, references, prior-art credit to Evolution of Trust, and the privacy/URL-state disclosure — what share URLs encode, the single localStorage key, the no-off-origin-requests guarantee, per I4/D40); first-visit onboarding hint (localStorage); per-route titles + OG via the Next Metadata API + one brand OG image; not-found polish; favicon; full copy edit against §5.6; full a11y audit (axe everywhere + the manual matrix per §5.5/I6/D40: VoiceOver/Safari script through one full session on each surface — a PD session, an Evolve preset, a Build edit — keyboard-only full pass, 320px reflow, 200% zoom, forced-colors spot check; a second screen reader when available); Lighthouse ≥95 across categories; bundle ≤250KB gz per route; README final — live URL, screenshots/GIF, correctness section, and a **"two-minute tour"** for time-poor reviewers (the three killer moments: Pennies-vs-Shark reveal, PD→assurance payoff edit, the noise preset in Evolve); CHANGELOG; tag v1.0.0.
 **Accept:** all of the above as a checklist; owner walkthrough sign-off; `pnpm verify:full` green in CI on the tagged commit; `out/` also deploys unmodified to a non-Vercel, root-mounted static host (portability spot-check, §3.3); post-deploy smoke against the production URL after the owner's launch push (D40): every route serves and renders, one deep link and the 404 path work, the CSP is present with zero violations and zero off-origin requests across a full browse pass, the footer version equals the tag, and one shared Build URL reproduces its game exactly.
+
+**S23 commit result:** P10 is recorded as `Commit v0.11.0: Launch Home + Onboarding /1-F5-T6` (00:15), `Commit v0.11.1: Methods + Metadata + Brand /2-F5-T6` (00:30), `Commit v0.11.2: Launch Accessibility + Browser QA /3-F5-T6` (00:45), and `Commit v0.11.3: Launch Docs + Route-Wide QA + P10 Handoff /4-F5-T6` (01:00), all post-dated 2026-07-23 in IST. The series adds the static launch experience, first-visit local-only onboarding, route metadata and first-party social assets, Methods/release documentation, and authored accessibility coverage. The final audit lineup remains unstaged and uncommitted; no push occurred.
 
 ---
 
@@ -575,7 +577,7 @@ Append-only. When a decision is overturned, the old row stays and points to its 
 ## §10 — Open questions & owner actions
 
 1. **Review P0–P9** — P0–P8 are locally committed in the thirty-four commits recorded through S21; P9 is locally committed in five further commits recorded above. Nothing is pushed.
-2. **Complete P10 and audit commit series.** P10 starts at `v0.11.0` on 2026-07-23 at 00:15 IST; the audit starts at `v0.12.0` at 01:15 IST. Both remain uncommitted at this handoff.
+2. **Complete the audit commit series.** It starts at `v0.12.0` on 2026-07-23 at 01:15 IST; P9/P10 are already committed locally.
 3. **Run release-only checks after code review** — use an unrestricted Node 24 environment for `CI=true pnpm verify:full`, Lighthouse, screenshots, and the portable-host smoke; complete the manual matrix when its documentation is committed.
 4. **Authorize push, deploy, and tag.** Connect Vercel only after review; run the deployment checklist against the live URL before authorizing `v1.0.0`.
 5. Standing reminder: every commit, push, and tag needs explicit owner approval. D49 resolves the v1 product name and accent choice without changing those controls.
@@ -613,7 +615,9 @@ Resolved 2026-07-13: stack (D22), hosting (D23), roster (D24), license (D25), ve
 
 - **2026-07-22 — S21 (P8 commit handoff).** Owner approved a five-commit P8 series after reviewing the proposed split. Created five local commits post-dated 2026-07-22 in IST, fifteen minutes apart: `Commit v0.9.0: Evolution Replicator Core /1-F5-T6` (00:30), `Commit v0.9.1: Evolution Presets + Calibration /2-F5-T6` (00:45), `Commit v0.9.2: Evolution URL State + Reproducibility /3-F5-T6` (01:00), `Commit v0.9.3: Evolution Surface + Controls /4-F5-T6` (01:15), and `Commit v0.9.4: Evolution Browser Acceptance + P8 Handoff /5-F5-T6` (01:30). The final state preserves the prior green `pnpm verify:full` result: 100 tests, 100% engine line coverage, static export, a 211.9 KiB gzip bundle, and twelve exported-site Playwright checks. The local dependency directory was rebuilt from the unchanged lockfile after each package-version bump because pnpm invalidates its ignored workspace links; no tracked dependency or lockfile content changed. The repository is format-clean, locally committed, unstaged, and unpushed. P9 is the next implementation phase only after owner review and push of P0–P8.
 
-- **2026-07-22 — S22 (P9 commit handoff).** Owner approved the five-commit P9 series. Created five local commits post-dated 2026-07-22 in IST at fifteen-minute intervals: `Commit v0.10.0: Build URL Codec + Bounds /1-F5-T6` (06:00), `Commit v0.10.1: Game Workbench + Analysis /2-F5-T6` (06:15), `Commit v0.10.2: Build Surface + Analysis /3-F5-T6` (06:30), `Commit v0.10.3: Play Route Editors + Integration /4-F5-T6` (06:45), and `Commit v0.10.4: Build Browser Coverage + P9 Handoff /5-F5-T6` (07:00). The P9 series contains bounded URL state, the exact editor and reusable analysis, Build and Play integration, and authored exported-browser coverage. P10 launch work and the audit lineup remain unstaged and uncommitted. No dependency or lockfile content changed; no push occurred.
+- **2026-07-22 — S22 (P9 commit handoff).** Owner approved the five-commit P9 series. Created five local commits post-dated 2026-07-22 in IST at fifteen-minute intervals: `Commit v0.10.0: Build URL Codec + Bounds /1-F5-T6` (06:00), `Commit v0.10.1: Game Workbench + Analysis /2-F5-T6` (06:15), `Commit v0.10.2: Build Surface + Analysis /3-F5-T6` (06:30), `Commit v0.10.3: Play Route Editors + Integration /4-F5-T6` (06:45), and `Commit v0.10.4: Build Browser Coverage + P9 Handoff /5-F5-T6` (07:00). The P9 series contains bounded URL state, the exact editor and reusable analysis, Build and Play integration, and authored exported-browser coverage. No dependency or lockfile content changed; no push occurred.
+
+- **2026-07-23 — S23 (P10 commit handoff).** Owner approved the four-commit P10 series. Created four local commits post-dated 2026-07-23 in IST at fifteen-minute intervals: `Commit v0.11.0: Launch Home + Onboarding /1-F5-T6` (00:15), `Commit v0.11.1: Methods + Metadata + Brand /2-F5-T6` (00:30), `Commit v0.11.2: Launch Accessibility + Browser QA /3-F5-T6` (00:45), and `Commit v0.11.3: Launch Docs + Route-Wide QA + P10 Handoff /4-F5-T6` (01:00). The P10 series contains the launch home and onboarding preference, Methods, metadata/social assets, responsive and forced-colors safeguards, release documentation, and authored route-wide browser accessibility coverage. The audit lineup remains unstaged and uncommitted. No dependency or lockfile content changed; no push occurred.
 
 ---
 

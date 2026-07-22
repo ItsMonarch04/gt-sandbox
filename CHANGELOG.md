@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.11.3 — 2026-07-23
+
+- Add release documentation, route-wide accessibility scans, and the P10 handoff.
+
 ## v0.11.2 — 2026-07-23
 
 - Add responsive and forced-colors safeguards with launch-specific browser acceptance coverage.
