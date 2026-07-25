@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.13.1 — 2026-07-26
+
+- Hydrate Play-route sessions from the shared URL on mount: each arena decodes persona (and, for IPD, δ and ε) plus seed and dispatches a validated `hydrate` action, with a Playwright test covering PD persona restore.
+
 ## v0.13.0 — 2026-07-26
 
 - Guard the invariant checker against a missing ripgrep and unify the Math.random scan under `src/`; fix the narrow-viewport Analysis drawer and Build workbench reflow at 320 px and 200 % zoom; add a client-side route error boundary.
