@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.13.3 — 2026-07-26
+
+- Tighten evolution URL decode bounds to `repetitions` 1–20 and `roundCap` 1–1000 with a rejection test, and match evolution presets field-wise so decoded shared URLs resolve back to their preset name.
+
 ## v0.13.2 — 2026-07-26
 
 - Branch the Nash-equilibrium panel on the already-computed degeneracy witness so degenerate games get an equilibria-family disclosure instead of a completeness claim (with a new component test), memoize the drawer's relabeled game and mixed analysis, pluralize the workbench verdict, and document the pareto argument-order.
