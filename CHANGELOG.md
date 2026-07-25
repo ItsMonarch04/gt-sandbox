@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.13.4 — 2026-07-26
+
+- Record the TRIAGE.md handoff: strike Learner from §4.1's PD persona list, add D50–D54 to the ledger, log S25 in §11, synchronize the version surfaces, and remove `TRIAGE.md` now that every finding it enumerates lives in the tree or the ledger.
+
 ## v0.13.3 — 2026-07-26
 
 - Tighten evolution URL decode bounds to `repetitions` 1–20 and `roundCap` 1–1000 with a rejection test, and match evolution presets field-wise so decoded shared URLs resolve back to their preset name.

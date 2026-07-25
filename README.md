@@ -1,6 +1,6 @@
 # Game Theory Sandbox
 
-**Status: v0.13.3 — fourth commit of the triage-fix series. Evolution URL decode bounds are tightened to the shipped envelope, and shared preset URLs now resolve to the preset name instead of "Custom run". Local checks green; nothing has been pushed or deployed.** The complete engineering handoff lives in [CONTEXT.md](CONTEXT.md).
+**Status: v0.13.4 — TRIAGE.md's eleven pre-release findings are now committed across the five-commit `v0.13.0`–`v0.13.4` series on top of the committed `v0.12.4` audit. `CI=true pnpm verify:full` is green: invariant/CSP checks, typecheck, lint, 111 unit tests (99.25 % engine coverage, `solve/` 100 %), static export, 208.1 KiB gzip bundle, seeded invariant self-test, and Playwright 17/17. Nothing has been pushed or deployed.** The complete engineering handoff lives in [CONTEXT.md](CONTEXT.md).
 
 Game theory is usually taught statically: a payoff matrix in a PDF, an equilibrium circled, a definition memorized. Intuition forms in a loop instead—**act, observe, and only then reveal the theory underneath the outcome.**
 
@@ -82,4 +82,4 @@ and the active version surfaces in the same commit. Historical timestamps are
 owner-directed metadata; do not rewrite pushed history.
 
 - **Base Format Version:** 0.12.4
-- **Portfolio Version:** v0.13.3_2026-07-26_04:45:00 (IST)
+- **Portfolio Version:** v0.13.4_2026-07-26_05:00:00 (IST)
