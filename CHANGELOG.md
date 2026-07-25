@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.13.2 — 2026-07-26
+
+- Branch the Nash-equilibrium panel on the already-computed degeneracy witness so degenerate games get an equilibria-family disclosure instead of a completeness claim (with a new component test), memoize the drawer's relabeled game and mixed analysis, pluralize the workbench verdict, and document the pareto argument-order.
+
 ## v0.13.1 — 2026-07-26
 
 - Hydrate Play-route sessions from the shared URL on mount: each arena decodes persona (and, for IPD, δ and ε) plus seed and dispatches a validated `hydrate` action, with a Playwright test covering PD persona restore.
