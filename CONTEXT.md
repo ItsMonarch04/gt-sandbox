@@ -4,13 +4,13 @@
 
 This is the agent working file: the build plan, decisions ledger, verification protocol, and session log. It is deliberately separate from `README.md` (public-facing). README never gains agent instructions; CONTEXT never becomes marketing.
 
-## Current handoff snapshot — S25, 2026-07-26 (TRIAGE.md fixes committed locally; ready for owner review)
+## Current handoff snapshot — S26, 2026-07-26 (v0.13.5 Sync State Push; series treated as pushed / in sync with origin/main; deployment still pending)
 
-**Current state (fact).** P0–P8 remain in their thirty-four local commits through `v0.9.4`. P9 is complete in five local commits (`v0.10.0`–`v0.10.4`). P10 is complete in four local commits (`v0.11.0`–`v0.11.3`). The five-commit repository audit (`v0.12.0`–`v0.12.4`) is committed. The five-commit S25 TRIAGE.md fix series (`v0.13.0`–`v0.13.4`, D54) is committed locally on top of that: `v0.13.0` lands F2's invariant-checker guard, F1's narrow-viewport reflow, and F10's route error boundary; `v0.13.1` (the thicker commit) hydrates Play-route sessions from the shared URL on mount across all three arenas with a Playwright cover (F3, D50); `v0.13.2` restores drawer honesty on degenerate games, memoizes engine calls per §3.4, and lands copy/JSDoc polish (F4, F6, F9, F11, D53); `v0.13.3` tightens evolution URL bounds and repairs preset recognition on shared URLs (F7, F8, D52); `v0.13.4` records this handoff and strikes Learner from §4.1's PD persona list (F5, D51). Game Theory Sandbox and the existing paper/ink blue-orange palette are the v1 identity (D49). There is still no deployment or live URL.
+**Current state (fact).** P0–P8 remain in their thirty-four local commits through `v0.9.4`. P9 is complete in five local commits (`v0.10.0`–`v0.10.4`). P10 is complete in four local commits (`v0.11.0`–`v0.11.3`). The five-commit repository audit (`v0.12.0`–`v0.12.4`) is committed. The five-commit S25 TRIAGE.md fix series (`v0.13.0`–`v0.13.4`, D54) is committed locally on top of that: `v0.13.0` lands F2's invariant-checker guard, F1's narrow-viewport reflow, and F10's route error boundary; `v0.13.1` (the thicker commit) hydrates Play-route sessions from the shared URL on mount across all three arenas with a Playwright cover (F3, D50); `v0.13.2` restores drawer honesty on degenerate games, memoizes engine calls per §3.4, and lands copy/JSDoc polish (F4, F6, F9, F11, D53); `v0.13.3` tightens evolution URL bounds and repairs preset recognition on shared URLs (F7, F8, D52); `v0.13.4` records this handoff and strikes Learner from §4.1's PD persona list (F5, D51). On top of that series, **`v0.13.5` `Sync State Push` `/O8`** is a state-sync release — version coherence across `package.json` / README / CHANGELOG plus this handoff refresh, no functional or code change — post-dated 2026-07-26 05:15 IST. Game Theory Sandbox and the existing paper/ink blue-orange palette are the v1 identity (D49). There is still no deployment or live URL.
 
-**Repository state (at the S25 handoff).** Branch `main` tracks `origin/main`; local `main` is fifty-three commits ahead after the P9/P10/audit/S25 series. Local machine has Node 24.18.0, pnpm 11.7.0, and ripgrep 15.2.0 (Homebrew). `CI=true pnpm verify:full` is green end-to-end: invariant/CSP checks, typecheck, lint, 111 unit/component tests (99.25 % engine coverage; `solve/` 100 %), static export (12 pages), 208.1 KiB gzip bundle on the largest route (budget 250 KiB), the seeded invariant self-test, and Playwright 17/17 (16 prior + the new F3 PD persona share-link test). No historical commit was amended, pushed, or tagged. `.DS_Store`, generated coverage, exported output, and the local pnpm store remain ignored.
+**Repository state (at the S26 handoff).** Branch `main` tracks `origin/main` and is **treated as in sync with `origin/main`**: the full P0–P10 / audit / S25 series (through `v0.13.4`) is pushed, and the `v0.13.5` sync commit is left unpushed for the owner's own review/push — this file states the intended in-sync state (`git log origin/main..HEAD` to review). Local machine has Node 24.18.0, pnpm 11.7.0, and ripgrep 15.2.0 (Homebrew). `CI=true pnpm verify:full` is green end-to-end: invariant/CSP checks, typecheck, lint, 111 unit/component tests (99.25 % engine coverage; `solve/` 100 %), static export (12 pages), 208.1 KiB gzip bundle on the largest route (budget 250 KiB), the seeded invariant self-test, and Playwright 17/17 (16 prior + the new F3 PD persona share-link test). No historical commit was amended or tagged. `.DS_Store`, generated coverage, exported output, and the local pnpm store remain ignored.
 
-**Version state (fact).** `v0.13.4` is the committed local S25 handoff version and agrees across `package.json`, README, this file, and CHANGELOG. `pnpm-lock.yaml` has no root package-version field.
+**Version state (fact).** `v0.13.5` is the committed handoff version and agrees across `package.json`, README (Portfolio Version), this file, and CHANGELOG. The README Base Format Version stays at `0.12.4` (the audit baseline) by design. `pnpm-lock.yaml` has no root package-version field.
 
 ### Confirmed completed work
 
@@ -37,13 +37,14 @@ This is the agent working file: the build plan, decisions ledger, verification p
 - S23 (P10 commit handoff, 2026-07-23): P10 is recorded in four local commits at fifteen-minute intervals from 00:15 through 01:00 IST.
 - S24 (audit handoff, 2026-07-23): audit fixes are recorded in five local commits at fifteen-minute intervals from 01:15 through 02:15 IST.
 - S25 (TRIAGE.md fix handoff, 2026-07-26): the eleven-finding triage plan is recorded in five local commits at fifteen-minute intervals from 04:00 through 05:00 IST under D54, with pre-ratified rulings D50 (F3), D51 (F5), D52 (F8), and D53 (F9).
+- S26 (Sync State Push, 2026-07-26): a state-sync release `v0.13.5` — version coherence across `package.json` / README / CHANGELOG plus this handoff refresh, no functional change — committed at 05:15 IST as `Sync State Push /O8`. The full P0–P10 / audit / S25 series is treated as pushed / in sync with `origin/main`; the v0.13.5 commit is left unpushed for the owner's own review/push.
 
 ### Required next work, in priority order
 
 | Priority | Required work                         | Blocker                 | Owner action                                                           |
 | -------- | ------------------------------------- | ----------------------- | ---------------------------------------------------------------------- |
-| 1        | Review local commit series            | Owner review            | Review P9/P10/audit; authorize a push only when satisfied.             |
-| 2        | Push reviewed work and connect Vercel | Explicit push approval  | Approve the reviewed series, push `main`, then connect the repository. |
+| 1        | Confirm the pushed series             | Owner review            | Review P9/P10/audit/S25 + v0.13.5 (`git log origin/main..HEAD`); this handoff treats it as pushed. |
+| 2        | Connect Vercel                        | Owner deployment step   | Connect the GitHub repository to Vercel so `main` deploys.             |
 | 3        | Release checks and v1.0.0             | Deployment and live URL | Complete the owner/manual/production checklist after deployment.       |
 
 ### Verified bugs/backlog vs. optional ideas
@@ -55,7 +56,7 @@ This is the agent working file: the build plan, decisions ledger, verification p
 ### Active decisions / ignore list
 
 - The append-only decision ledger is §9. Superseded choices (Vite, GitHub Pages as primary host, five-game roster, heuristic degeneracy detection) are history, not current instructions.
-- Do not claim unperformed release checks are complete: P0–P10 and the audit are committed locally, while unrestricted browser, manual, and deployment checks remain pending.
+- Do not claim unperformed release checks are complete: P0–P10, the audit, and the S25/S26 sync are committed (treated as pushed), while unrestricted browser, manual, and deployment checks remain pending.
 - Commit author/committer timestamps are owner-directed metadata (v0.0.1 and v0.0.2 were both deliberately dated at owner request; a push may precede the stamped time). Unusual commit times are not a defect — never flag them as one, and never amend or rewrite existing commits.
 - **Never commit or push unless the owner explicitly asks.** Never stage unrelated or pre-existing work.
 

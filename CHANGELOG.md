@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.13.5 — 2026-07-26
+
+- State sync: bump the Portfolio Version marker to `v0.13.5` across `package.json`, README, and this changelog, and refresh the `CONTEXT.md` handoff to the pushed, in-sync `origin/main` state. No functional change.
+
 ## v0.13.4 — 2026-07-26
 
 - Record the TRIAGE.md handoff: strike Learner from §4.1's PD persona list, add D50–D54 to the ledger, log S25 in §11, synchronize the version surfaces, and remove `TRIAGE.md` now that every finding it enumerates lives in the tree or the ledger.
