@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.13.0 — 2026-07-26
+
+- Guard the invariant checker against a missing ripgrep and unify the Math.random scan under `src/`; fix the narrow-viewport Analysis drawer and Build workbench reflow at 320 px and 200 % zoom; add a client-side route error boundary.
+
 ## v0.12.4 — 2026-07-23
 
 - Record the final verification outcome and clarify the release-only browser-run status.

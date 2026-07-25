@@ -1,6 +1,6 @@
 # Game Theory Sandbox
 
-**Status: v0.12.4 — P9/P10 and the full deployment-readiness audit are committed locally, format-clean, and build-verified. Nothing has been pushed or deployed.** The complete engineering handoff lives in [CONTEXT.md](CONTEXT.md).
+**Status: v0.13.0 — first commit of the five-commit triage-fix series on top of `v0.12.4`. This commit lands F2's invariant-checker rg guard, F1's narrow-viewport reflow for the Analysis drawer and workbench, and F10's route error boundary. Local checks green; nothing has been pushed or deployed.** The complete engineering handoff lives in [CONTEXT.md](CONTEXT.md).
 
 Game theory is usually taught statically: a payoff matrix in a PDF, an equilibrium circled, a definition memorized. Intuition forms in a loop instead—**act, observe, and only then reveal the theory underneath the outcome.**
 
@@ -82,4 +82,4 @@ and the active version surfaces in the same commit. Historical timestamps are
 owner-directed metadata; do not rewrite pushed history.
 
 - **Base Format Version:** 0.12.4
-- **Portfolio Version:** v0.12.4_2026-07-23_02:15:00 (IST)
+- **Portfolio Version:** v0.13.0_2026-07-26_04:00:00 (IST)
