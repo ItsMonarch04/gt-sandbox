@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.14.2 — 2026-08-02
+
+- Add the hot-seat arena UI with handover concealment, keyboard flow, analysis perspective, and prerendered `/hot-seat/[game]` routes.
+
 ## v0.14.1 — 2026-08-02
 
 - Add the hot-seat session reducer (commit-and-conceal phases) and authored content for the five 2×2 hot-seat games.
