@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.14.3 — 2026-08-02
+
+- Add an exact folk-theorem engine for 2×2 games: feasible payoff hull, mixed-strategy minimax values, and grim-trigger discount thresholds.
+
 ## v0.14.2 — 2026-08-02
 
 - Add the hot-seat arena UI with handover concealment, keyboard flow, analysis perspective, and prerendered `/hot-seat/[game]` routes.
