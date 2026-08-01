@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.14.1 — 2026-08-02
+
+- Add the hot-seat session reducer (commit-and-conceal phases) and authored content for the five 2×2 hot-seat games.
+
 ## v0.14.0 — 2026-08-02
 
 - Add the versioned `gt-sandbox/session` export schema and unit tests shared by hot-seat, iterated, auction, and classroom surfaces.
