@@ -1,6 +1,6 @@
 # Game Theory Sandbox
 
-**Status: v0.14.3 — folk-theorem engine (`/4-F5-O8`). App not yet deployed.** The complete engineering handoff lives in [CONTEXT.md](CONTEXT.md).
+**Status: v0.14.4 — iterated-game engine (`/5-F5-O8`). App not yet deployed.** The complete engineering handoff lives in [CONTEXT.md](CONTEXT.md).
 
 Game theory is usually taught statically: a payoff matrix in a PDF, an equilibrium circled, a definition memorized. Intuition forms in a loop instead—**act, observe, and only then reveal the theory underneath the outcome.**
 
@@ -82,4 +82,4 @@ and the active version surfaces in the same commit. Historical timestamps are
 owner-directed metadata; do not rewrite pushed history.
 
 - **Base Format Version:** 0.12.4
-- **Portfolio Version:** v0.14.3_2026-08-02_01:00:00 (IST)
+- **Portfolio Version:** v0.14.4_2026-08-02_01:15:00 (IST)

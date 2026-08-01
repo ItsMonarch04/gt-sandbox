@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.14.4 — 2026-08-02
+
+- Generalize iterated play beyond IPD via a Cooperate/Defect symbol space with per-game action maps and mean-payoff Pavlov aspiration.
+
 ## v0.14.3 — 2026-08-02
 
 - Add an exact folk-theorem engine for 2×2 games: feasible payoff hull, mixed-strategy minimax values, and grim-trigger discount thresholds.
