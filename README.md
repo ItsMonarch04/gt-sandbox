@@ -1,6 +1,6 @@
 # Game Theory Sandbox
 
-**Status: v0.13.5 — TRIAGE.md's eleven pre-release findings are committed across the five-commit `v0.13.0`–`v0.13.4` series on top of the committed `v0.12.4` audit, followed by the `v0.13.5` `Sync State Push` state-sync commit (version coherence + handoff refresh, no functional change). `CI=true pnpm verify:full` is green: invariant/CSP checks, typecheck, lint, 111 unit tests (99.25 % engine coverage, `solve/` 100 %), static export, 208.1 KiB gzip bundle, seeded invariant self-test, and Playwright 17/17. The series is pushed to `origin/main`; the app is not yet deployed.** The complete engineering handoff lives in [CONTEXT.md](CONTEXT.md).
+**Status: v0.14.0 — additional features series begins: session-export schema landed (`/1-F5-O8`). App not yet deployed.** The complete engineering handoff lives in [CONTEXT.md](CONTEXT.md).
 
 Game theory is usually taught statically: a payoff matrix in a PDF, an equilibrium circled, a definition memorized. Intuition forms in a loop instead—**act, observe, and only then reveal the theory underneath the outcome.**
 
@@ -82,4 +82,4 @@ and the active version surfaces in the same commit. Historical timestamps are
 owner-directed metadata; do not rewrite pushed history.
 
 - **Base Format Version:** 0.12.4
-- **Portfolio Version:** v0.13.5_2026-07-26_05:15:00 (IST)
+- **Portfolio Version:** v0.14.0_2026-08-02_00:15:00 (IST)

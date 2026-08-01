@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.14.0 — 2026-08-02
+
+- Add the versioned `gt-sandbox/session` export schema and unit tests shared by hot-seat, iterated, auction, and classroom surfaces.
+
 ## v0.13.5 — 2026-07-26
 
 - State sync: bump the Portfolio Version marker to `v0.13.5` across `package.json`, README, and this changelog, and refresh the `CONTEXT.md` handoff to the pushed, in-sync `origin/main` state. No functional change.
