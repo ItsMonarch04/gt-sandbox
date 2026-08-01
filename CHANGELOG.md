@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.14.5 — 2026-08-02
+
+- Add the `/repeat` surface with folk-theorem region visualization, strategy controls, authored content, and component tests.
+
 ## v0.14.4 — 2026-08-02
 
 - Generalize iterated play beyond IPD via a Cooperate/Defect symbol space with per-game action maps and mean-payoff Pavlov aspiration.
