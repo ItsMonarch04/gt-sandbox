@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.14.7 — 2026-08-03
+
+- Add exact common-value winner's-curse analysis and the auction engine unit suite.
+
 ## v0.14.6 — 2026-08-03
 
 - Add the private-value auction engine core and an exact second-price weak-dominance demonstration with strictly better witnesses.
