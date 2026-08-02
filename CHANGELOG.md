@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.14.6 — 2026-08-03
+
+- Add the private-value auction engine core and an exact second-price weak-dominance demonstration with strictly better witnesses.
+
 ## v0.14.5 — 2026-08-02
 
 - Add the `/repeat` surface with folk-theorem region visualization, strategy controls, authored content, and component tests.

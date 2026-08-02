@@ -1,6 +1,6 @@
 # Game Theory Sandbox
 
-**Status: v0.14.5 — repeat surface + content (`/6-F5-O8`). App not yet deployed.** The complete engineering handoff lives in [CONTEXT.md](CONTEXT.md).
+**Status: v0.14.6 — auction engine core + second-price dominance (`/7-F5-O8`). App not yet deployed.** The complete engineering handoff lives in [CONTEXT.md](CONTEXT.md).
 
 Game theory is usually taught statically: a payoff matrix in a PDF, an equilibrium circled, a definition memorized. Intuition forms in a loop instead—**act, observe, and only then reveal the theory underneath the outcome.**
 
@@ -82,4 +82,4 @@ and the active version surfaces in the same commit. Historical timestamps are
 owner-directed metadata; do not rewrite pushed history.
 
 - **Base Format Version:** 0.12.4
-- **Portfolio Version:** v0.14.5_2026-08-02_01:30:00 (IST)
+- **Portfolio Version:** v0.14.6_2026-08-03_00:30:00 (IST)
