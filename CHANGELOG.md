@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.14.9 — 2026-08-03
+
+- Add the auction play surface with format-specific reveals and prerendered `/auctions/[format]` routes.
+
 ## v0.14.8 — 2026-08-03
 
 - Add the auction session reducer with persona selection and authored content for the three auction formats.
