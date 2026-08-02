@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.14.8 — 2026-08-03
+
+- Add the auction session reducer with persona selection and authored content for the three auction formats.
+
 ## v0.14.7 — 2026-08-03
 
 - Add exact common-value winner's-curse analysis and the auction engine unit suite.
