@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.14.11 — 2026-08-05
+
+- Add classroom unit coverage and the classroom experience UI for building assignment links and aggregating local session files.
+
 ## v0.14.10 — 2026-08-05
 
 - Add pure classroom aggregation helpers and the assignment-link builder that reuses the existing game URL codec.
