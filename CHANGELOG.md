@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.14.12 — 2026-08-05
+
+- Add the `/classroom` route and component tests for assignment-link generation and local file aggregation.
+
 ## v0.14.11 — 2026-08-05
 
 - Add classroom unit coverage and the classroom experience UI for building assignment links and aggregating local session files.
