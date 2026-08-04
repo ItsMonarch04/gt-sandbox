@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.14.10 — 2026-08-05
+
+- Add pure classroom aggregation helpers and the assignment-link builder that reuses the existing game URL codec.
+
 ## v0.14.9 — 2026-08-03
 
 - Add the auction play surface with format-specific reveals and prerendered `/auctions/[format]` routes.
