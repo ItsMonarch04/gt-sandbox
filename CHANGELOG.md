@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.14.13 — 2026-08-06
+
+- Surface Repeat, Auctions, and Classroom in the primary nav and expand the home suggested path from eight to twelve stops.
+
 ## v0.14.12 — 2026-08-05
 
 - Add the `/classroom` route and component tests for assignment-link generation and local file aggregation.
