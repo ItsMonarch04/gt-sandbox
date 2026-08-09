@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.15.0 — 2026-08-10
+
+- Sync external-action handoff: collate remaining owner-action items at the end of CONTEXT.md, align deployment/a11y checklists with the new surfaces, and bump version surfaces. No application-code change.
+
 ## v0.14.14 — 2026-08-10
 
 - Add glossary terms and styles for the new surfaces, extend Playwright coverage across the new routes, and record the additional-features handoff plus owner-review list in CONTEXT.md.

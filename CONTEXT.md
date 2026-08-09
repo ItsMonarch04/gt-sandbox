@@ -1,25 +1,26 @@
 # CONTEXT.md — Working Handoff
 
-**Project:** gt-sandbox (Game Theory Sandbox) · **Version:** v0.14.14 · **Updated:** 2026-08-10
+**Project:** gt-sandbox (Game Theory Sandbox) · **Version:** v0.15.0 · **Updated:** 2026-08-10
 
 This is the agent working file: the build plan, decisions ledger, verification protocol, and session log. It is deliberately separate from `README.md` (public-facing). README never gains agent instructions; CONTEXT never becomes marketing.
 
-## Current handoff snapshot — S28, 2026-08-10 (additional features committed as `v0.14.0`–`v0.14.14`; unpushed)
+## Current handoff snapshot — S30, 2026-08-10 (`v0.15.0` External Action Sync; only owner actions remain)
 
-**Current state (fact).** The fifteen-commit additional-features series is locally committed on `main`: `Commit v0.14.0: Session Export Schema /1-F5-O8` through `Commit v0.14.14: Shell Polish + Browser Acceptance + Handoff /15-F5-O8`, post-dated 2026-08-02 → 2026-08-03 → 2026-08-05 → 2026-08-06 → 2026-08-10 (IST). Surfaces landed: hot-seat, generalized repeated play + folk theorem, auctions, classroom kit, shell discoverability. **No push** has occurred. There is still no deployment or live URL. Game Theory Sandbox and the paper/ink blue-orange palette remain the product identity (D49).
+**Current state (fact).** The fifteen-commit additional-features series is on `main`: `Commit v0.14.0: Session Export Schema /1-F5-O8` through `Commit v0.14.14: Shell Polish + Browser Acceptance + Handoff /15-F5-O8`, post-dated 2026-08-02 → 2026-08-03 → 2026-08-05 → 2026-08-06 → 2026-08-10 (IST). Surfaces landed: hot-seat, generalized repeated play + folk theorem, auctions, classroom kit, shell discoverability. `Commit v0.15.0: External Action Sync /O7` (01:00 IST) refreshes handoff docs and collates remaining owner actions at the end of this file. There is still no deployment or live URL. Game Theory Sandbox and the paper/ink blue-orange palette remain the product identity (D49).
 
-**Repository state (fact).** Branch `main` tracks `origin/main`. Through `v0.13.4` is treated as pushed; `v0.13.5` and the full `v0.14.0`–`v0.14.14` series are local until the owner pushes (`git log origin/main..HEAD`). Local machine: Node 24.18.0, pnpm 11.7.0, ripgrep 15.2.0. Pre-commit verification on the feature tree: `pnpm verify` green (161 unit/component tests, 98.02 % engine coverage, `solve/` 100 %), static export **22** pages, largest route **207.5 KiB** gzip (budget 250), invariant/CSP checks green, Playwright **22/22**.
+**Repository state (fact).** Branch `main` tracks `origin/main`. Local machine: Node 24.18.0, pnpm 11.7.0. Re-verified prior to this handoff: `pnpm verify` green (161 unit/component tests, 98.02 % engine coverage, `solve/` 100 %), static export **22** pages, largest route **207.5 KiB** gzip (budget 250), invariant/CSP checks green. Playwright **22/22** remains the last browser acceptance bar (S28).
 
-**Version state (fact).** `v0.14.14` is the committed handoff version and agrees across `package.json`, README (Portfolio Version), this file, and CHANGELOG. The README Base Format Version stays at `0.12.4` by design.
+**Version state (fact).** `v0.15.0` is the committed handoff version and agrees across `package.json`, README (Portfolio Version), this file, and CHANGELOG. The README Base Format Version stays at `0.12.4` by design.
 
 ### Additional features — done vs left
 
-| Status                         | Item                                                                                                                                                                                                          |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Done (code + commits)**      | Hot-seat; session-export; folk theorem + iterate-anything; auctions; classroom kit; nav/home discoverability; glossary; styles; e2e — all in `v0.14.0`–`v0.14.14`.                                            |
-| **Done (verify)**              | Format, `pnpm verify`, build, bundle budget, invariants, Playwright 22/22 — green on the tree before the series.                                                                                              |
-| **Left (owner)**               | Ratify provisional design calls (§13 B); reconcile §2.3 human-vs-human wording with local hot-seat; push `v0.13.5` / `v0.14.x` when ready; connect Vercel; manual release / a11y / classroom smoke (§13 A+C). |
-| **Still deferred (§2.3–§2.4)** | Extensive-form games, n-player, curriculum gating, dark mode, PWA, Moran/ESS, spatial grids, ZD strategies, LLM features, cross-game wallet, icebox items.                                                    |
+| Status                         | Item                                                                                                                                                                              |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Done (code + commits)**      | Hot-seat; session-export; folk theorem + iterate-anything; auctions; classroom kit; nav/home discoverability; glossary; styles; e2e — all in `v0.14.0`–`v0.14.14`.                |
+| **Done (verify)**              | Format, `pnpm verify`, build, bundle budget, invariants — green; Playwright 22/22 on the S28 tree.                                                                                |
+| **Done (docs, agent)**         | §2.3 hot-seat vs networked multiplayer; §5.1 shipped routes; release checklists cover new surfaces; owner-action list collated at end of this file.                               |
+| **Left (owner)**               | See **Owner actions (collated)** at the end of this file — ratify provisional design calls; connect Vercel; manual release / a11y / classroom smoke.                              |
+| **Still deferred (§2.3–§2.4)** | Extensive-form games, n-player, curriculum gating, dark mode, PWA, Moran/ESS, spatial grids, ZD strategies, LLM features, networked multiplayer, cross-game wallet, icebox items. |
 
 ### Confirmed completed work
 
@@ -48,16 +49,13 @@ This is the agent working file: the build plan, decisions ledger, verification p
 - S25 (TRIAGE.md fix handoff, 2026-07-26): the eleven-finding triage plan is recorded in five local commits at fifteen-minute intervals from 04:00 through 05:00 IST under D54, with pre-ratified rulings D50 (F3), D51 (F5), D52 (F8), and D53 (F9).
 - S26 (Sync State Push, 2026-07-26): a state-sync release `v0.13.5` — version coherence across `package.json` / README / CHANGELOG plus this handoff refresh, no functional change — committed at 05:15 IST as `Sync State Push /O8`. The full P0–P10 / audit / S25 series is treated as pushed / in sync with `origin/main`; the v0.13.5 commit is left unpushed for the owner's own review/push.
 - S27 (additional features build, 2026-07-22): four post-v0.13.5 surfaces implemented in the working tree under owner instruction to build fully with **no commits or staging**; verification green; see §14.
-- S28 (additional-features commit handoff, 2026-08-10): owner-authorized fifteen-commit series executed locally — `v0.14.0`–`v0.14.14` / `/1-F5-O8`–`/15-F5-O8`, post-dated Aug 2/3/5/6/10 2026 IST; README/`package.json`/`CHANGELOG` every commit; this file only on the last. Unpushed.
+- S28 (additional-features commit handoff, 2026-08-10): owner-authorized fifteen-commit series executed — `v0.14.0`–`v0.14.14` / `/1-F5-O8`–`/15-F5-O8`, post-dated Aug 2/3/5/6/10 2026 IST; README/`package.json`/`CHANGELOG` every commit; this file only on the last.
+- S29 (status audit, 2026-07-22 / committed as S30): confirmed agent-side code complete; reconciled §2.3; refreshed release checklists.
+- S30 (External Action Sync, 2026-08-10): `Commit v0.15.0: External Action Sync /O7` at 01:00 IST — version sync + collated owner-action section at end of this file.
 
-### Required next work, in priority order
+### Required next work
 
-| Priority | Required work                                     | Blocker               | Owner action                                                                                |
-| -------- | ------------------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------- |
-| 1        | Confirm / push `v0.13.5` and `v0.14.0`–`v0.14.14` | Owner review          | `git log origin/main..HEAD`; push when ready.                                               |
-| 2        | Ratify provisional design calls (§13 B)           | Owner review          | Accept or revise auction/iterated/folk-theorem/hot-seat decisions; fold into §9 if desired. |
-| 3        | Connect Vercel                                    | Owner deployment      | Connect the GitHub repository so `main` deploys.                                            |
-| 4        | Release checks and v1.0.0                         | Deployment + live URL | Complete the owner/manual/production checklist after deployment (see §13).                  |
+Authoritative remaining owner work is collated at the end of this file under **Owner actions (collated)**. Snapshot priority: (1) ratify provisional design calls, (2) connect Vercel, (3) release checks / `v1.0.0` after a live URL.
 
 ### Verified bugs/backlog vs. optional ideas
 
@@ -68,7 +66,7 @@ This is the agent working file: the build plan, decisions ledger, verification p
 ### Active decisions / ignore list
 
 - The append-only decision ledger is §9. Superseded choices (Vite, GitHub Pages as primary host, five-game roster, heuristic degeneracy detection) are history, not current instructions.
-- Do not claim unperformed release checks are complete: P0–P10, the audit, and the S25/S26 sync are committed (treated as pushed), while unrestricted browser, manual, and deployment checks remain pending.
+- Do not claim unperformed release checks are complete: P0–P10, the audit, S25/S26 sync, and the `v0.14.x` series are on `origin/main`, while unrestricted browser (owner AT), manual classroom smoke, and deployment checks remain pending.
 - Commit author/committer timestamps are owner-directed metadata (v0.0.1 and v0.0.2 were both deliberately dated at owner request; a push may precede the stamped time). Unusual commit times are not a defect — never flag them as one, and never amend or rewrite existing commits.
 - **Never commit or push unless the owner explicitly asks.** Never stage unrelated or pre-existing work.
 
@@ -146,7 +144,7 @@ The brief's five modes (Play / Simulate / Understand / Build / Learn) collapse i
 
 - **Extensive-form games** (entry deterrence, ultimatum, backward induction). Requires a second engine and a second visualization idiom (trees); doubles surface area for one more concept. It is the flagship v2 feature — entry deterrence is the single best business-strategy game and deserves a full engine, not a bolt-on. v1 is simultaneous-move normal form only.
 - **n-player games** (public goods, commons) — different engine assumptions (symmetric aggregative payoffs), different UI. v2.
-- **Learn-as-curriculum** with progression gating; **dark mode** (tokens are structured so it's additive); **PWA/offline**; **finite-population (Moran) dynamics & formal ESS checker**; **spatial evolution grids**; **zero-determinant strategies** (great v2 tease for the Methods page); **human-vs-human** (needs a backend — collides with I4).
+- **Learn-as-curriculum** with progression gating; **dark mode** (tokens are structured so it's additive); **PWA/offline**; **finite-population (Moran) dynamics & formal ESS checker**; **spatial evolution grids**; **zero-determinant strategies** (great v2 tease for the Methods page); **networked multiplayer / remote human-vs-human** (needs a backend — collides with I4). Local same-device hot-seat (commit-and-conceal) is shipped and I4-compatible; it is not this deferred item.
 - **Any LLM feature.** Probably never: determinism and authored explanation are the brand.
 - **Cross-game meta-score / wallet.** The brief's "payoffs accumulate" holds _within_ a session; summing utils across different games is game-theoretically meaningless, and experts would wince. Scores are per-session.
 
@@ -354,9 +352,9 @@ Pure function on the ordinal best-response structure of a 2×2 game → one of: 
 
 ### 5.1 Surfaces & routes
 
-`/` home · `/play/[game]` (six slugs, prerendered) · `/evolve` (tabs: Tournament, Evolution) · `/build` (custom game) · `/methods` · not-found.
+`/` home · `/play/[game]` (six slugs, prerendered) · `/evolve` (tabs: Tournament, Evolution) · `/build` (custom game) · `/methods` · `/hot-seat/[game]` (five 2×2 slugs) · `/repeat` · `/auctions/[format]` (first-price, second-price, common-value) · `/classroom` · not-found. Primary nav after Methods: Repeat, Auctions, Classroom (Hot-seat is reached from the home arc).
 
-Home is an ordered arc, not a menu: thesis line, then game cards numbered as a suggested path (PD → Stag Hunt → Battle of the Sexes → Chicken → Pennies → IPD → Evolve → Build). No gating — respect adult users.
+Home is an ordered arc, not a menu: thesis line, then twelve stops (PD → Stag Hunt → Battle of the Sexes → Chicken → Pennies → IPD → Evolve → Build → Repeat → Hot-seat → Auctions → Classroom). No gating — respect adult users.
 
 ### 5.2 Game page anatomy (the three beats on screen)
 
@@ -598,12 +596,11 @@ Append-only. When a decision is overturned, the old row stays and points to its 
 
 ## §10 — Open questions & owner actions
 
-1. **Review P0–P9** — P0–P8 are locally committed in the thirty-four commits recorded through S21; P9 is locally committed in five further commits recorded above. Nothing is pushed.
-2. **Run the release-only checks after review.** Use an unrestricted Node 24 environment for `CI=true pnpm verify:full`, Lighthouse, screenshots, and the portable-host smoke; complete the manual matrix when its documentation is committed.
-3. **Authorize push, deploy, and tag.** Connect Vercel only after review; run the deployment checklist against the live URL before authorizing `v1.0.0`.
-4. Standing reminder: every commit, push, and tag needs explicit owner approval. D49 resolves the v1 product name and accent choice without changing those controls.
+Standing reminder: every commit, push, and tag needs explicit owner approval. D49 resolves the v1 product name and accent choice without changing those controls.
 
-Resolved 2026-07-13: stack (D22), hosting (D23), roster (D24), license (D25), veto process retired (D26). Resolved 2026-07-14: S3 audit reviewed and corrected, optional ideas dispositioned (D40), plan ratified final, v0.0.3 commit authorized.
+**Authoritative remaining owner work** lives at the end of this file under **Owner actions (collated)**. Do not treat this §10 list as a second backlog.
+
+Resolved 2026-07-13: stack (D22), hosting (D23), roster (D24), license (D25), veto process retired (D26). Resolved 2026-07-14: S3 audit reviewed and corrected, optional ideas dispositioned (D40), plan ratified final, v0.0.3 commit authorized. Resolved 2026-07-22 (S29): §2.3 hot-seat vs networked-multiplayer wording reconciled in-docs.
 
 ---
 
@@ -644,7 +641,7 @@ Resolved 2026-07-13: stack (D22), hosting (D23), roster (D24), license (D25), ve
 
 - **2026-07-26 — S25 (TRIAGE.md fix series commit handoff).** Applied the eleven-finding TRIAGE.md plan under the pre-ratified owner rulings (F3 → D50, F5 → D51, F8 → D52, F9 → D53) on the local unrestricted machine (Node 24.18.0, pnpm 11.7.0, ripgrep 15.2.0). Owner authorized the D54 five-commit `v0.13.x` series post-dated 2026-07-26 in IST at fifteen-minute intervals. `Commit v0.13.0: Invariant Guard + Narrow Reflow + Error Boundary /1-F5-T6` (04:00) landed F2's `rg` dependency guard and unified Math.random/Date scan roots in `scripts/check-invariants.sh`, F1's `overflow-wrap: anywhere` on `.analysis-drawer`/`.game-workbench` plus `grid-template-columns: minmax(0, 1fr)` on `.analysis-drawer__panels` in `src/app/globals.css` (with a narrow-media `body { min-width: 0; contain: paint }` addendum because Chromium 141's `body { zoom: 2 }` otherwise doubles `documentElement.scrollWidth` through the body's 320-px `min-width`, blocking the untouched Playwright assertion), and F10's client-side route error boundary at `src/app/error.tsx`. `Commit v0.13.1: Play Share Link Session Hydration /2-F5-T6` (04:15) — the thicker commit — exported `isPersonaForGame`, added `isPdPersonaId`/`isIpdOpponentChoice` type guards, added a `hydrate` action to each of the three session reducers (one-shot, PD, IPD; validators reject unknown persona/opponent IDs; IPD also accepts δ/ε and threads them through `createConfig`/`createIpdSession` including play-again), wired mount-time `decodeGameSearch` + `dispatch({ type: "hydrate", … })` in `OneShotPlayExperience`, `PdPlayExperience`, and `IpdPlayExperience`, and added a Playwright test at `e2e/static-shell.spec.ts` that opens a persona-pinned PD share link and asserts the rival selector reflects the encoded persona. `Commit v0.13.2: Drawer Honesty + Memoization + Copy Polish /3-F5-T6` (04:30) branched `EquilibriaPanel` on the already-computed `mixed.degeneracyWitness` so degenerate games get an equilibria-family disclosure instead of a completeness claim (F4), added a component test at `src/components/analysis/__tests__/analysis-drawer.test.tsx` proving the all-zeros 2×2 renders the disclosure, memoized `displayGame` and `analyzeMixedEquilibria(displayGame)` in `AnalysisDrawer` and threaded `mixed` into `EquilibriaPanel` and `mixed.equilibria[0]` into `YourPlayPanel` per §3.4 (F9), pluralized "pure equilibrium/equilibria" in the workbench verdict (F6), and added argument-order JSDoc warnings to both `paretoDominates` and `strictlyParetoDominates` (F11). `Commit v0.13.3: Evolution URL Bounds + Preset Match /4-F5-T6` (04:45) tightened evolution decode bounds to `repetitions` 1–20 and `roundCap` 1–1000 with a rejection test at r=21 and cap=1001 in `src/state/__tests__/evolution-url.test.ts` (F8) and replaced `presetForConfig`'s `JSON.stringify` compare with a field-wise `sameEvolutionConfig` so decoded shared URLs resolve back to their preset name instead of "Custom run" (F7). `Commit v0.13.4: Triage Handoff /5-F5-T6` (05:00) records this handoff: F5's documentation deviation (§4.1's PD persona line strikes Learner and points to D51), the ledger entries D50–D54, this session log, and the synchronized `v0.13.4` version surfaces; TRIAGE.md was deleted because every finding it enumerates now lives in the tree or the ledger. Final `CI=true pnpm verify:full` is green: invariant/CSP checks, typecheck, lint, 111 unit/component tests (99.25 % engine coverage; `solve/` 100 %), static export (12 pages), 208.1 KiB gzip bundle on the largest route (budget 250 KiB), the seeded invariant self-test, and Playwright 17/17 (16 prior + the new F3 PD share-link test). The five commits are locally created, format-clean, and ready for owner review; no push occurred.
 
-- **2026-07-22 — S27 (additional features build; working tree only, no version bump, no commit).** On the owner's explicit instruction to build the next feature set in full with **no commits or staging**, implemented four additional surfaces on top of `v0.13.5` and left everything unstaged. **This entry supersedes the S26 snapshot's clean-tree assumption.** Modified tracked files: `src/app/page.tsx`, `src/app/layout.tsx`, `src/app/globals.css`, `src/content/glossary.ts`, `src/app/__tests__/shell.test.tsx`, `e2e/static-shell.spec.ts`, and this file. New trees: `src/engine/auction/`, `src/engine/repeated/{folk-theorem,iterated-game}*`, `src/state/{session-export,hot-seat-session,auction-session,classroom,assignment}*`, `src/content/{hot-seat,repeated,auctions}.ts`, `src/components/{arena/hot-seat*,auction,repeat,classroom}/`, routes `src/app/{hot-seat,repeat,auctions,classroom}/`. Provisional design decisions are recorded in §14 and listed for owner review in §13 — not folded into the §9 ledger until ratified.
+- **2026-07-22 — S27 (additional features build; working tree only, no version bump, no commit).** On the owner's explicit instruction to build the next feature set in full with **no commits or staging**, implemented four additional surfaces on top of `v0.13.5` and left everything unstaged. **This entry supersedes the S26 snapshot's clean-tree assumption.** Modified tracked files: `src/app/page.tsx`, `src/app/layout.tsx`, `src/app/globals.css`, `src/content/glossary.ts`, `src/app/__tests__/shell.test.tsx`, `e2e/static-shell.spec.ts`, and this file. New trees: `src/engine/auction/`, `src/engine/repeated/{folk-theorem,iterated-game}*`, `src/state/{session-export,hot-seat-session,auction-session,classroom,assignment}*`, `src/content/{hot-seat,repeated,auctions}.ts`, `src/components/{arena/hot-seat*,auction,repeat,classroom}/`, routes `src/app/{hot-seat,repeat,auctions,classroom}/`. Provisional design decisions are recorded in §14 and listed for owner review in §13 (end of file) — not folded into the §9 ledger until ratified.
   - **Hot-seat (commit-and-conceal).** Shared versioned session-export schema; hot-seat content for five 2×2 games; phase reducer `row-commit → handover → column-commit → reveal → complete`; arena with concealment, keyboard flow, player-perspective analysis, session download; routes `/hot-seat/{pd,stag-hunt,battle-of-the-sexes,chicken,matching-pennies}`.
   - **Iterate-anything + folk theorem.** Exact feasible-payoff hull, mixed-strategy minimax values, grim-trigger δ thresholds; generalized C/D strategy engine with per-game action maps; `/repeat` SVG region + table fallback; glossary terms `folk-theorem`, `individually-rational`, `minimax`, `winners-curse`.
   - **Auctions.** Dedicated bounded-grid `engine/auction/` (not the 4×4 NFG solver): first-price shading, second-price weak-dominance witnesses, common-value winner's-curse expectations; session + personas; `/auctions/{first-price,second-price,common-value}`.
@@ -653,6 +650,10 @@ Resolved 2026-07-13: stack (D22), hosting (D23), roster (D24), license (D25), ve
   - **Verification.** `pnpm verify` green (161 tests, 98.02 % engine coverage); build 22 pages; bundle 207.5 KiB gzip; invariants green; Playwright 22/22. Version surfaces remain `v0.13.5`; no staging/commit/tag/push.
 
 - **2026-07-22 — S28 (additional-features commit plan prepared; executed 2026-08-10).** Owner directed a fifteen-commit series starting at `v0.14.0`, tag stem `/N-F5-O8`, README/`package.json`/`CHANGELOG` every commit, `CONTEXT.md` only on the last; Day 1 starts 00:15 IST; glossary/styles + browser acceptance + handoff merged into the final commit. Series executed locally as `v0.14.0`–`v0.14.14` on post-dates 2026-08-02, 2026-08-03, 2026-08-05, 2026-08-06, and 2026-08-10 IST. **No push.**
+
+- **2026-07-22 — S29 (status audit; docs prepared for S30).** Owner asked to confirm only owner actions remain. Verified: `v0.14.14` tree complete; all four additional-feature surfaces present with tests; `pnpm verify` green (161 tests, 98.02 % engine coverage); static export 22 pages / 207.5 KiB gzip. No code/TODO gaps found. Reconciled §2.3 hot-seat vs networked multiplayer, refreshed §5.1 routes, and pointed release checklists at the new surfaces.
+
+- **2026-08-10 — S30 (External Action Sync).** `Commit v0.15.0: External Action Sync /O7`, post-dated 2026-08-10 at 01:00 IST (author and committer). Bumps `package.json` / README Portfolio Version / CHANGELOG / this file to `v0.15.0`; collates remaining owner-action items into a single end-of-file section; keeps deployment checklists aligned with the new surfaces. No application-code change.
 
 ---
 
@@ -669,37 +670,6 @@ Resolved 2026-07-13: stack (D22), hosting (D23), roster (D24), license (D25), ve
 
 ---
 
-## §13 — Owner review list (human actions)
-
-Collated from the S26 handoff, §2.3 deferred-scope notes, S27 provisional decisions, and S28 commit-plan direction. Nothing below is a code defect the agent can finish alone. Agent-side code/build/test is complete (S27) and the `v0.14.x` series is committed locally (S28). This list is what remains for you. Prior owner instructions that still apply: keep I4 (static/silent); never push without an explicit ask; treat commit timestamps as owner-directed metadata; leave §2.3–§2.4 deferrals alone unless you expand scope.
-
-### A — Release / deployment (still open)
-
-1. **Confirm the pushed series.** `git log origin/main..HEAD` — expect at least `v0.13.5` until you push; after the `v0.14.x` series, expect those commits too until pushed.
-2. **Connect Vercel to the GitHub repository.** Production on `main`, preview URLs on PRs; no Vercel-only runtime features (D-023 portability).
-3. **Complete the owner/manual/production release checklist for v1.0.0.** Live URL required: SR spot pass (now 22 routes), forced-colors, reduced-motion, a11y audit record, analytics/metadata smoke, LICENSE/README/Methods read-through.
-
-### B — Additional-features tree (S27/S28) — remaining decisions
-
-4. **~~Authorize the fifteen-commit series~~ — done locally.** `v0.14.0`–`v0.14.14` / `/1-F5-O8`–`/15-F5-O8` are on `main` unpushed. Remaining: push when ready; optionally fold provisional decisions into the §9 ledger.
-5. **Ratify or revise the four provisional design decisions** (not yet §9 ledger entries):
-   1. Auctions in a dedicated bounded discrete-grid module (`src/engine/auction/`), not the 4×4 NFG solver.
-   2. Iterated play via Cooperate/Defect symbol space + mean-payoff Pavlov aspiration.
-   3. Folk-theorem IR region uses **mixed-strategy** minimax (exact), not pure-strategy minimax.
-   4. Explicit caveats where “cooperation” is not the natural lesson (e.g. Matching Pennies on `/repeat`).
-6. **Reconcile §2.3 “human-vs-human needs a backend” with hot-seat.** Local same-device commit-and-conceal is I4-compatible; networked multiplayer can remain deferred if you say so in §2.3 copy.
-7. **Scope acceptance.** Shipped in-tree: hot-seat, iterate-anything + folk theorem, auctions, classroom kit, discoverability. Still deferred: extensive-form, n-player, curriculum gating, dark mode, PWA, Moran/ESS, spatial grids, ZD, LLM, cross-game wallet, §2.4 icebox.
-
-### C — Post-commit / post-deploy checks that stay human
-
-8. **Manual a11y spot pass on new routes:** `/hot-seat/*`, `/repeat/`, `/auctions/*`, `/classroom/`.
-9. **Classroom workflow smoke:** assignment link → second profile play → session JSON → `/classroom` ingest → CSV.
-10. **Copy / framing read-through** on new surfaces and the home “twelve stops” path.
-
-Items 1–3 and 8–10 gate the live URL / v1.0.0 tag. Items 4–7 gate turning the working tree into the authorized commit series. Re-verify whenever those decisions change.
-
----
-
 ## §14 — Additional features plan (post-v0.13.5)
 
 Condensed build contract for the four surfaces added after the v1 P0–P10 / audit / triage line. This is **not** a separate product version label in-repo; it is additive scope on the same static app, same invariants (I1–I7).
@@ -711,7 +681,7 @@ Condensed build contract for the four surfaces added after the v1 P0–P10 / aud
 3. **Auction formats** that teach shading, truthful dominance, and the winner’s curse under exact rational arithmetic on a bounded grid.
 4. **Classroom kit** that stays fully local: shareable assignment URLs + JSON/CSV file exchange only.
 
-### 14.2 Architecture choices (provisional until §13 B ratification)
+### 14.2 Architecture choices (provisional until Owner actions § B ratification)
 
 | Choice                                  | Rationale                                                                                                                                    |
 | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -738,3 +708,40 @@ Each commit bumps `package.json`, README Portfolio Version, and CHANGELOG. No pu
 ### 14.4 Verification bar (met on the working tree before commit)
 
 `pnpm format` clean · `pnpm verify` (invariants, CSP, typecheck, lint, coverage ≥ 95 %) · `pnpm build` (22 static pages) · `pnpm bundle:check` · `pnpm test:invariants` · Playwright 22/22 against `serve:export`.
+
+---
+
+## §13 — Owner actions (collated)
+
+Authoritative remaining human work. Agent-side code/build/test is complete through `v0.14.14`; `v0.15.0` is docs/handoff only. Nothing below is a code defect the agent can finish alone. Standing rules: keep I4 (static/silent); never commit or push without an explicit ask; treat commit timestamps as owner-directed metadata; leave §2.3–§2.4 deferrals alone unless you expand scope.
+
+### A — Release / deployment
+
+1. **Connect Vercel to the GitHub repository.** Production on `main`, preview URLs on PRs; no Vercel-only runtime features (D23 portability).
+2. **Complete the owner/manual/production release checklist for v1.0.0.** Live URL required. Follow `docs/DEPLOYMENT-CHECKLIST.md` and `docs/ACCESSIBILITY-AUDIT.md` (22 routes, including `/hot-seat/*`, `/repeat/`, `/auctions/*`, `/classroom/`).
+3. **Authorize the `v1.0.0` tag** only after deployment smoke passes.
+
+### B — Provisional design decisions (ratify or revise)
+
+Not yet §9 ledger entries — accept as-shipped or revise:
+
+1. Auctions in a dedicated bounded discrete-grid module (`src/engine/auction/`), not the 4×4 NFG solver.
+2. Iterated play via Cooperate/Defect symbol space + mean-payoff Pavlov aspiration.
+3. Folk-theorem IR region uses **mixed-strategy** minimax (exact), not pure-strategy minimax.
+4. Explicit caveats where “cooperation” is not the natural lesson (e.g. Matching Pennies on `/repeat`).
+
+Optionally fold accepted choices into the §9 ledger after ratification.
+
+### C — Manual smoke / read-through
+
+1. **A11y spot pass** on `/hot-seat/*`, `/repeat/`, `/auctions/*`, `/classroom/`.
+2. **Classroom workflow:** assignment link → second-profile play → session JSON → `/classroom` ingest → CSV.
+3. **Copy / framing read-through** on the new surfaces and the home twelve-stop path.
+
+### Already closed (do not re-open as backlog)
+
+- Additional-features series `v0.14.0`–`v0.14.14` authorized and present on `main`.
+- §2.3 networked-multiplayer vs local hot-seat wording reconciled (S29).
+- Agent-verifiable build/test bar green at handoff.
+
+**Gate summary.** A + C gate the live URL / `v1.0.0` tag. B gates promoting provisional architecture into §9.
