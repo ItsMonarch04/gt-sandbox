@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.14.14 — 2026-08-10
+
+- Add glossary terms and styles for the new surfaces, extend Playwright coverage across the new routes, and record the additional-features handoff plus owner-review list in CONTEXT.md.
+
 ## v0.14.13 — 2026-08-06
 
 - Surface Repeat, Auctions, and Classroom in the primary nav and expand the home suggested path from eight to twelve stops.
