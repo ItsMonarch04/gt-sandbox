@@ -1,12 +1,24 @@
 # CONTEXT.md — Working Handoff
 
-**Project:** gt-sandbox (Game Theory Sandbox) · **Version:** v0.15.0 · **Updated:** 2026-08-10
+## PF-A1 handoff — 2026-08-11 (`v0.16.0` Public-Facing Audit /G4)
+
+**Commit:** `Commit v0.16.0: PF-A1 /G4` at 01:30 IST (post-dated: prior HEAD date +1 day, time +30 min).
+
+**What changed:** Public-facing audit PF-A1: OSS package metadata, public README without agent instructions, CONTEXT/README version sync. Functional product unchanged.
+
+**Version state:** `v0.16.0` agrees across `package.json`, lockfile root (where present), README status/release markers, and this file. Prior handoff was `v0.15.0`.
+
+**Working tree intent:** public-readiness hygiene only; no product-math / feature changes in this commit.
+
+---
+
+**Project:** gt-sandbox (Game Theory Sandbox) · **Version:** v0.16.0 · **Updated:** 2026-08-11
 
 This is the agent working file: the build plan, decisions ledger, verification protocol, and session log. It is deliberately separate from `README.md` (public-facing). README never gains agent instructions; CONTEXT never becomes marketing.
 
 ## Current handoff snapshot — S30, 2026-08-10 (`v0.15.0` External Action Sync; only owner actions remain)
 
-**Current state (fact).** The fifteen-commit additional-features series is on `main`: `Commit v0.14.0: Session Export Schema /1-F5-O8` through `Commit v0.14.14: Shell Polish + Browser Acceptance + Handoff /15-F5-O8`, post-dated 2026-08-02 → 2026-08-03 → 2026-08-05 → 2026-08-06 → 2026-08-10 (IST). Surfaces landed: hot-seat, generalized repeated play + folk theorem, auctions, classroom kit, shell discoverability. `Commit v0.15.0: External Action Sync /O7` (01:00 IST) refreshes handoff docs and collates remaining owner actions at the end of this file. There is still no deployment or live URL. Game Theory Sandbox and the paper/ink blue-orange palette remain the product identity (D49).
+**Current state (fact).** The fifteen-commit additional-features series is on `main`: `Commit v0.14.0: Session Export Schema /1-F5-O8` through `Commit v0.14.14: Shell Polish + Browser Acceptance + Handoff /15-F5-O8`, post-dated 2026-08-02 → 2026-08-03 → 2026-08-05 → 2026-08-06 → 2026-08-10 (IST). Surfaces landed: hot-seat, generalized repeated play + folk theorem, auctions, classroom kit, shell discoverability. `Commit v0.16.0: PF-A1 /G4` (supersedes prior note which referenced `Commit v0.15.0: External Action Sync /O7` (01:00 IST) refreshes handoff docs and collates remaining owner actions at the end of this file. There is still no deployment or live URL. Game Theory Sandbox and the paper/ink blue-orange palette remain the product identity (D49).
 
 **Repository state (fact).** Branch `main` tracks `origin/main`. Local machine: Node 24.18.0, pnpm 11.7.0. Re-verified prior to this handoff: `pnpm verify` green (161 unit/component tests, 98.02 % engine coverage, `solve/` 100 %), static export **22** pages, largest route **207.5 KiB** gzip (budget 250), invariant/CSP checks green. Playwright **22/22** remains the last browser acceptance bar (S28).
 

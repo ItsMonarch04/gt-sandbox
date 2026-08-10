@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.16.0 — 2026-08-11
+
+- Public-facing audit PF-A1: OSS package metadata, public README without agent instructions, CONTEXT/README version sync. Functional product unchanged.
+
+
 ## v0.15.0 — 2026-08-10
 
 - Sync external-action handoff: collate remaining owner-action items at the end of CONTEXT.md, align deployment/a11y checklists with the new surfaces, and bump version surfaces. No application-code change.
