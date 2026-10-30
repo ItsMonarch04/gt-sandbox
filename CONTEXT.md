@@ -1,5 +1,19 @@
 # CONTEXT.md — Working Handoff
 
+## Current handoff — 2026-10-30 (`v0.16.14` V2-P3 + V2-P4 committed)
+
+**What changed:** V2-P3 (n-player public goods) and V2-P4 (Moran finite-population dynamics + formal ESS checker) landed as five local commits `v0.16.10`–`v0.16.14` (`/10-O8-O7`–`/14-O8-O7`, post-dated 2026-10-30 IST at 30-minute intervals). New route `/nplayer/public-goods`; new third tab "Finite population" under `/evolve`. Two new engines: `src/engine/nplayer/`, `src/engine/moran/` + `src/engine/ess/`.
+
+**Version state:** `v0.16.14` agrees across `package.json`, README Status, and this file. Prior committed handoff was `v0.16.9` (V2-P2 close).
+
+**Verification bar (final HEAD):** `pnpm verify` green — 282 tests across 48 files, 98.24% engine coverage (`solve/` 100%), 26 static pages, largest route 208.1 KiB gzip (budget 250), invariant/CSP checks green, Playwright 25/25 with axe clean on every route.
+
+**Working tree intent:** next V2 phase from §16.3 (lowest ⚪ with 🟢 deps). Exact rationals; no new runtime deps; ≥95% engine coverage; Playwright + axe on new routes.
+
+**Resume hint (fresh agent):** Read §16 first — V2-P0/V2-P1 are 🟢 `v0.16.4`, V2-P2 is 🟢 `v0.16.9`, V2-P3 and V2-P4 are 🟢 `v0.16.14`. Next open phase is V2-P5. No commit and no push without an explicit owner ask.
+
+---
+
 ## PF-B1 handoff — 2026-08-21 (`v0.16.4` V2-P0 + V2-P1 committed)
 
 **What changed:** V2 roadmap (§16) and permanent exclusions (§2.5) are committed. V2-P1 extensive-form engine + Entry Deterrence surface landed as four local commits `v0.16.1`–`v0.16.4` (`/1-O8-O7`–`/4-O8-O7`, post-dated 2026-08-21 IST). `CHANGELOG.md` retired — version history and handoff live in this file + README Status.
@@ -8,7 +22,7 @@
 
 **Working tree intent:** next V2 phase from §16.3 (lowest ⚪ with 🟢 deps). Exact rationals; no new runtime deps; ≥95% engine coverage; Playwright + axe on new routes.
 
-**Resume hint (fresh agent):** Read §16 first — V2-P0 and V2-P1 are 🟢 `v0.16.4`, V2-P2 is 🟢 `v0.16.9` (landed across `v0.16.5`–`v0.16.9`); next open phase is V2-P3. No push without an explicit owner ask.
+**Resume hint (fresh agent):** superseded — see the current handoff at the top of this file. At the time of this block: V2-P0 and V2-P1 were 🟢 `v0.16.4` and V2-P2 was 🟢 `v0.16.9`.
 
 ---
 
@@ -24,7 +38,7 @@
 
 ---
 
-**Project:** gt-sandbox (Game Theory Sandbox) · **Version:** v0.16.4 · **Updated:** 2026-08-21
+**Project:** gt-sandbox (Game Theory Sandbox) · **Version:** v0.16.14 · **Updated:** 2026-10-30
 
 This is the agent working file: the build plan, decisions ledger, verification protocol, and session log. It is deliberately separate from `README.md` (public-facing). README never gains agent instructions; CONTEXT never becomes marketing.
 
@@ -396,9 +410,9 @@ Pure function on the ordinal best-response structure of a 2×2 game → one of: 
 
 ### 5.1 Surfaces & routes
 
-`/` home · `/play/[game]` (six slugs, prerendered) · `/evolve` (tabs: Tournament, Evolution) · `/build` (custom game) · `/methods` · `/hot-seat/[game]` (five 2×2 slugs) · `/repeat` · `/auctions/[format]` (first-price, second-price, common-value) · `/classroom` · `/extensive/[game]` (`entry-deterrence`, `ultimatum`, `centipede`) · not-found. Primary nav after Methods: Repeat, Auctions, Classroom (Hot-seat and Extensive-form are reached from the home arc).
+`/` home · `/play/[game]` (six slugs, prerendered) · `/evolve` (tabs: Tournament, Evolution, Finite population) · `/build` (custom game) · `/methods` · `/hot-seat/[game]` (five 2×2 slugs) · `/repeat` · `/auctions/[format]` (first-price, second-price, common-value) · `/classroom` · `/extensive/[game]` (`entry-deterrence`, `ultimatum`, `centipede`) · `/nplayer/public-goods` · not-found. Primary nav after Methods: Repeat, Auctions, Classroom (Hot-seat, Extensive-form, and Public goods are reached from the home arc).
 
-Home is an ordered arc, not a menu: thesis line, then twelve stops (PD → Stag Hunt → Battle of the Sexes → Chicken → Pennies → IPD → Evolve → Build → Repeat → Hot-seat → Auctions → Classroom). No gating — respect adult users.
+Home is an ordered arc, not a menu: thesis line, then sixteen stops (PD → Stag Hunt → Battle of the Sexes → Chicken → Pennies → IPD → Evolve → Build → Repeat → Hot-seat → Auctions → Classroom → Entry Deterrence → Ultimatum → Centipede → Public Goods). No gating — respect adult users.
 
 ### 5.2 Game page anatomy (the three beats on screen)
 
@@ -707,6 +721,13 @@ Resolved 2026-07-13: stack (D22), hosting (D23), roster (D24), license (D25), ve
   - `Commit v0.16.4: Home Path + Browser Coverage + V2 Handoff /4-O8-O7` at 01:00 — 13th home stop, shell + component + Playwright coverage, this CONTEXT handoff (PF-B1 snapshot, §2.3/§2.5/§5.1, D55, §16 with V2-P0/V2-P1 → 🟢 `v0.16.4`), delete `CHANGELOG.md`.
   - **Verification bar (pre-commit working tree / final HEAD):** `pnpm verify:full` — 191 tests, 97.97% engine coverage, 23 static pages, Playwright green. Intermediate commits are logically scoped only (S19/S22/S23 pattern).
 
+- **2026-10-30 — S32 (V2-P2 extensive-form roster committed as `v0.16.5`–`v0.16.9`).** Backfilled: this series was committed without a session-log entry at the time. Five commits, suffixes `/5-O8-O7`–`/9-O8-O7`, post-dated 2026-10-30 IST at 30-minute intervals from 15:00 through 17:00. Contents and per-commit split are recorded under **V2-P2 acceptance** in §16.4. Verification bar at `v0.16.9`: 208 tests, 98.07% engine coverage, 25 static pages, 207.8 KiB gzip, Playwright green. **No push.**
+
+- **2026-10-30 — S33 (V2-P3 public goods + V2-P4 finite-population committed as `v0.16.10`–`v0.16.14`).** A prior agent built P3 and P4 to completion on the working tree and stopped without committing; the owner reviewed a proposed split and authorized a five-commit series (suffixes `/10-O8-O7`–`/14-O8-O7`, **not** git tags), post-dated 2026-10-30 IST at 30-minute intervals from 17:30 through 19:30. Per-commit contents are recorded under **Commit series for V2-P3 + V2-P4** in §16.4.
+  - Owner directed a single verification run on the final tree rather than one per commit; the run is the **Verification for V2-P3 + V2-P4** line in §16.4 (282 tests, 98.24% engine coverage, 26 pages, Playwright 25/25).
+  - Ordering constraints that forced the split shape: `public-goods-panel.tsx` references the `free-riding` / `marginal-per-capita-return` glossary ids, so those terms had to land no later than the surface (typecheck); `tournament-experience.tsx` imports `FinitePopulationExperience`, so the tab wiring and the component are necessarily one commit; the Moran closed form and its independent `fixationByLinearSolve` verifier stay together because the verifier is what puts the cancellation under test.
+  - Environment note: the shell's default Node is 20.20.2, below the ≥22.13 that pnpm 11.7.0 requires. The verification run used `~/.nvm/versions/node/v24.18.0/bin` on `PATH`. **No push.**
+
 ---
 
 ## §12 — References (for authored content & definitions)
@@ -829,22 +850,22 @@ Purpose: the v1 line (P0–P10, audits, `v0.14.x` additional features, PF-A publ
 
 ### 16.3 Phase table
 
-| Phase  | Title                                                  | Status     | Depends on                              | Files / surfaces added                                                                                                                                                                     |
-| ------ | ------------------------------------------------------ | ---------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| V2-P0  | Roadmap + permanent-exclusions reclassification        | 🟢 v0.16.4 | —                                       | PF-B1 snapshot, §2.3/§2.5/§5.1 edits, D55, §16 (landed in `v0.16.4` handoff commit)                                                                                                        |
-| V2-P1  | Extensive-form engine + Entry Deterrence               | 🟢 v0.16.4 | V2-P0                                   | `src/engine/extensive/*`, `src/engine/catalog/extensive/*`, `/extensive/[game]/`, tree SVG viz, SPNE stepper, `src/content/extensive.ts`, glossary additions, e2e spec, component tests    |
-| V2-P2  | Extensive-form roster: Ultimatum + Centipede           | 🟢 v0.16.9 | V2-P1                                   | Two more catalog entries + slugs; Ultimatum uses a discrete-offer grid; Centipede shows unraveling. Nav + home path get corresponding stops.                                               |
-| V2-P3  | n-player public-goods engine + `/nplayer/public-goods` | ⚪         | V2-P1                                   | `src/engine/nplayer/` with exact-rational VCM aggregator; MPCR slider; analytic all-defect NE test; Pareto-frontier reveal.                                                                |
-| V2-P4  | Moran finite-population dynamics + formal ESS checker  | ⚪         | V2-P1                                   | `src/engine/moran/` (birth-death on integer populations with exact rational fixation probabilities); `src/engine/ess/` 2-strategy checker; new tab under `/evolve`. Folds icebox item #14. |
-| V2-P5  | Spatial evolution grids                                | ⚪         | V2-P4                                   | `src/engine/spatial/` deterministic seeded lattice; `/evolve/spatial/` route with cell-grid SVG viz; reduced-motion discrete steps; keyboard step control.                                 |
-| V2-P6  | Zero-determinant strategies                            | ⚪         | V2-P1                                   | `src/engine/zd/` Press-Dyson derivation over rationals; interactive demo in Methods showing extortion / generous ZD parameters.                                                            |
-| V2-P7  | LP dominance-by-mixtures for 3×3+                      | ⚪         | V2-P1                                   | `src/engine/lp/` exact-rational simplex; integrate into `src/engine/solve/dominance.ts`. Folds icebox item #15.                                                                            |
-| V2-P8  | Dark mode                                              | ⚪         | V2-P1 (any new viz should support both) | Dark-token block in `globals.css` via `prefers-color-scheme`; explicit toggle in header; per-viz colorblind + AA-in-dark review; forced-colors preserved.                                  |
-| V2-P9  | PWA / offline                                          | ⚪         | V2-P1                                   | `public/manifest.webmanifest`; same-origin service worker; install-prompt UX; CSP amendment for `worker-src 'self'`; Playwright asserts registration + offline second load.                |
-| V2-P10 | Learn-as-curriculum with progression gating            | ⚪         | V2-P1                                   | `src/state/curriculum.ts` (localStorage only, one key); Learn tab; per-surface gates that can be disabled (adult respect).                                                                 |
-| V2-P11 | Robinson–Goforth 2×2 topology browser                  | ⚪         | V2-P1                                   | `src/engine/topology/` enumerator over all 144 ordinal 2×2 games; `/topology/` route with grid navigator. Folds icebox item #9.                                                            |
-| V2-P12 | Guess-the-equilibrium quiz mode                        | ⚪         | V2-P1                                   | `/quiz/` route; seeded generator over catalog + Build; five question types; deterministic per seed. Folds icebox item #10.                                                                 |
-| V2-P13 | Embeds + OG images + annotation permalinks             | ⚪         | V2-P1                                   | Per-game static OG PNGs; `/embed/*` chromeless variant with same-origin CSP; annotation permalink codec. Folds icebox items #11 #12 #13.                                                   |
+| Phase  | Title                                                  | Status      | Depends on                              | Files / surfaces added                                                                                                                                                                     |
+| ------ | ------------------------------------------------------ | ----------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| V2-P0  | Roadmap + permanent-exclusions reclassification        | 🟢 v0.16.4  | —                                       | PF-B1 snapshot, §2.3/§2.5/§5.1 edits, D55, §16 (landed in `v0.16.4` handoff commit)                                                                                                        |
+| V2-P1  | Extensive-form engine + Entry Deterrence               | 🟢 v0.16.4  | V2-P0                                   | `src/engine/extensive/*`, `src/engine/catalog/extensive/*`, `/extensive/[game]/`, tree SVG viz, SPNE stepper, `src/content/extensive.ts`, glossary additions, e2e spec, component tests    |
+| V2-P2  | Extensive-form roster: Ultimatum + Centipede           | 🟢 v0.16.9  | V2-P1                                   | Two more catalog entries + slugs; Ultimatum uses a discrete-offer grid; Centipede shows unraveling. Nav + home path get corresponding stops.                                               |
+| V2-P3  | n-player public-goods engine + `/nplayer/public-goods` | 🟢 v0.16.14 | V2-P1                                   | `src/engine/nplayer/` with exact-rational VCM aggregator; MPCR slider; analytic all-defect NE test; Pareto-frontier reveal.                                                                |
+| V2-P4  | Moran finite-population dynamics + formal ESS checker  | 🟢 v0.16.14 | V2-P1                                   | `src/engine/moran/` (birth-death on integer populations with exact rational fixation probabilities); `src/engine/ess/` 2-strategy checker; new tab under `/evolve`. Folds icebox item #14. |
+| V2-P5  | Spatial evolution grids                                | ⚪          | V2-P4                                   | `src/engine/spatial/` deterministic seeded lattice; `/evolve/spatial/` route with cell-grid SVG viz; reduced-motion discrete steps; keyboard step control.                                 |
+| V2-P6  | Zero-determinant strategies                            | ⚪          | V2-P1                                   | `src/engine/zd/` Press-Dyson derivation over rationals; interactive demo in Methods showing extortion / generous ZD parameters.                                                            |
+| V2-P7  | LP dominance-by-mixtures for 3×3+                      | ⚪          | V2-P1                                   | `src/engine/lp/` exact-rational simplex; integrate into `src/engine/solve/dominance.ts`. Folds icebox item #15.                                                                            |
+| V2-P8  | Dark mode                                              | ⚪          | V2-P1 (any new viz should support both) | Dark-token block in `globals.css` via `prefers-color-scheme`; explicit toggle in header; per-viz colorblind + AA-in-dark review; forced-colors preserved.                                  |
+| V2-P9  | PWA / offline                                          | ⚪          | V2-P1                                   | `public/manifest.webmanifest`; same-origin service worker; install-prompt UX; CSP amendment for `worker-src 'self'`; Playwright asserts registration + offline second load.                |
+| V2-P10 | Learn-as-curriculum with progression gating            | ⚪          | V2-P1                                   | `src/state/curriculum.ts` (localStorage only, one key); Learn tab; per-surface gates that can be disabled (adult respect).                                                                 |
+| V2-P11 | Robinson–Goforth 2×2 topology browser                  | ⚪          | V2-P1                                   | `src/engine/topology/` enumerator over all 144 ordinal 2×2 games; `/topology/` route with grid navigator. Folds icebox item #9.                                                            |
+| V2-P12 | Guess-the-equilibrium quiz mode                        | ⚪          | V2-P1                                   | `/quiz/` route; seeded generator over catalog + Build; five question types; deterministic per seed. Folds icebox item #10.                                                                 |
+| V2-P13 | Embeds + OG images + annotation permalinks             | ⚪          | V2-P1                                   | Per-game static OG PNGs; `/embed/*` chromeless variant with same-origin CSP; annotation permalink codec. Folds icebox items #11 #12 #13.                                                   |
 
 ### 16.4 Per-phase acceptance detail
 
@@ -875,9 +896,28 @@ Only phases whose acceptance is not obvious from the file list above are expande
 - Commit series (each independently green; `Record<ExtensiveSlug, …>` in three places forces the slug union and its consumers to land together, so `types.ts`/`index.ts`/`content/extensive.ts`/route `page.tsx` are each written twice across the series): `v0.16.5` content model + tree styles · `v0.16.6` player-agnostic surface · `v0.16.7` Ultimatum catalog + route · `v0.16.8` Centipede catalog + route · `v0.16.9` home path + browser coverage + this handoff.
 - Verify: `pnpm format` clean · `pnpm verify` green (208 tests; engine coverage 98.07% ≥ 95%) · `pnpm build` (25 static pages, up from 23) · `pnpm bundle:check` (largest gzip 207.8 KiB ≤ 250 KiB) · `pnpm test:invariants` passes · Playwright green.
 
-**V2-P3 acceptance** — Public goods with N ∈ {2..10} players, MPCR slider (rational). Analytic result: at MPCR < 1 the unique NE is universal free-riding; full cooperation is Pareto-efficient. Show the reveal both symbolically and with the exact payoff arithmetic.
+**V2-P3 acceptance** (met; committed `v0.16.10`–`v0.16.11`):
 
-**V2-P4 acceptance** — Moran fixation probability for two strategies in a finite population, computed as an exact rational sum (no floats). ESS checker for a 2-strategy contest: strict inequality on the ESS condition, with a witness when it fails.
+- `src/engine/nplayer/public-goods.ts` — exact VCM: `π_i = (E − c_i) + m·Σc_j`. Everything is corner algebra, not search: the private marginal return `m − 1` and the social marginal return `m·N − 1` decide both questions, so no enumeration over the `(E+1)^N` profile space is needed. Exports `createPublicGoodsConfig`, `payoffFor`, `evaluateProfile`, `uniformProfile`, `classifyDilemma`, `nashEquilibrium`, `welfareOptimum`, `deviationSweep`, `cooperationDividend`. No React/Next/DOM (I1).
+- The three regimes are handled distinctly, including the boundary the phase description glossed: `m < 1` → unique NE at zero; `m > 1` → unique NE at full contribution; **`m = 1` → every profile is a Nash equilibrium**, so `nashEquilibrium` returns `null` with a stated reason rather than inventing a unique one.
+- 25 engine tests including a **brute-force cross-check**: `allProfiles` + `isNash` enumerate the entire profile space for small N and confirm the analytic answer is the unique Nash — separately for `m < 1`, `m > 1`, and `m = 1`. Plus two fast-check properties over the whole MPCR grid.
+- Surface: `/nplayer/public-goods` with N slider (2–10), MPCR slider over `k/20` for `k ∈ 1..20` (kept on a rational grid so every displayed payoff is exact), three rival policies, an 11-button contribution row, and a counterfactual line. `src/components/analysis/public-goods-panel.tsx` shows both marginal returns symbolically, the Nash-vs-welfare-optimum table, the cooperation dividend, and an on-demand token-by-token sweep.
+- Home path grows to sixteen stops; `shell.test.tsx` asserts 16 articles; e2e allowlist and a dedicated spec added. Glossary gains `free-riding`, `marginal-per-capita-return`.
+
+**V2-P4 acceptance** (met; committed `v0.16.12`–`v0.16.14`):
+
+- `src/engine/moran/moran.ts` — Moran birth–death on integer populations. `expectedPayoffs` excludes self-interaction (dividing by `N−1`), which is exactly what separates finite-N from the replicator equations. Fitness is `1 − w + w·π`; `createMoranConfig` validates `w ∈ (0,1]` **and** walks every interior state to reject non-positive fitness up front, converting a would-be division-by-zero deep in the recursion into one clear error.
+- `transitionRatio` documents why the whole computation stays rational: the combinatorial factors in `T⁺` and `T⁻` cancel exactly, leaving `f_B(i)/f_A(i)`. `fixationProbability` is the standard ratio-of-sums-of-products, computed exactly.
+- `src/engine/ess/ess.ts` — both arms of Maynard Smith's definition are checked **separately**, and `PureESSVerdict.clause` records which one carried it, so a merely neutrally-stable strategy is never reported as an ESS. Failures carry a plain-language `witness`. `interiorRestPoint` returns the exact mixed share `x* = (d−b)/((a−c)+(d−b))` and distinguishes attractor (mixed ESS) from repellor (bistable basin boundary).
+- 31 engine tests. The strongest is an **independent verifier**: `fixationByLinearSolve` builds the raw `T⁺`/`T⁻` transition probabilities _without_ the cancellation, then solves the tridiagonal absorbing chain by exact Gaussian elimination over rationals — so the cancellation itself is under test. It agrees with the closed form on PD, Hawk–Dove, and 40 fast-check-generated games. Neutral games return exactly `i/N` at every state.
+- **Finding worth keeping:** ESS and the 1/N rule genuinely disagree in bistable games, and a first draft of the test asserted otherwise. In Stag Hunt `(4,0,3,2)` both strategies are ESS, yet at N = 20 the risk-dominant Hare _is_ favoured (ρ_B > 1/N) because drift carries it across the basin boundary; by N = 50 neither is favoured and the ESS picture reasserts itself. Both cases are now pinned by tests, and the surface renders a disagreement banner exactly when `(ess.a.isESS && favoursB) || (ess.b.isESS && favoursA)`.
+- Surface: third tab "Finite population" under `/evolve` (`src/components/evolve/finite-population-experience.tsx`), four presets, N slider to 60, selection-intensity slider on a `k/20` grid, exact-fraction fixation table with a percentage approximation beside it, fixation curve plotted against the neutral `i/N` line, keyboard-focusable scrollable data-table fallback, and a "why these are fractions" disclosure. Glossary gains `evolutionarily-stable-strategy`, `fixation-probability`.
+- Exact rationals are load-bearing here, not decorative: a test pins N = 80 at `w = 9/10`, where the floating-point products overflow and the quotient collapses to 0.
+- **Standing lesson (applies to every future scrollable region).** An axe `scrollable-region-focusable` violation on the fixation-curve table fallback was caught by Playwright and _not_ by the unit tests; the fix wraps it in a `div.finite__table-scroll` with `tabIndex={0}`, matching the existing `tournament-table__scroll` pattern. The unit layer cannot see this class of defect — any new scroll container needs the same treatment and an axe run to confirm it.
+
+**Commit series for V2-P3 + V2-P4** (post-dated 2026-10-30 IST, 30-minute intervals; README + `package.json` bumped on every commit, this file only on the last): `v0.16.10` n-player public-goods engine + content · `v0.16.11` public-goods surface + route (P3 CSS block, P3 glossary terms) · `v0.16.12` Moran + ESS engines · `v0.16.13` finite-population tab (P4 CSS block, P4 glossary terms, third `/evolve` tab) · `v0.16.14` home path + browser coverage + this handoff. `globals.css` and `glossary.ts` each carry both features and were split across two commits apiece so no commit mixes P3 and P4 surface work.
+
+**Verification for V2-P3 + V2-P4 together** (run once on the final tree, not per commit): `pnpm format` clean · `pnpm verify` green (282 tests across 48 files, up from 208; engine coverage 98.24% ≥ 95%) · `pnpm build` 26 static pages · `pnpm bundle:check` largest 208.1 KiB gzip ≤ 250 KiB · `pnpm test:invariants` passes · Playwright 25/25 green with axe clean on every route including the new tab. Intermediate commits are logically scoped only (S19/S22/S23/S31 pattern) — the README figures they carry are the series-final coverage number with per-commit test and page counts.
 
 **V2-P5 acceptance** — Seeded, deterministic 2D lattice with configurable neighborhood (Moore/von Neumann), synchronous update; frozen-seed regression test for a canonical spatial-PD run.
 
